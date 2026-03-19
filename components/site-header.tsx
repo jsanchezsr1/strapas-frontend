@@ -152,6 +152,21 @@ export function SiteHeader() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, [mobileOpen]);
+
   return (
     <header className="sticky top-5 z-50 mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
       <div
@@ -250,7 +265,7 @@ export function SiteHeader() {
         </div>
 
         {mobileOpen ? (
-          <div className="mt-4 space-y-5 border-t border-white/10 pt-4 lg:hidden">
+          <div className="mt-4 max-h-[calc(100vh-7rem)] space-y-5 overflow-y-auto border-t border-white/10 pt-4 lg:hidden">
             <div className="flex items-center justify-between gap-3 rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-4 py-3">
               <div>
                 <div className="text-xs uppercase tracking-[0.24em] text-slate-500">
