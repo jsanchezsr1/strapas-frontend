@@ -20,7 +20,7 @@ export function SiteFooter() {
   ] as const;
 
   return (
-    <footer className="section-border mt-12">
+    <footer className="section-border mt-6">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.75fr_0.75fr_0.65fr]">
           <div>
