@@ -107,14 +107,13 @@ function LanguageSelector({
                   setLanguage(option.code);
                   setOpen(false);
                 }}
-                className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left text-sm transition ${
+                className={`flex w-full items-center rounded-2xl px-4 py-3 text-left text-sm transition ${
                   active
                     ? 'bg-white text-slate-950'
                     : 'text-slate-200 hover:bg-white/6 hover:text-white'
                 }`}
               >
                 <span>{option.label}</span>
-                {active ? <span className="text-xs font-semibold uppercase tracking-[0.16em]">On</span> : null}
               </button>
             );
           })}
