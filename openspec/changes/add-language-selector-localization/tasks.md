@@ -1,6 +1,6 @@
 ## 1. Localization Foundation
 
-- [x] 1.1 Add a shared language configuration and translation dictionary for `English`, `Francais`, `Portugues`, `Italiano`, and `Espanol`.
+- [x] 1.1 Add a shared language configuration and translation dictionary for `English`, `Francais`, `Portugués`, `Italiano`, and `Español`.
 - [x] 1.2 Add a global language state with persistence so the selected language survives navigation and refreshes.
 
 ## 2. Navigation Language Selector

@@ -6,7 +6,7 @@ The site currently uses a shared navigation bar with a `Start Building` call-to-
 
 **Goals:**
 - Add a language icon in the top-right navigation area immediately to the left of `Start Building`.
-- Show a hoverable language menu with `English`, `Francais`, `Portugues`, `Italiano`, and `Espanol`.
+- Show a hoverable language menu with `English`, `Francais`, `Portugués`, `Italiano`, and `Español`.
 - Apply the selected language across the site and keep it consistent as the user navigates.
 - Keep the implementation extensible so more translated strings can be added over time.
 

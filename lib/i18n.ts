@@ -34,9 +34,9 @@ export const defaultLanguage: Language = 'en';
 export const LANGUAGE_OPTIONS = [
   { code: 'en' as const, label: 'English' },
   { code: 'fr' as const, label: 'Francais' },
-  { code: 'pt' as const, label: 'Portugues' },
+  { code: 'pt' as const, label: 'Portugués' },
   { code: 'it' as const, label: 'Italiano' },
-  { code: 'es' as const, label: 'Espanol' },
+  { code: 'es' as const, label: 'Español' },
 ];
 
 function text(

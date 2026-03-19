@@ -9,11 +9,11 @@ The site SHALL display a global language selector icon in the top-right navigati
 - **AND** the icon appears to the left of `Start Building`
 
 ### Requirement: Language selector reveals supported options
-The site SHALL reveal the supported language options `English`, `Francais`, `Portugues`, `Italiano`, and `Espanol` when the user interacts with the language selector.
+The site SHALL reveal the supported language options `English`, `Francais`, `Portugués`, `Italiano`, and `Español` when the user interacts with the language selector.
 
 #### Scenario: User opens language menu
 - **WHEN** the user hovers over or focuses the language selector
-- **THEN** the site shows options for `English`, `Francais`, `Portugues`, `Italiano`, and `Espanol`
+- **THEN** the site shows options for `English`, `Francais`, `Portugués`, `Italiano`, and `Español`
 
 ### Requirement: Language selection updates active site language
 The site SHALL update the active site language when the user selects one of the supported language options.

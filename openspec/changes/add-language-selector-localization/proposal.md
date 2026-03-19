@@ -5,7 +5,7 @@ The site currently presents all content in a single language, which makes it les
 ## What Changes
 
 - Add a global language icon to the top-right area of the navigation bar, positioned to the left of `Start Building`.
-- Show a hover-triggered language menu with `English`, `Francais`, `Portugues`, `Italiano`, and `Espanol`.
+- Show a hover-triggered language menu with `English`, `Francais`, `Portugués`, `Italiano`, and `Español`.
 - Translate the full site UI into the selected language after the user chooses an option.
 - Preserve the selected language across navigation so the entire site stays in the chosen language until changed again.
 
