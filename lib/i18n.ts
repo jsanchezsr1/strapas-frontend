@@ -318,7 +318,6 @@ export function getHeaderCopy(language: Language) {
       features: pick(language, text('Features', 'Fonctionnalites', 'Recursos', 'Funzionalita', 'Funciones')),
       examples: pick(language, text('Examples', 'Exemples', 'Exemplos', 'Esempi', 'Ejemplos')),
       howItWorks: pick(language, text('How it works', 'Comment ca marche', 'Como funciona', 'Come funziona', 'Como funciona')),
-      pricing: pick(language, text('Pricing', 'Tarifs', 'Precos', 'Prezzi', 'Precios')),
       about: pick(language, text('About Us', 'A propos', 'Sobre nos', 'Chi siamo', 'Sobre nosotros')),
     },
     productLinks: [

@@ -221,7 +221,6 @@ export function SiteHeader() {
             <NavLink href="/product/features">{copy.nav.features}</NavLink>
             <NavLink href="/examples">{copy.nav.examples}</NavLink>
             <NavLink href="/how-it-works">{copy.nav.howItWorks}</NavLink>
-            <NavLink href="/pricing">{copy.nav.pricing}</NavLink>
             <NavLink href="/about">{copy.nav.about}</NavLink>
           </nav>
 
@@ -337,7 +336,6 @@ export function SiteHeader() {
               <NavLink href="/product/features">{copy.nav.features}</NavLink>
               <NavLink href="/examples">{copy.nav.examples}</NavLink>
               <NavLink href="/how-it-works">{copy.nav.howItWorks}</NavLink>
-              <NavLink href="/pricing">{copy.nav.pricing}</NavLink>
               <NavLink href="/about">{copy.nav.about}</NavLink>
             </div>
 
