@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Globe2, Menu, Sparkles, X } from 'lucide-react';
+import { ChevronDown, Globe, Menu, Sparkles, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/components/language-provider';
 import { getHeaderCopy } from '@/lib/i18n';
@@ -87,7 +87,7 @@ function LanguageSelector({
             : 'border-white/10 bg-white/5 text-slate-200 hover:border-cyan-300/30 hover:text-white'
         }`}
       >
-        <Globe2 className="h-4.5 w-4.5" />
+        <Globe className="h-4.5 w-4.5" />
       </button>
 
       <div
@@ -281,7 +281,7 @@ export function SiteHeader() {
                 onClick={() => setMobileLanguageOpen((value) => !value)}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100"
               >
-                <Globe2 className="h-4.5 w-4.5" />
+                <Globe className="h-4.5 w-4.5" />
               </button>
             </div>
 
