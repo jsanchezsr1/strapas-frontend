@@ -620,6 +620,18 @@ export function getPricingCopy(language: Language) {
       description: pick(language, text('Unlock custom plans, a dedicated solutions architect, and hands-on support tailored to your organization.', 'Debloquez des plans sur mesure, un architecte dedie et un accompagnement adapte a votre organisation.', 'Desbloqueie planos personalizados, um arquiteto dedicado e suporte adaptado a sua organizacao.', 'Sblocca piani personalizzati, un solutions architect dedicato e supporto su misura per la tua organizzazione.', 'Desbloquea planes personalizados, un arquitecto dedicado y soporte adaptado a tu organizacion.')),
       cta: pick(language, text('Contact sales', 'Contacter les ventes', 'Falar com vendas', 'Contatta sales', 'Contactar ventas')),
     },
+    contactSalesForm: {
+      firstNameLabel: pick(language, text('First Name *', 'Prenom *', 'Primeiro nome *', 'Nome *', 'Nombre *')),
+      firstNamePlaceholder: pick(language, text('Enter your first name', 'Entrez votre prenom', 'Digite seu primeiro nome', 'Inserisci il tuo nome', 'Ingresa tu nombre')),
+      lastNameLabel: pick(language, text('Last Name *', 'Nom *', 'Sobrenome *', 'Cognome *', 'Apellido *')),
+      lastNamePlaceholder: pick(language, text('Enter your last name', 'Entrez votre nom', 'Digite seu sobrenome', 'Inserisci il tuo cognome', 'Ingresa tu apellido')),
+      emailLabel: pick(language, text('Email *', 'Email *', 'Email *', 'Email *', 'Correo electronico *')),
+      emailPlaceholder: pick(language, text('Enter your email', 'Entrez votre email', 'Digite seu email', 'Inserisci la tua email', 'Ingresa tu correo electronico')),
+      roleLabel: pick(language, text('Role *', 'Role *', 'Cargo *', 'Ruolo *', 'Rol *')),
+      rolePlaceholder: pick(language, text('Enter your role', 'Entrez votre role', 'Digite seu cargo', 'Inserisci il tuo ruolo', 'Ingresa tu rol')),
+      discussLabel: pick(language, text('What would you like to discuss? *', 'Que souhaitez-vous discuter ? *', 'Sobre o que voce gostaria de conversar? *', 'Di cosa vorresti discutere? *', 'Que te gustaria conversar? *')),
+      discussPlaceholder: pick(language, text('Tell us what you need', 'Dites-nous ce dont vous avez besoin', 'Conte para nos do que voce precisa', 'Dicci di cosa hai bisogno', 'Cuentanos que necesitas')),
+    },
     plans: [
       {
         name: pricingPlanNames[0],

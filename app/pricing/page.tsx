@@ -239,19 +239,21 @@ export default function PricingPage() {
             <form className="mt-8 space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-sm font-medium text-slate-200">First Name *</span>
+                  <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.firstNameLabel}</span>
                   <input
                     type="text"
                     required
+                    placeholder={copy.contactSalesForm.firstNamePlaceholder}
                     className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="text-sm font-medium text-slate-200">Last Name *</span>
+                  <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.lastNameLabel}</span>
                   <input
                     type="text"
                     required
+                    placeholder={copy.contactSalesForm.lastNamePlaceholder}
                     className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                   />
                 </label>
@@ -259,19 +261,21 @@ export default function PricingPage() {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-sm font-medium text-slate-200">Email *</span>
+                  <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.emailLabel}</span>
                   <input
                     type="email"
                     required
+                    placeholder={copy.contactSalesForm.emailPlaceholder}
                     className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="text-sm font-medium text-slate-200">Role *</span>
+                  <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.roleLabel}</span>
                   <input
                     type="text"
                     required
+                    placeholder={copy.contactSalesForm.rolePlaceholder}
                     className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                   />
                 </label>
@@ -280,17 +284,20 @@ export default function PricingPage() {
               <label className="block">
                 <span className="text-sm font-medium text-slate-200">Company Website *</span>
                 <input
-                  type="url"
+                  type="text"
                   required
+                  inputMode="url"
+                  placeholder="www.company.com"
                   className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                 />
               </label>
 
               <label className="block">
-                <span className="text-sm font-medium text-slate-200">What would you like to discuss *</span>
+                <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.discussLabel}</span>
                 <textarea
                   required
                   rows={5}
+                  placeholder={copy.contactSalesForm.discussPlaceholder}
                   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
                 />
               </label>
