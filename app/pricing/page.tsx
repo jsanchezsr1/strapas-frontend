@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Check } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 import { getPricingCopy } from '@/lib/i18n';
@@ -129,8 +130,8 @@ function PricingCard({
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('yearly');
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const [selectedPlanName, setSelectedPlanName] = useState<string | null>(null);
   const { language } = useLanguage();
+  const router = useRouter();
   const copy = getPricingCopy(language);
 
   return (
@@ -191,9 +192,7 @@ export default function PricingPage() {
               pricePeriodSuffix={copy.pricePeriodSuffix}
               planHighlightsLabel={copy.planHighlightsLabel}
               getStartedLabel={copy.getStarted}
-              selected={selectedPlanName === plan.name}
-              hasUserSelection={selectedPlanName !== null}
-              onSelect={() => setSelectedPlanName(plan.name)}
+              onSelect={() => router.push('/login')}
               featured={plan.name === 'Pro'}
             />
           ))}

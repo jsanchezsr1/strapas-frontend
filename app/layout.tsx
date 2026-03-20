@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/components/language-provider';
-import { SiteHeader } from '@/components/site-header';
-import { SiteFooter } from '@/components/site-footer';
+import { SiteChrome } from '@/components/site-chrome';
 
 export const metadata: Metadata = {
   title: 'NovaForge',
@@ -14,11 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         <LanguageProvider>
-          <div className="min-h-screen">
-            <SiteHeader />
-            {children}
-            <SiteFooter />
-          </div>
+          <SiteChrome>{children}</SiteChrome>
         </LanguageProvider>
       </body>
     </html>

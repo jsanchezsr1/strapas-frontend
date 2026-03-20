@@ -703,6 +703,40 @@ export function getPricingCopy(language: Language) {
   };
 }
 
+export function getLoginCopy(language: Language) {
+  return {
+    title: pick(language, text('Welcome to Strapas', 'Bienvenue sur Strapas', 'Bem-vindo ao Strapas', 'Benvenuto in Strapas', 'Bienvenido a Strapas')),
+    description: pick(language, text('Choose how you want to continue and start building with the same premium workflow across every screen.', 'Choisissez comment continuer et commencez a creer avec la meme experience premium sur chaque ecran.', 'Escolha como deseja continuar e comece a criar com a mesma experiencia premium em cada tela.', 'Scegli come continuare e inizia a creare con la stessa esperienza premium su ogni schermata.', 'Elige como quieres continuar y empieza a crear con la misma experiencia premium en cada pantalla.')),
+    continueWithGmail: pick(language, text('Continue with Gmail', 'Continuer avec Gmail', 'Continuar com Gmail', 'Continua con Gmail', 'Continuar con Gmail')),
+    continueWithEmail: pick(language, text('Continue with email', 'Continuer avec email', 'Continuar com email', 'Continua con email', 'Continuar con correo electronico')),
+    registerPrompt: pick(language, text('Need a new account?', 'Besoin d un nouveau compte ?', 'Precisa de uma nova conta?', 'Hai bisogno di un nuovo account?', 'Necesitas una cuenta nueva?')),
+    registerAction: pick(language, text('Create account', 'Creer un compte', 'Criar conta', 'Crea account', 'Crear cuenta')),
+    legalNote: pick(language, text('Authentication actions are ready for provider wiring in a future step.', 'Les actions d authentification sont pretes a etre connectees aux fournisseurs lors d une prochaine etape.', 'As acoes de autenticacao estao prontas para conexao com provedores em uma proxima etapa.', 'Le azioni di autenticazione sono pronte per essere collegate ai provider in un passaggio successivo.', 'Las acciones de autenticacion estan listas para conectarse a proveedores en un paso posterior.')),
+    googleSetupTitle: pick(language, text('Google sign-in setup', 'Configuration de connexion Google', 'Configuracao de login Google', 'Configurazione accesso Google', 'Configuracion de acceso con Google')),
+    googleSetupDescription: pick(language, text('Google authentication is not configured yet in this frontend, but you can continue with email or create an account now.', 'L authentification Google n est pas encore configuree dans ce front-end, mais vous pouvez continuer avec email ou creer un compte maintenant.', 'A autenticacao Google ainda nao esta configurada neste front-end, mas voce pode continuar com email ou criar uma conta agora.', 'L autenticazione Google non e ancora configurata in questo frontend, ma puoi continuare con email o creare un account adesso.', 'La autenticacion con Google todavia no esta configurada en este frontend, pero puedes continuar con correo o crear una cuenta ahora.')),
+    googleSetupNote: pick(language, text('To enable real Google auth later, connect OAuth credentials for the project.', 'Pour activer une vraie auth Google plus tard, connectez les identifiants OAuth du projet.', 'Para ativar autenticacao Google real depois, conecte as credenciais OAuth do projeto.', 'Per abilitare la vera autenticazione Google in seguito, collega le credenziali OAuth del progetto.', 'Para habilitar autenticacion real con Google mas adelante, conecta las credenciales OAuth del proyecto.')),
+    useEmailAction: pick(language, text('Use email instead', 'Utiliser email a la place', 'Usar email no lugar', 'Usa email invece', 'Usar correo en su lugar')),
+    emailTitle: pick(language, text('Sign in with email', 'Se connecter avec email', 'Entrar com email', 'Accedi con email', 'Iniciar sesion con correo')),
+    emailDescription: pick(language, text('Enter your account details to continue into Strapas.', 'Entrez les informations de votre compte pour continuer dans Strapas.', 'Digite os dados da sua conta para continuar no Strapas.', 'Inserisci i dati del tuo account per continuare in Strapas.', 'Ingresa los datos de tu cuenta para continuar en Strapas.')),
+    registerTitle: pick(language, text('Create your Strapas account', 'Creez votre compte Strapas', 'Crie sua conta Strapas', 'Crea il tuo account Strapas', 'Crea tu cuenta de Strapas')),
+    registerDescription: pick(language, text('Set up your account and get ready to build with the same premium workflow across every screen.', 'Configurez votre compte et preparez-vous a creer avec la meme experience premium sur chaque ecran.', 'Configure sua conta e prepare-se para criar com a mesma experiencia premium em cada tela.', 'Configura il tuo account e preparati a creare con la stessa esperienza premium su ogni schermata.', 'Configura tu cuenta y preparate para crear con la misma experiencia premium en cada pantalla.')),
+    form: {
+      nameLabel: pick(language, text('Full name', 'Nom complet', 'Nome completo', 'Nome completo', 'Nombre completo')),
+      namePlaceholder: pick(language, text('Enter your full name', 'Entrez votre nom complet', 'Digite seu nome completo', 'Inserisci il tuo nome completo', 'Ingresa tu nombre completo')),
+      emailLabel: pick(language, text('Email', 'Email', 'Email', 'Email', 'Correo electronico')),
+      emailPlaceholder: pick(language, text('Enter your email', 'Entrez votre email', 'Digite seu email', 'Inserisci la tua email', 'Ingresa tu correo electronico')),
+      passwordLabel: pick(language, text('Password', 'Mot de passe', 'Senha', 'Password', 'Contrasena')),
+      passwordPlaceholder: pick(language, text('Enter your password', 'Entrez votre mot de passe', 'Digite sua senha', 'Inserisci la tua password', 'Ingresa tu contrasena')),
+      confirmPasswordLabel: pick(language, text('Confirm password', 'Confirmer le mot de passe', 'Confirmar senha', 'Conferma password', 'Confirmar contrasena')),
+      confirmPasswordPlaceholder: pick(language, text('Confirm your password', 'Confirmez votre mot de passe', 'Confirme sua senha', 'Conferma la tua password', 'Confirma tu contrasena')),
+    },
+    emailSubmit: pick(language, text('Continue to workspace', 'Continuer vers l espace', 'Continuar para o workspace', 'Continua al workspace', 'Continuar al espacio de trabajo')),
+    registerSubmit: pick(language, text('Create account', 'Creer un compte', 'Criar conta', 'Crea account', 'Crear cuenta')),
+    backToLogin: pick(language, text('Back to login', 'Retour a la connexion', 'Voltar ao login', 'Torna al login', 'Volver al login')),
+    alreadyHaveAccount: pick(language, text('Already have an account?', 'Vous avez deja un compte ?', 'Ja tem uma conta?', 'Hai gia un account?', 'Ya tienes una cuenta?')),
+  };
+}
+
 export function getProductTemplateCopy(language: Language) {
   return {
     coreValue: pick(language, text('Core value', 'Valeur cle', 'Valor central', 'Valore chiave', 'Valor central')),
