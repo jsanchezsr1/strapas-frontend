@@ -295,12 +295,14 @@ export default function PricingPage() {
                 />
               </label>
 
-              <button
-                type="submit"
-                className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-6 text-base font-semibold leading-none text-slate-950 transition hover:bg-slate-100 sm:w-auto sm:min-w-[180px]"
-              >
-                Submit
-              </button>
+              <div className="mt-4 flex justify-center">
+                <button
+                    type="submit"
+                    className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-6 text-base font-semibold leading-none text-slate-950 transition hover:bg-slate-100 sm:w-auto sm:min-w-[180px]"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
