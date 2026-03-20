@@ -35,6 +35,7 @@ function PricingCard({
   planHighlightsLabel,
   getStartedLabel,
   selected = false,
+  hasUserSelection = false,
   onSelect,
   featured = false,
 }: {
@@ -45,13 +46,14 @@ function PricingCard({
   planHighlightsLabel: string;
   getStartedLabel: string;
   selected?: boolean;
+  hasUserSelection?: boolean;
   onSelect: () => void;
   featured?: boolean;
 }) {
   const displayPrice =
     typeof plan.price === 'number' ? plan.price : plan.price[billingPeriod];
   const visibleHighlights = getVisibleHighlights(plan, billingPeriod);
-  const emphasized = featured || selected;
+  const emphasized = hasUserSelection ? selected : featured;
 
   return (
     <article
@@ -190,6 +192,7 @@ export default function PricingPage() {
               planHighlightsLabel={copy.planHighlightsLabel}
               getStartedLabel={copy.getStarted}
               selected={selectedPlanName === plan.name}
+              hasUserSelection={selectedPlanName !== null}
               onSelect={() => setSelectedPlanName(plan.name)}
               featured={plan.name === 'Pro'}
             />
