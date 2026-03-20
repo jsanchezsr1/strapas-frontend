@@ -127,6 +127,7 @@ function PricingCard({
 
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('yearly');
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const { language } = useLanguage();
   const copy = getPricingCopy(language);
 
@@ -203,11 +204,107 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <button className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100">
+          <button
+            type="button"
+            onClick={() => setIsContactModalOpen(true)}
+            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100"
+          >
             {copy.enterprise.cta}
           </button>
         </section>
       </section>
+
+      {isContactModalOpen ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 px-4 py-8 backdrop-blur-sm">
+          <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[1.75rem] border border-white/10 bg-[#07111f]/95 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.5)] sm:p-8">
+            <button
+              type="button"
+              aria-label="Close contact sales modal"
+              onClick={() => setIsContactModalOpen(false)}
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl text-slate-300 transition hover:bg-white/10 hover:text-white"
+            >
+              ×
+            </button>
+
+            <div className="pr-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">Contact Sales</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-[2.2rem]">
+                Tell us about your team
+              </h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-400">
+                Share a few details and our team can follow up with the right enterprise plan for your needs.
+              </p>
+            </div>
+
+            <form className="mt-8 space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="block">
+                  <span className="text-sm font-medium text-slate-200">First Name *</span>
+                  <input
+                    type="text"
+                    required
+                    className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-medium text-slate-200">Last Name *</span>
+                  <input
+                    type="text"
+                    required
+                    className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                  />
+                </label>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="block">
+                  <span className="text-sm font-medium text-slate-200">Email *</span>
+                  <input
+                    type="email"
+                    required
+                    className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="text-sm font-medium text-slate-200">Role *</span>
+                  <input
+                    type="text"
+                    required
+                    className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                  />
+                </label>
+              </div>
+
+              <label className="block">
+                <span className="text-sm font-medium text-slate-200">Company Website *</span>
+                <input
+                  type="url"
+                  required
+                  className="mt-2 h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-sm font-medium text-slate-200">What would you like to discuss *</span>
+                <textarea
+                  required
+                  rows={5}
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300/60 focus:bg-white/8"
+                />
+              </label>
+
+              <button
+                type="submit"
+                className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-6 text-base font-semibold leading-none text-slate-950 transition hover:bg-slate-100 sm:w-auto sm:min-w-[180px]"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      ) : null}
     </main>
   );
 }
