@@ -129,6 +129,7 @@ export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState<'product' | 'use-cases' | null>(null);
   const [languageOpen, setLanguageOpen] = useState(false);
   const pathname = usePathname();
+  const isPricingPage = pathname === '/pricing';
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const { language, setLanguage, languages } = useLanguage();
   const copy = getHeaderCopy(language);
@@ -241,7 +242,11 @@ export function SiteHeader() {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               href="/pricing"
-              className="inline-flex items-center rounded-full border border-cyan-300/18 px-5 py-2.5 text-sm font-medium text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/5"
+              className={`inline-flex items-center rounded-full border px-5 py-2.5 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
+                isPricingPage
+                  ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
+                  : 'border-cyan-300/18 text-slate-100 hover:border-cyan-300/40 hover:bg-white/5 hover:shadow-[0_16px_34px_rgba(34,211,238,0.08)]'
+              }`}
             >
               {copy.ctas.viewPricing}
             </Link>
@@ -356,7 +361,11 @@ export function SiteHeader() {
             <div className="grid gap-2 sm:grid-cols-2">
               <Link
                 href="/pricing"
-                className="inline-flex items-center justify-center rounded-full border border-cyan-300/18 px-5 py-3 text-sm font-medium text-slate-100 transition hover:border-cyan-300/40 hover:bg-white/5"
+                className={`inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
+                  isPricingPage
+                    ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
+                    : 'border-cyan-300/18 text-slate-100 hover:border-cyan-300/40 hover:bg-white/5 hover:shadow-[0_16px_34px_rgba(34,211,238,0.08)]'
+                }`}
               >
                 {copy.ctas.viewPricing}
               </Link>

@@ -97,10 +97,10 @@ function PricingCard({
         <button
           type="button"
           onClick={onSelect}
-          className={`inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-semibold transition ${
+          className={`inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_14px_32px_rgba(0,0,0,0.22)] ${
             emphasized
-              ? 'bg-white text-slate-950 hover:bg-slate-100'
-              : 'border border-white/10 bg-transparent text-white hover:bg-white/8'
+              ? 'bg-[#dbe4f0] text-slate-950 hover:bg-white hover:text-slate-950'
+              : 'border border-white/10 bg-transparent text-white hover:border-white hover:bg-white hover:text-slate-950'
           }`}
         >
           {getStartedLabel}
@@ -168,10 +168,10 @@ export default function PricingPage() {
                     type="button"
                     onClick={() => setBillingPeriod(value)}
                     aria-pressed={active}
-                    className={`rounded-full px-4 py-2.5 text-sm font-semibold transition sm:px-5 sm:text-base ${
+                    className={`rounded-full px-4 py-2.5 text-sm font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] sm:px-5 sm:text-base ${
                       active
-                        ? 'bg-white text-slate-950 shadow-[0_10px_30px_rgba(255,255,255,0.15)]'
-                        : 'text-slate-300 hover:bg-white/8 hover:text-white'
+                        ? 'bg-white text-slate-950 shadow-[0_10px_30px_rgba(255,255,255,0.15)] hover:bg-[#dbe4f0] hover:text-slate-950 hover:shadow-[0_14px_34px_rgba(219,228,240,0.24)]'
+                        : 'text-slate-300 hover:bg-white hover:text-slate-950 hover:shadow-[0_14px_34px_rgba(255,255,255,0.16)]'
                     }`}
                   >
                     {label}
@@ -211,7 +211,7 @@ export default function PricingPage() {
           <button
             type="button"
             onClick={() => setIsContactModalOpen(true)}
-            className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-950 transition hover:bg-slate-100"
+            className="inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-8 py-4 text-base font-semibold text-white transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:border-white hover:bg-white hover:text-slate-950 hover:shadow-[0_16px_40px_rgba(34,211,238,0.16)]"
           >
             {copy.enterprise.cta}
           </button>
