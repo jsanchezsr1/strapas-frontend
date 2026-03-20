@@ -621,6 +621,9 @@ export function getPricingCopy(language: Language) {
       cta: pick(language, text('Contact sales', 'Contacter les ventes', 'Falar com vendas', 'Contatta sales', 'Contactar ventas')),
     },
     contactSalesForm: {
+      eyebrow: pick(language, text('Contact Sales', 'Contact ventes', 'Fale com vendas', 'Contatta sales', 'Contactar ventas')),
+      title: pick(language, text('Tell us about your team', 'Parlez-nous de votre equipe', 'Conte-nos sobre sua equipe', 'Raccontaci del tuo team', 'Cuentanos sobre tu equipo')),
+      description: pick(language, text('Share a few details and our team can follow up with the right enterprise plan for your needs.', 'Partagez quelques details et notre equipe pourra vous orienter vers le bon plan enterprise pour vos besoins.', 'Compartilhe alguns detalhes e nossa equipe podera indicar o plano enterprise certo para suas necessidades.', 'Condividi qualche dettaglio e il nostro team potra aiutarti con il piano enterprise giusto per le tue esigenze.', 'Comparte algunos detalles y nuestro equipo podra ayudarte con el plan enterprise adecuado para tus necesidades.')),
       firstNameLabel: pick(language, text('First Name *', 'Prenom *', 'Primeiro nome *', 'Nome *', 'Nombre *')),
       firstNamePlaceholder: pick(language, text('Enter your first name', 'Entrez votre prenom', 'Digite seu primeiro nome', 'Inserisci il tuo nome', 'Ingresa tu nombre')),
       lastNameLabel: pick(language, text('Last Name *', 'Nom *', 'Sobrenome *', 'Cognome *', 'Apellido *')),
@@ -629,8 +632,10 @@ export function getPricingCopy(language: Language) {
       emailPlaceholder: pick(language, text('Enter your email', 'Entrez votre email', 'Digite seu email', 'Inserisci la tua email', 'Ingresa tu correo electronico')),
       roleLabel: pick(language, text('Role *', 'Role *', 'Cargo *', 'Ruolo *', 'Rol *')),
       rolePlaceholder: pick(language, text('Enter your role', 'Entrez votre role', 'Digite seu cargo', 'Inserisci il tuo ruolo', 'Ingresa tu rol')),
+      websiteLabel: pick(language, text('Company Website *', 'Site web de l entreprise *', 'Site da empresa *', 'Sito web dell azienda *', 'Sitio web de la empresa *')),
       discussLabel: pick(language, text('What would you like to discuss? *', 'Que souhaitez-vous discuter ? *', 'Sobre o que voce gostaria de conversar? *', 'Di cosa vorresti discutere? *', 'Que te gustaria conversar? *')),
       discussPlaceholder: pick(language, text('Tell us what you need', 'Dites-nous ce dont vous avez besoin', 'Conte para nos do que voce precisa', 'Dicci di cosa hai bisogno', 'Cuentanos que necesitas')),
+      submitLabel: pick(language, text('Submit', 'Envoyer', 'Enviar', 'Invia', 'Enviar')),
     },
     plans: [
       {

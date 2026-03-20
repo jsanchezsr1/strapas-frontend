@@ -227,12 +227,12 @@ export default function PricingPage() {
             </button>
 
             <div className="pr-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">Contact Sales</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">{copy.contactSalesForm.eyebrow}</p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-[2.2rem]">
-                Tell us about your team
+                {copy.contactSalesForm.title}
               </h2>
               <p className="mt-3 max-w-2xl text-base leading-7 text-slate-400">
-                Share a few details and our team can follow up with the right enterprise plan for your needs.
+                {copy.contactSalesForm.description}
               </p>
             </div>
 
@@ -282,7 +282,7 @@ export default function PricingPage() {
               </div>
 
               <label className="block">
-                <span className="text-sm font-medium text-slate-200">Company Website *</span>
+                <span className="text-sm font-medium text-slate-200">{copy.contactSalesForm.websiteLabel}</span>
                 <input
                   type="text"
                   required
@@ -307,7 +307,7 @@ export default function PricingPage() {
                     type="submit"
                     className="inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-6 text-base font-semibold leading-none text-slate-950 transition hover:bg-slate-100 sm:w-auto sm:min-w-[180px]"
                 >
-                  Submit
+                  {copy.contactSalesForm.submitLabel}
                 </button>
               </div>
             </form>
