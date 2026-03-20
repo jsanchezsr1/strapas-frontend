@@ -34,6 +34,8 @@ function PricingCard({
   pricePeriodSuffix,
   planHighlightsLabel,
   getStartedLabel,
+  selected = false,
+  onSelect,
   featured = false,
 }: {
   plan: ReturnType<typeof getPricingCopy>['plans'][number];
@@ -42,16 +44,19 @@ function PricingCard({
   pricePeriodSuffix: string;
   planHighlightsLabel: string;
   getStartedLabel: string;
+  selected?: boolean;
+  onSelect: () => void;
   featured?: boolean;
 }) {
   const displayPrice =
     typeof plan.price === 'number' ? plan.price : plan.price[billingPeriod];
   const visibleHighlights = getVisibleHighlights(plan, billingPeriod);
+  const emphasized = featured || selected;
 
   return (
     <article
       className={`relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border backdrop-blur-sm transition duration-300 ${
-        featured
+        emphasized
           ? 'border-cyan-400/30 bg-white/[0.08] shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_20px_80px_rgba(0,0,0,0.35)]'
           : 'border-white/10 bg-white/[0.04] shadow-[0_20px_60px_rgba(0,0,0,0.28)]'
       }`}
@@ -87,8 +92,10 @@ function PricingCard({
 
       <div className="border-b border-white/10 p-7">
         <button
+          type="button"
+          onClick={onSelect}
           className={`inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-semibold transition ${
-            featured
+            emphasized
               ? 'bg-white text-slate-950 hover:bg-slate-100'
               : 'border border-white/10 bg-transparent text-white hover:bg-white/8'
           }`}
@@ -120,6 +127,7 @@ function PricingCard({
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('yearly');
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [selectedPlanName, setSelectedPlanName] = useState<string | null>(null);
   const { language } = useLanguage();
   const copy = getPricingCopy(language);
 
@@ -181,6 +189,8 @@ export default function PricingPage() {
               pricePeriodSuffix={copy.pricePeriodSuffix}
               planHighlightsLabel={copy.planHighlightsLabel}
               getStartedLabel={copy.getStarted}
+              selected={selectedPlanName === plan.name}
+              onSelect={() => setSelectedPlanName(plan.name)}
               featured={plan.name === 'Pro'}
             />
           ))}
