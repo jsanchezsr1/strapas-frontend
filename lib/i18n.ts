@@ -612,6 +612,7 @@ export function getPricingCopy(language: Language) {
       monthly: pick(language, text('Monthly', 'Mensuel', 'Mensal', 'Mensile', 'Mensual')),
     },
     billedAnnually: pick(language, text('Billed annually', 'Facture annuellement', 'Cobrado anualmente', 'Fatturato annualmente', 'Facturado anualmente')),
+    pricePeriodSuffix: pick(language, text('/mo', '/mois', '/mes', '/mese', '/mes')),
     planHighlightsLabel: pick(language, text('Plan highlights:', 'Points forts du plan :', 'Destaques do plano:', 'Punti chiave del piano:', 'Puntos destacados del plan:')),
     getStarted: pick(language, text('Get started', 'Commencer', 'Comecar', 'Inizia', 'Comenzar')),
     enterprise: {
@@ -623,7 +624,7 @@ export function getPricingCopy(language: Language) {
       {
         name: pricingPlanNames[0],
         description: pick(language, text('Scale your platform with higher credit limits and dedicated support.', 'Faites evoluer votre plateforme avec plus de credits et un support dedie.', 'Escale sua plataforma com mais creditos e suporte dedicado.', 'Scala la piattaforma con piu crediti e supporto dedicato.', 'Escala tu plataforma con mas creditos y soporte dedicado.')),
-        price: { yearly: 150, monthly: 190 },
+        price: { yearly: 152, monthly: 190 },
         credits: '1,200 message credits /mo',
         integrations: '50,000 integration credits /mo',
         highlights: [
@@ -641,7 +642,7 @@ export function getPricingCopy(language: Language) {
       {
         name: pricingPlanNames[1],
         description: pick(language, text('Access advanced tools and support for complex applications.', 'Accedez a des outils avances et un support pour des applications complexes.', 'Acesse ferramentas avancadas e suporte para aplicacoes complexas.', 'Accedi a strumenti avanzati e supporto per applicazioni complesse.', 'Accede a herramientas avanzadas y soporte para aplicaciones complejas.')),
-        price: { yearly: 70, monthly: 90 },
+        price: { yearly: 72, monthly: 90 },
         credits: '500 message credits /mo',
         integrations: '20,000 integration credits /mo',
         highlights: [
@@ -658,7 +659,7 @@ export function getPricingCopy(language: Language) {
       {
         name: pricingPlanNames[2],
         description: pick(language, text('Take your idea to the next level with tools built for serious builders.', 'Faites passer votre idee au niveau suivant avec des outils pour createurs ambitieux.', 'Leve sua ideia para o proximo nivel com ferramentas para builders mais serios.', 'Porta la tua idea al livello successivo con strumenti pensati per builder seri.', 'Lleva tu idea al siguiente nivel con herramientas pensadas para builders serios.')),
-        price: { yearly: 30, monthly: 40 },
+        price: { yearly: 32, monthly: 40 },
         credits: '250 message credits /mo',
         integrations: '10,000 integration credits /mo',
         highlights: [
@@ -674,7 +675,7 @@ export function getPricingCopy(language: Language) {
       {
         name: pricingPlanNames[3],
         description: pick(language, text('Build your first apps for personal projects and early-stage ideas.', 'Creez vos premieres apps pour projets personnels et idees en phase initiale.', 'Crie suas primeiras apps para projetos pessoais e ideias iniciais.', 'Crea le tue prime app per progetti personali e idee in fase iniziale.', 'Crea tus primeras apps para proyectos personales e ideas tempranas.')),
-        price: { yearly: 15, monthly: 20 },
+        price: { yearly: 16, monthly: 20 },
         credits: '100 message credits /mo',
         integrations: '2,000 integration credits /mo',
         highlights: [

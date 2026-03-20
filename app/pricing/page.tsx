@@ -31,6 +31,7 @@ function PricingCard({
   plan,
   billingPeriod,
   billedAnnually,
+  pricePeriodSuffix,
   planHighlightsLabel,
   getStartedLabel,
   featured = false,
@@ -38,6 +39,7 @@ function PricingCard({
   plan: ReturnType<typeof getPricingCopy>['plans'][number];
   billingPeriod: BillingPeriod;
   billedAnnually: string;
+  pricePeriodSuffix: string;
   planHighlightsLabel: string;
   getStartedLabel: string;
   featured?: boolean;
@@ -73,7 +75,7 @@ function PricingCard({
               ${displayPrice}
             </span>
             {displayPrice > 0 ? (
-              <span className="mb-1.5 text-[1.35rem] text-slate-400">/mo</span>
+              <span className="mb-1.5 text-[1.35rem] text-slate-400">{pricePeriodSuffix}</span>
             ) : null}
           </div>
 
@@ -183,6 +185,7 @@ export default function PricingPage() {
               plan={plan}
               billingPeriod={billingPeriod}
               billedAnnually={copy.billedAnnually}
+              pricePeriodSuffix={copy.pricePeriodSuffix}
               planHighlightsLabel={copy.planHighlightsLabel}
               getStartedLabel={copy.getStarted}
               featured={plan.name === 'Pro'}
