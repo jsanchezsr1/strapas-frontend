@@ -54,7 +54,7 @@ function PricingCard({
   const displayPrice =
     typeof plan.price === 'number' ? plan.price : plan.price[billingPeriod];
   const visibleHighlights = getVisibleHighlights(plan, billingPeriod);
-  const emphasized = hasUserSelection ? selected : featured;
+  const emphasized = hasUserSelection ? selected : false;
 
   return (
     <article
@@ -99,7 +99,7 @@ function PricingCard({
           onClick={onSelect}
           className={`inline-flex w-full items-center justify-center rounded-full px-6 py-4 text-base font-semibold transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_14px_32px_rgba(0,0,0,0.22)] ${
             emphasized
-              ? 'bg-[#dbe4f0] text-slate-950 hover:bg-white hover:text-slate-950'
+              ? 'bg-white text-slate-950 hover:bg-[#dbe4f0] hover:text-slate-950'
               : 'border border-white/10 bg-transparent text-white hover:border-white hover:bg-white hover:text-slate-950'
           }`}
         >
