@@ -642,8 +642,6 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[0],
         description: pick(language, text('Scale your platform with higher credit limits and dedicated support.', 'Faites evoluer votre plateforme avec plus de credits et un support dedie.', 'Escale sua plataforma com mais creditos e suporte dedicado.', 'Scala la piattaforma con piu crediti e supporto dedicato.', 'Escala tu plataforma con mas creditos y soporte dedicado.')),
         price: { yearly: 152, monthly: 190 },
-        credits: '1,200 message credits /mo',
-        integrations: '50,000 integration credits /mo',
         highlights: [
           pick(language, text('Unlimited apps', 'Apps illimitees', 'Apps ilimitadas', 'App illimitate', 'Apps ilimitadas')),
           pick(language, text('In-app code edits', 'Edition du code dans l app', 'Edicao de codigo na app', 'Modifiche al codice nell app', 'Edicion de codigo dentro de la app')),
@@ -660,8 +658,6 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[1],
         description: pick(language, text('Access advanced tools and support for complex applications.', 'Accedez a des outils avances et un support pour des applications complexes.', 'Acesse ferramentas avancadas e suporte para aplicacoes complexas.', 'Accedi a strumenti avanzati e supporto per applicazioni complesse.', 'Accede a herramientas avanzadas y soporte para aplicaciones complejas.')),
         price: { yearly: 72, monthly: 90 },
-        credits: '500 message credits /mo',
-        integrations: '20,000 integration credits /mo',
         highlights: [
           pick(language, text('Unlimited apps', 'Apps illimitees', 'Apps ilimitadas', 'App illimitate', 'Apps ilimitadas')),
           pick(language, text('In-app code edits', 'Edition du code dans l app', 'Edicao de codigo na app', 'Modifiche al codice nell app', 'Edicion de codigo dentro de la app')),
@@ -677,8 +673,6 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[2],
         description: pick(language, text('Take your idea to the next level with tools built for serious builders.', 'Faites passer votre idee au niveau suivant avec des outils pour createurs ambitieux.', 'Leve sua ideia para o proximo nivel com ferramentas para builders mais serios.', 'Porta la tua idea al livello successivo con strumenti pensati per builder seri.', 'Lleva tu idea al siguiente nivel con herramientas pensadas para builders serios.')),
         price: { yearly: 32, monthly: 40 },
-        credits: '250 message credits /mo',
-        integrations: '10,000 integration credits /mo',
         highlights: [
           pick(language, text('Unlimited apps', 'Apps illimitees', 'Apps ilimitadas', 'App illimitate', 'Apps ilimitadas')),
           pick(language, text('In-app code edits', 'Edition du code dans l app', 'Edicao de codigo na app', 'Modifiche al codice nell app', 'Edicion de codigo dentro de la app')),
@@ -693,8 +687,6 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[3],
         description: pick(language, text('Build your first apps for personal projects and early-stage ideas.', 'Creez vos premieres apps pour projets personnels et idees en phase initiale.', 'Crie suas primeiras apps para projetos pessoais e ideias iniciais.', 'Crea le tue prime app per progetti personali e idee in fase iniziale.', 'Crea tus primeras apps para proyectos personales e ideas tempranas.')),
         price: { yearly: 16, monthly: 20 },
-        credits: '100 message credits /mo',
-        integrations: '2,000 integration credits /mo',
         highlights: [
           pick(language, text('Unlimited apps', 'Apps illimitees', 'Apps ilimitadas', 'App illimitate', 'Apps ilimitadas')),
           pick(language, text('In-app code edits', 'Edition du code dans l app', 'Edicao de codigo na app', 'Modifiche al codice nell app', 'Edicion de codigo dentro de la app')),
@@ -704,8 +696,6 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[4],
         description: pick(language, text('Access the core platform for free and explore what it can do.', 'Accedez gratuitement au coeur de la plateforme et decouvrez son potentiel.', 'Acesse o nucleo da plataforma gratuitamente e veja o que ela pode fazer.', 'Accedi gratuitamente al cuore della piattaforma e scopri cosa puo fare.', 'Accede gratis al nucleo de la plataforma y explora lo que puede hacer.')),
         price: 0,
-        credits: '25 message credits /mo',
-        integrations: '100 integration credits /mo',
         highlights: [pick(language, text('Core platform features', 'Fonctionnalites coeur de plateforme', 'Recursos centrais da plataforma', 'Funzionalita core della piattaforma', 'Funciones centrales de la plataforma'))],
         footnote: pick(language, text('Authentication, database functionality, and analytics.', 'Authentification, base de donnees et analytics.', 'Autenticacao, banco de dados e analytics.', 'Autenticazione, database e analytics.', 'Autenticacion, base de datos y analytics.')),
       },

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, CircleHelp } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useLanguage } from '@/components/language-provider';
 import { getPricingCopy } from '@/lib/i18n';
 
@@ -83,14 +83,6 @@ function PricingCard({
             <div className="pb-1 text-sm font-medium text-slate-400">{billedAnnually}</div>
           ) : null}
         </div>
-      </div>
-
-      <div className="border-b border-white/10 px-7 py-6 text-[1rem] text-slate-200">
-        <div className="flex items-center gap-2 font-medium">
-          <span>{plan.credits}</span>
-          <CircleHelp className="h-4 w-4 text-slate-500" />
-        </div>
-        <div className="mt-2 text-slate-400">{plan.integrations}</div>
       </div>
 
       <div className="border-b border-white/10 p-7">
