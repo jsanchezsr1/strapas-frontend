@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { LanguageProvider } from '@/components/language-provider';
+import { AppProviders } from '@/components/app-providers';
 import { SiteChrome } from '@/components/site-chrome';
 
 export const metadata: Metadata = {
@@ -12,9 +12,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <LanguageProvider>
+        <AppProviders>
           <SiteChrome>{children}</SiteChrome>
-        </LanguageProvider>
+        </AppProviders>
       </body>
     </html>
   );
