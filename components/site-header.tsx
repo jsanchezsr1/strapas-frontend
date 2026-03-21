@@ -235,7 +235,6 @@ export function SiteHeader() {
 
             <NavLink href="/product/features">{copy.nav.features}</NavLink>
             <NavLink href="/examples">{copy.nav.examples}</NavLink>
-            <NavLink href="/how-it-works">{copy.nav.howItWorks}</NavLink>
             <NavLink href="/about">{copy.nav.about}</NavLink>
           </nav>
 
@@ -252,7 +251,7 @@ export function SiteHeader() {
             </Link>
             <LanguageSelector open={languageOpen} setOpen={setLanguageOpen} />
             <Link
-              href="/product/backend-platform"
+              href="/product/prompt-deployment"
               className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
             >
               {copy.ctas.startBuilding}
@@ -354,7 +353,6 @@ export function SiteHeader() {
             <div className="grid gap-2 sm:grid-cols-2">
               <NavLink href="/product/features">{copy.nav.features}</NavLink>
               <NavLink href="/examples">{copy.nav.examples}</NavLink>
-              <NavLink href="/how-it-works">{copy.nav.howItWorks}</NavLink>
               <NavLink href="/about">{copy.nav.about}</NavLink>
             </div>
 
@@ -370,7 +368,7 @@ export function SiteHeader() {
                 {copy.ctas.viewPricing}
               </Link>
               <Link
-                href="/product/backend-platform"
+                href="/product/prompt-deployment"
                 className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
               >
                 {copy.ctas.startBuilding}

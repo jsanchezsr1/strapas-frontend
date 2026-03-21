@@ -56,7 +56,7 @@ export function UseCaseTemplate({ pageKey }: { pageKey: UseCasePageKey }) {
             </p>
           </div>
           <Link
-            href="/product/templates-marketplace"
+            href="/product/how-it-works"
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950"
           >
             {copy.browseTemplates} <ArrowRight className="h-4 w-4" />

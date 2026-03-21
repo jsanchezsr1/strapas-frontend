@@ -8,8 +8,8 @@ type LocalizedInfoItem = {
 };
 
 type ProductPageKey =
-  | 'backend-platform'
-  | 'templates-marketplace'
+  | 'prompt-deployment'
+  | 'how-it-works'
   | 'integrations'
   | 'roadmap'
   | 'features'
@@ -69,69 +69,69 @@ const productPages: Record<
     pillars: LocalizedInfoItem[];
   }
 > = {
-  'backend-platform': {
+  'prompt-deployment': {
     eyebrow: text(
-      'Product / Backend Platform',
-      'Produit / Plateforme Backend',
-      'Produto / Plataforma Backend',
-      'Prodotto / Piattaforma Backend',
-      'Producto / Plataforma Backend',
+      'Product / From Prompt to Deployment',
+      'Produit / Du prompt au deploiement',
+      'Produto / Do prompt ao deploy',
+      'Prodotto / Dal prompt al deploy',
+      'Producto / Del prompt al despliegue',
     ),
     title: text(
-      'Deploy apps with a backend built for AI agents',
-      'Deployez des apps avec un backend pense pour les agents IA',
-      'Implante apps com um backend feito para agentes de IA',
-      'Distribuisci app con un backend pensato per agenti AI',
-      'Implementa apps con un backend pensado para agentes de IA',
+      'From Prompt to Deployment',
+      'Du prompt au deploiement',
+      'Do prompt ao deploy',
+      'Dal prompt al deploy',
+      'Del prompt al despliegue',
     ),
     description: text(
-      'Position your platform as more than a visual builder. This page focuses on the backend layer: auth, data, automation, storage, and production infrastructure that makes AI-built apps feel credible and complete.',
-      'Positionnez votre plateforme comme plus qu un simple builder visuel. Cette page met en avant la couche backend : auth, donnees, automatisation, stockage et infrastructure de production.',
-      'Posicione sua plataforma como mais que um builder visual. Esta pagina destaca a camada de backend: auth, dados, automacao, armazenamento e infraestrutura de producao.',
-      'Posiziona la piattaforma come piu di un builder visivo. Questa pagina mette in evidenza il backend: auth, dati, automazione, storage e infrastruttura di produzione.',
-      'Posiciona tu plataforma como mas que un constructor visual. Esta pagina destaca la capa backend: auth, datos, automatizacion, almacenamiento e infraestructura de produccion.',
+      'Build complete software from one idea.',
+      'Construisez un logiciel complet a partir d une seule idee.',
+      'Construa software completo a partir de uma unica ideia.',
+      'Crea software completo da una sola idea.',
+      'Crea software completo a partir de una sola idea.',
     ),
     pillars: [
       {
-        title: text('Agent-ready workflows', 'Workflows prets pour les agents', 'Flux prontos para agentes', 'Workflow pronti per gli agenti', 'Flujos listos para agentes'),
+        title: text('Prompt-first product flow', 'Flux produit centre sur le prompt', 'Fluxo de produto guiado por prompt', 'Flusso prodotto guidato dal prompt', 'Flujo de producto guiado por prompt'),
         text: text(
-          'Frame the backend as a home for triggers, task routing, and AI actions that keep apps active after they launch.',
-          'Presentez le backend comme le lieu des triggers, du routage des taches et des actions IA qui gardent les apps actives.',
-          'Apresente o backend como a base para gatilhos, roteamento de tarefas e acoes de IA que mantem as apps ativas.',
-          'Presenta il backend come la casa di trigger, instradamento delle attivita e azioni AI che mantengono vive le app.',
-          'Presenta el backend como el hogar de disparadores, enrutamiento de tareas y acciones de IA que mantienen activas las apps.',
+          'Show that the platform starts with plain language and turns it into a structured product system.',
+          'Montrez que la plateforme part du langage naturel et le transforme en systeme produit structure.',
+          'Mostre que a plataforma parte da linguagem natural e a transforma em um sistema de produto estruturado.',
+          'Mostra che la piattaforma parte dal linguaggio naturale e lo trasforma in un sistema di prodotto strutturato.',
+          'Muestra que la plataforma parte del lenguaje natural y lo transforma en un sistema de producto estructurado.',
         ),
       },
       {
-        title: text('Built-in data layer', 'Couche de donnees integree', 'Camada de dados integrada', 'Layer dati integrato', 'Capa de datos integrada'),
+        title: text('Coordinated stack generation', 'Generation coordonnee du stack', 'Geracao coordenada do stack', 'Generazione coordinata dello stack', 'Generacion coordinada del stack'),
         text: text(
-          'Explain how users get structured data, user records, permissions, and persistence without starting from scratch.',
-          'Expliquez comment les utilisateurs obtiennent donnees structurees, comptes, permissions et persistance sans repartir de zero.',
-          'Explique como os usuarios recebem dados estruturados, registros, permissoes e persistencia sem comecar do zero.',
-          'Spiega come gli utenti ottengono dati strutturati, record, permessi e persistenza senza partire da zero.',
-          'Explica como los usuarios obtienen datos estructurados, registros, permisos y persistencia sin empezar desde cero.',
+          'Explain that web, backend, database, admin, mobile, and deployment outputs are generated as one connected product.',
+          'Expliquez que les sorties web, backend, base de donnees, admin, mobile et deploiement sont generees comme un seul produit connecte.',
+          'Explique que web, backend, banco de dados, admin, mobile e deploy sao gerados como um unico produto conectado.',
+          'Spiega che output web, backend, database, admin, mobile e deploy vengono generati come un unico prodotto connesso.',
+          'Explica que las salidas web, backend, base de datos, admin, mobile y despliegue se generan como un solo producto conectado.',
         ),
       },
       {
-        title: text('Deployment confidence', 'Confiance au deploiement', 'Confianca no deploy', 'Fiducia nel deploy', 'Confianza en el despliegue'),
+        title: text('Deployment-ready outcome', 'Resultat pret au deploiement', 'Resultado pronto para deploy', 'Risultato pronto per il deploy', 'Resultado listo para despliegue'),
         text: text(
-          'Use this route to sell reliability, security, and scale instead of burying them on a long homepage.',
-          'Utilisez cette page pour vendre fiabilite, securite et passage a l echelle au lieu de les cacher sur une longue homepage.',
-          'Use esta rota para vender confiabilidade, seguranca e escala em vez de esconder isso em uma homepage longa.',
-          'Usa questa pagina per comunicare affidabilita, sicurezza e scala invece di nasconderle in una homepage lunga.',
-          'Usa esta pagina para vender confiabilidad, seguridad y escala en lugar de esconderlo en una homepage larga.',
+          'Position deployment as part of the product flow, not a disconnected step after generation.',
+          'Positionnez le deploiement comme une partie du flux produit, pas comme une etape deconnectee apres la generation.',
+          'Posicione o deploy como parte do fluxo do produto, nao como uma etapa desconectada apos a geracao.',
+          'Posiziona il deploy come parte del flusso di prodotto, non come un passaggio scollegato dopo la generazione.',
+          'Posiciona el despliegue como parte del flujo del producto, no como un paso desconectado despues de la generacion.',
         ),
       },
     ],
   },
-  'templates-marketplace': {
-    eyebrow: text('Product / Templates Marketplace', 'Produit / Marketplace de templates', 'Produto / Marketplace de templates', 'Prodotto / Marketplace template', 'Producto / Marketplace de templates'),
-    title: text('Explore and customize ready-made apps from the community', 'Explorez et personnalisez des apps pretes a l emploi de la communaute', 'Explore e personalize apps prontas da comunidade', 'Esplora e personalizza app pronte dalla comunita', 'Explora y personaliza apps listas de la comunidad'),
-    description: text('Use this page to spotlight reusable app foundations. It helps visitors imagine starting from a proven base instead of a blank prompt, which makes your platform feel faster and more practical.', 'Utilisez cette page pour mettre en avant des bases d apps reutilisables. Elle aide les visiteurs a imaginer un depart depuis une base validee plutot qu un prompt vide.', 'Use esta pagina para destacar bases de apps reutilizaveis. Ela ajuda visitantes a imaginar um inicio a partir de uma base comprovada em vez de um prompt vazio.', 'Usa questa pagina per valorizzare basi di app riutilizzabili. Aiuta i visitatori a immaginare una partenza da una base gia valida invece di un prompt vuoto.', 'Usa esta pagina para destacar bases de apps reutilizables. Ayuda a los visitantes a imaginar un inicio desde una base probada en lugar de un prompt vacio.'),
+  'how-it-works': {
+    eyebrow: text('Product / How It Works', 'Produit / Comment ca marche', 'Produto / Como funciona', 'Prodotto / Come funziona', 'Producto / Como funciona'),
+    title: text('How It Works', 'Comment ca marche', 'Como funciona', 'Come funziona', 'Como funciona'),
+    description: text('A structured path from idea to working software.', 'Un chemin structure de l idee au logiciel fonctionnel.', 'Um caminho estruturado da ideia ao software funcional.', 'Un percorso strutturato dall idea al software funzionante.', 'Un camino estructurado de la idea al software funcional.'),
     pillars: [
-      { title: text('Faster starts', 'Demarrages plus rapides', 'Comecos mais rapidos', 'Partenze piu rapide', 'Inicios mas rapidos'), text: text('Show how templates shorten time to first value and reduce creative friction for new users.', 'Montrez comment les templates reduisent le temps jusqu a la premiere valeur et la friction creative.', 'Mostre como os templates reduzem o tempo ate o primeiro valor e a friccao criativa.', 'Mostra come i template riducono il tempo al primo valore e la frizione creativa.', 'Muestra como los templates reducen el tiempo hasta el primer valor y la friccion creativa.') },
-      { title: text('Customization paths', 'Parcours de personnalisation', 'Caminhos de personalizacao', 'Percorsi di personalizzazione', 'Rutas de personalizacion'), text: text('Explain that users can take a community template and reshape it around their own workflow, brand, or team needs.', 'Expliquez que les utilisateurs peuvent reprendre un template communautaire et l adapter a leur workflow, marque ou equipe.', 'Explique que usuarios podem pegar um template da comunidade e adaptar ao seu fluxo, marca ou equipe.', 'Spiega che gli utenti possono prendere un template della comunita e adattarlo al proprio flusso, brand o team.', 'Explica que los usuarios pueden tomar un template de la comunidad y adaptarlo a su flujo, marca o equipo.') },
-      { title: text('Category depth', 'Profondeur des categories', 'Profundidade de categorias', 'Profondita delle categorie', 'Profundidad de categorias'), text: text('Organize templates around industries, roles, and common internal tools so the catalog feels purposeful.', 'Organisez les templates par secteurs, roles et outils internes communs pour donner une vraie structure au catalogue.', 'Organize templates por setores, funcoes e ferramentas internas comuns para dar mais sentido ao catalogo.', 'Organizza i template per settori, ruoli e strumenti interni comuni per rendere il catalogo piu coerente.', 'Organiza los templates por industrias, roles y herramientas internas comunes para que el catalogo se sienta intencional.') },
+      { title: text('Prompt-driven start', 'Demarrage guide par le prompt', 'Inicio guiado por prompt', 'Avvio guidato dal prompt', 'Inicio guiado por prompt'), text: text('Show that the platform starts with plain-language product intent instead of a technical specification.', 'Montrez que la plateforme commence par une intention produit en langage simple plutot que par une specification technique.', 'Mostre que a plataforma comeca com uma intencao de produto em linguagem simples em vez de uma especificacao tecnica.', 'Mostra che la piattaforma inizia da un intento di prodotto in linguaggio semplice invece che da una specifica tecnica.', 'Muestra que la plataforma empieza con una intencion de producto en lenguaje simple en lugar de una especificacion tecnica.') },
+      { title: text('Structured blueprinting', 'Blueprint structure', 'Blueprint estruturado', 'Blueprint strutturato', 'Blueprint estructurado'), text: text('Explain how the idea is converted into a machine-readable blueprint that guides the product across the stack.', 'Expliquez comment l idee est convertie en blueprint lisible par machine qui guide le produit sur tout le stack.', 'Explique como a ideia e convertida em um blueprint legivel por maquina que orienta o produto em todo o stack.', 'Spiega come l idea viene convertita in un blueprint leggibile dalla macchina che guida il prodotto lungo tutto lo stack.', 'Explica como la idea se convierte en un blueprint legible por maquina que guia el producto en todo el stack.') },
+      { title: text('Aligned system generation', 'Generation systeme alignee', 'Geracao de sistema alinhado', 'Generazione di sistema allineata', 'Generacion de sistema alineado'), text: text('Position generation as one coordinated system that keeps product layers aligned from the beginning.', 'Positionnez la generation comme un systeme coordonne qui garde les couches produit alignees des le debut.', 'Posicione a geracao como um sistema coordenado que mantem as camadas do produto alinhadas desde o inicio.', 'Posiziona la generazione come un sistema coordinato che mantiene allineati i livelli del prodotto fin dall inizio.', 'Posiciona la generacion como un sistema coordinado que mantiene alineadas las capas del producto desde el principio.') },
     ],
   },
   integrations: {
@@ -173,6 +173,147 @@ const productPages: Record<
       { title: text('Customer reassurance', 'Reassurance client', 'Confianca do cliente', 'Fiducia del cliente', 'Confianza del cliente'), text: text('Prospects and users can see that issues are fixed, features are added, and the platform is evolving.', 'Prospects et utilisateurs voient que les problemes sont corriges, que les fonctionnalites arrivent et que la plateforme evolue.', 'Prospects e usuarios veem que problemas sao corrigidos, recursos sao adicionados e a plataforma evolui.', 'Prospect e utenti vedono che i problemi vengono risolti, le funzionalita aggiunte e la piattaforma evolve.', 'Prospects y usuarios ven que los problemas se corrigen, se agregan funciones y la plataforma evoluciona.') },
       { title: text('Content engine', 'Moteur de contenu', 'Motor de conteudo', 'Motore di contenuto', 'Motor de contenido'), text: text('Changelogs also create reusable content you can link from emails, social posts, and account updates.', 'Les changelogs creent aussi du contenu reutilisable a relier depuis emails, posts sociaux et mises a jour compte.', 'Changelogs tambem criam conteudo reutilizavel para emails, posts sociais e atualizacoes de conta.', 'I changelog creano anche contenuti riutilizzabili da collegare da email, post social e aggiornamenti account.', 'Los changelogs tambien crean contenido reutilizable para emails, posts sociales y actualizaciones de cuenta.') },
     ],
+  },
+};
+
+const backendPlatformFlow = {
+  introLabel: text('Platform overview', 'Vue d ensemble de la plateforme', 'Visao geral da plataforma', 'Panoramica della piattaforma', 'Vision general de la plataforma'),
+  introParagraphs: [
+    text(
+      'Turn a plain-language idea into a real software product with a platform designed to take you from concept to generation, system assembly, and deployment-ready output.',
+      'Transformez une idee en langage naturel en un vrai produit logiciel avec une plateforme concue pour vous mener du concept a la generation, a l assemblage du systeme et a une sortie prete au deploiement.',
+      'Transforme uma ideia em linguagem natural em um produto de software real com uma plataforma criada para levar voce do conceito a geracao, montagem do sistema e resultado pronto para deploy.',
+      'Trasforma un idea in linguaggio naturale in un vero prodotto software con una piattaforma progettata per portarti dal concetto alla generazione, all assemblaggio del sistema e a un output pronto per il deploy.',
+      'Convierte una idea en lenguaje natural en un producto de software real con una plataforma disenada para llevarte del concepto a la generacion, al ensamblaje del sistema y a una salida lista para despliegue.',
+    ),
+    text(
+      'Instead of splitting product planning, frontend development, backend architecture, database design, admin tooling, mobile surfaces, and deployment into disconnected workflows, our platform brings them together into one structured process. The result is a faster path from idea to software, better consistency across the stack, and a stronger foundation for growth.',
+      'Au lieu de separer la planification produit, le developpement frontend, l architecture backend, la conception de base de donnees, les outils admin, les surfaces mobiles et le deploiement dans des workflows deconnectes, notre plateforme les rassemble dans un seul processus structure. Le resultat est un chemin plus rapide de l idee au logiciel, une meilleure coherence sur tout le stack et une base plus solide pour la croissance.',
+      'Em vez de separar planejamento de produto, desenvolvimento frontend, arquitetura backend, design de banco de dados, ferramentas admin, superficies mobile e deploy em fluxos desconectados, nossa plataforma reune tudo em um unico processo estruturado. O resultado e um caminho mais rapido da ideia ao software, mais consistencia em todo o stack e uma base mais forte para crescer.',
+      'Invece di separare pianificazione del prodotto, sviluppo frontend, architettura backend, progettazione del database, strumenti admin, superfici mobile e deploy in workflow scollegati, la nostra piattaforma li riunisce in un unico processo strutturato. Il risultato e un percorso piu rapido dall idea al software, maggiore coerenza lungo tutto lo stack e una base piu solida per crescere.',
+      'En lugar de dividir la planificacion del producto, el desarrollo frontend, la arquitectura backend, el diseno de la base de datos, las herramientas admin, las superficies mobile y el despliegue en flujos desconectados, nuestra plataforma los une en un solo proceso estructurado. El resultado es un camino mas rapido de la idea al software, mejor consistencia en todo el stack y una base mas fuerte para crecer.',
+    ),
+    text(
+      'Whether you are creating a SaaS platform, internal business system, marketplace, workflow product, admin portal, mobile app, or multi-surface digital product, the platform is designed to transform your request into coordinated software.',
+      'Que vous creiez une plateforme SaaS, un systeme metier interne, une marketplace, un produit de workflow, un portail admin, une app mobile ou un produit numerique multi-surface, la plateforme est concue pour transformer votre demande en logiciel coordonne.',
+      'Se voce estiver criando uma plataforma SaaS, um sistema interno de negocio, um marketplace, um produto de workflow, um portal admin, um app mobile ou um produto digital multi-superficie, a plataforma foi criada para transformar seu pedido em software coordenado.',
+      'Che tu stia creando una piattaforma SaaS, un sistema aziendale interno, un marketplace, un prodotto di workflow, un portale admin, un app mobile o un prodotto digitale multi-superficie, la piattaforma e progettata per trasformare la tua richiesta in software coordinato.',
+      'Ya sea que estes creando una plataforma SaaS, un sistema interno de negocio, un marketplace, un producto de flujo de trabajo, un portal admin, una app mobile o un producto digital multisuperficie, la plataforma esta disenada para transformar tu solicitud en software coordinado.',
+    ),
+  ],
+  sections: [
+    {
+      title: text('Start with a prompt', 'Commencez par un prompt', 'Comece com um prompt', 'Inizia con un prompt', 'Empieza con un prompt'),
+      lead: text('Start with a prompt, not a technical specification', 'Commencez par un prompt, pas par une specification technique', 'Comece com um prompt, nao com uma especificacao tecnica', 'Inizia con un prompt, non con una specifica tecnica', 'Empieza con un prompt, no con una especificacion tecnica'),
+      body: [
+        text('Every product begins with an idea, but most ideas do not begin as formal technical documents. They begin as goals, workflows, pain points, and opportunities.', 'Chaque produit commence par une idee, mais la plupart des idees ne commencent pas comme des documents techniques formels. Elles commencent par des objectifs, des workflows, des points de friction et des opportunites.', 'Todo produto comeca com uma ideia, mas a maioria das ideias nao nasce como documentos tecnicos formais. Elas comecam como objetivos, fluxos, dores e oportunidades.', 'Ogni prodotto inizia con un idea, ma la maggior parte delle idee non nasce come documento tecnico formale. Nasce come obiettivi, workflow, punti di attrito e opportunita.', 'Todo producto comienza con una idea, pero la mayoria de las ideas no nacen como documentos tecnicos formales. Nacen como objetivos, flujos, puntos de dolor y oportunidades.'),
+        text('Our platform starts where real product thinking starts: with a prompt.', 'Notre plateforme commence la ou commence la vraie reflexion produit : avec un prompt.', 'Nossa plataforma comeca onde comeca o pensamento real de produto: com um prompt.', 'La nostra piattaforma inizia dove inizia il vero pensiero di prodotto: con un prompt.', 'Nuestra plataforma empieza donde empieza el pensamiento real de producto: con un prompt.'),
+        text('Describe the software you want in plain language. Explain what the product should do, who it should serve, what problems it solves, and what platforms it should support. From there, the platform interprets your vision and begins shaping it into a structured software system.', 'Decrivez le logiciel que vous voulez en langage simple. Expliquez ce que le produit doit faire, pour qui il est concu, quels problemes il resout et quelles plateformes il doit prendre en charge. A partir de la, la plateforme interprete votre vision et commence a la structurer en systeme logiciel.', 'Descreva o software que voce quer em linguagem simples. Explique o que o produto deve fazer, para quem ele serve, quais problemas resolve e quais plataformas deve suportar. A partir dai, a plataforma interpreta sua visao e comeca a transforma-la em um sistema de software estruturado.', 'Descrivi il software che vuoi in linguaggio semplice. Spiega cosa deve fare il prodotto, chi deve servire, quali problemi risolve e quali piattaforme deve supportare. Da li, la piattaforma interpreta la tua visione e inizia a trasformarla in un sistema software strutturato.', 'Describe el software que quieres en lenguaje simple. Explica que debe hacer el producto, a quien debe servir, que problemas resuelve y que plataformas debe soportar. Desde ahi, la plataforma interpreta tu vision y empieza a convertirla en un sistema de software estructurado.'),
+      ],
+    },
+    {
+      title: text('Build from structure', 'Construisez a partir de la structure', 'Construa a partir da estrutura', 'Costruisci dalla struttura', 'Construye desde la estructura'),
+      lead: text('Turn ideas into structure', 'Transformez les idees en structure', 'Transforme ideias em estrutura', 'Trasforma le idee in struttura', 'Convierte ideas en estructura'),
+      body: [
+        text('Once your request is understood, the platform transforms it into a structured product blueprint. This blueprint becomes the foundation for the system: what it contains, how it behaves, how its parts connect, and how it can be generated consistently across the stack.', 'Une fois votre demande comprise, la plateforme la transforme en blueprint produit structure. Ce blueprint devient la base du systeme : ce qu il contient, comment il se comporte, comment ses parties se relient et comment il peut etre genere de facon coherente sur tout le stack.', 'Quando seu pedido e compreendido, a plataforma o transforma em um blueprint de produto estruturado. Esse blueprint se torna a base do sistema: o que ele contem, como se comporta, como suas partes se conectam e como pode ser gerado de forma consistente em todo o stack.', 'Una volta compresa la richiesta, la piattaforma la trasforma in un blueprint di prodotto strutturato. Questo blueprint diventa la base del sistema: cosa contiene, come si comporta, come si collegano le sue parti e come puo essere generato in modo coerente lungo tutto lo stack.', 'Una vez que se entiende tu solicitud, la plataforma la transforma en un plano estructurado del producto. Ese plano se convierte en la base del sistema: que contiene, como se comporta, como se conectan sus partes y como puede generarse de forma consistente en todo el stack.'),
+        text('Instead of rebuilding the same intent again and again across different teams and tools, the platform creates one coordinated source of truth that guides the product as a whole.', 'Au lieu de reconstruire la meme intention encore et encore a travers differentes equipes et outils, la plateforme cree une source de verite coordonnee qui guide le produit dans son ensemble.', 'Em vez de reconstruir a mesma intencao repetidamente entre diferentes equipes e ferramentas, a plataforma cria uma unica fonte coordenada de verdade que orienta o produto como um todo.', 'Invece di ricostruire la stessa intenzione piu volte tra team e strumenti diversi, la piattaforma crea un unica fonte di verita coordinata che guida il prodotto nel suo insieme.', 'En lugar de reconstruir la misma intencion una y otra vez entre diferentes equipos y herramientas, la plataforma crea una unica fuente coordinada de verdad que guia el producto en su totalidad.'),
+      ],
+    },
+    {
+      title: text('Generate the product stack', 'Generez le stack produit', 'Gere o stack do produto', 'Genera lo stack di prodotto', 'Genera el stack del producto'),
+      lead: text('Generate more than isolated screens', 'Generez plus que des ecrans isoles', 'Gere mais do que telas isoladas', 'Genera piu di schermate isolate', 'Genera mas que pantallas aisladas'),
+      body: [
+        text('With the blueprint in place, the platform can generate the layers required to support a real application. That can include web experiences, backend services, database-backed logic, admin tools, mobile outputs, deployment-aware structures, and operational components.', 'Avec le blueprint en place, la plateforme peut generer les couches necessaires pour prendre en charge une application reelle. Cela peut inclure experiences web, services backend, logique reliee a la base de donnees, outils admin, sorties mobile, structures conscientes du deploiement et composants operationnels.', 'Com o blueprint definido, a plataforma pode gerar as camadas necessarias para sustentar uma aplicacao real. Isso pode incluir experiencias web, servicos backend, logica apoiada por banco de dados, ferramentas admin, saidas mobile, estruturas preparadas para deploy e componentes operacionais.', 'Con il blueprint definito, la piattaforma puo generare i livelli necessari per supportare una vera applicazione. Questo puo includere esperienze web, servizi backend, logica supportata da database, strumenti admin, output mobile, strutture orientate al deploy e componenti operativi.', 'Con el plano ya definido, la plataforma puede generar las capas necesarias para soportar una aplicacion real. Eso puede incluir experiencias web, servicios backend, logica respaldada por base de datos, herramientas admin, salidas mobile, estructuras preparadas para despliegue y componentes operativos.'),
+        text('These outputs are not treated as separate fragments. They are generated as parts of one connected system, helping the product stay aligned as it grows.', 'Ces sorties ne sont pas traitees comme des fragments separes. Elles sont generees comme des parties d un systeme connecte, ce qui aide le produit a rester aligne a mesure qu il grandit.', 'Essas saidas nao sao tratadas como fragmentos separados. Elas sao geradas como partes de um sistema conectado, ajudando o produto a permanecer alinhado enquanto cresce.', 'Questi output non vengono trattati come frammenti separati. Vengono generati come parti di un unico sistema connesso, aiutando il prodotto a restare allineato mentre cresce.', 'Estas salidas no se tratan como fragmentos separados. Se generan como partes de un sistema conectado, ayudando a que el producto se mantenga alineado a medida que crece.'),
+      ],
+    },
+    {
+      title: text('Prepare for deployment', 'Preparez le deploiement', 'Prepare para o deploy', 'Prepara il deploy', 'Prepara el despliegue'),
+      lead: text('Built for the path to deployment', 'Concu pour le chemin vers le deploiement', 'Feito para o caminho ate o deploy', 'Pensato per il percorso verso il deploy', 'Pensado para el camino hacia el despliegue'),
+      body: [
+        text('A product is not complete just because code exists. It must be organized for real environments, prepared for runtime execution, and structured for delivery.', 'Un produit n est pas complet simplement parce que le code existe. Il doit etre organise pour de vrais environnements, prepare pour l execution runtime et structure pour la livraison.', 'Um produto nao esta completo apenas porque o codigo existe. Ele precisa estar organizado para ambientes reais, preparado para execucao em runtime e estruturado para entrega.', 'Un prodotto non e completo solo perche il codice esiste. Deve essere organizzato per ambienti reali, preparato per l esecuzione runtime e strutturato per la consegna.', 'Un producto no esta completo solo porque el codigo existe. Debe estar organizado para entornos reales, preparado para la ejecucion en runtime y estructurado para la entrega.'),
+        text('That is why deployment is treated as part of the product flow, not as an afterthought. The platform helps prepare the application for packaging, configuration, validation, and environment-aware release.', 'C est pourquoi le deploiement est traite comme une partie du flux produit, pas comme une reflexion tardive. La plateforme aide a preparer l application pour le packaging, la configuration, la validation et la mise en production selon l environnement.', 'Por isso o deploy e tratado como parte do fluxo do produto, nao como uma etapa tardia. A plataforma ajuda a preparar a aplicacao para empacotamento, configuracao, validacao e release orientado por ambiente.', 'Per questo il deploy viene trattato come parte del flusso di prodotto, non come un ripensamento finale. La piattaforma aiuta a preparare l applicazione per packaging, configurazione, validazione e rilascio consapevole dell ambiente.', 'Por eso el despliegue se trata como parte del flujo del producto, no como algo posterior. La plataforma ayuda a preparar la aplicacion para empaquetado, configuracion, validacion y lanzamiento consciente del entorno.'),
+      ],
+    },
+  ],
+  closing: {
+    eyebrow: text('Closing', 'Conclusion', 'Fechamento', 'Chiusura', 'Cierre'),
+    title: text('A complete path from idea to software', 'Un chemin complet de l idee au logiciel', 'Um caminho completo da ideia ao software', 'Un percorso completo dall idea al software', 'Un camino completo de la idea al software'),
+    body: [
+      text('The value of the platform is not just that it can generate code. The value is that it can take a product from a prompt, formalize it into a structured application blueprint, generate the coordinated system layers, and prepare the result for deployment.', 'La valeur de la plateforme ne vient pas seulement de sa capacite a generer du code. Elle vient du fait qu elle peut prendre un produit depuis un prompt, le formaliser en blueprint d application structure, generer des couches systeme coordonnees et preparer le resultat pour le deploiement.', 'O valor da plataforma nao esta apenas em gerar codigo. O valor esta em levar um produto de um prompt, formaliza-lo em um blueprint estruturado de aplicacao, gerar camadas coordenadas do sistema e preparar o resultado para deploy.', 'Il valore della piattaforma non sta solo nel fatto che puo generare codice. Il valore sta nel portare un prodotto da un prompt, formalizzarlo in un blueprint strutturato di applicazione, generare i livelli coordinati del sistema e preparare il risultato per il deploy.', 'El valor de la plataforma no esta solo en que puede generar codigo. El valor esta en que puede llevar un producto desde un prompt, formalizarlo en un plano estructurado de aplicacion, generar las capas coordinadas del sistema y preparar el resultado para despliegue.'),
+      text('Ready to turn your idea into software?', 'Pret a transformer votre idee en logiciel ?', 'Pronto para transformar sua ideia em software?', 'Pronto a trasformare la tua idea in software?', 'Listo para convertir tu idea en software?'),
+      text('Describe the product you want to build, and let the platform take it from prompt to structured system to deployment-ready output.', 'Decrivez le produit que vous voulez creer et laissez la plateforme l emmener du prompt au systeme structure puis a une sortie prete au deploiement.', 'Descreva o produto que voce quer construir e deixe a plataforma leva-lo do prompt ao sistema estruturado e ao resultado pronto para deploy.', 'Descrivi il prodotto che vuoi costruire e lascia che la piattaforma lo porti dal prompt al sistema strutturato fino a un output pronto per il deploy.', 'Describe el producto que quieres construir y deja que la plataforma lo lleve del prompt al sistema estructurado y a una salida lista para despliegue.'),
+    ],
+    callout: text('Build faster. Stay aligned. Scale with structure.', 'Construisez plus vite. Restez alignes. Changez d echelle avec structure.', 'Construa mais rapido. Mantenha o alinhamento. Escale com estrutura.', 'Costruisci piu velocemente. Resta allineato. Scala con struttura.', 'Construye mas rapido. Manten la alineacion. Escala con estructura.'),
+  },
+};
+
+const templatesMarketplaceFlow = {
+  introLabel: text('Platform overview', 'Vue d ensemble de la plateforme', 'Visao geral da plataforma', 'Panoramica della piattaforma', 'Vision general de la plataforma'),
+  introParagraphs: [
+    text(
+      'Our platform is designed to take software creation out of fragmented workflows and turn it into one connected system. From the first prompt to the generated application structure, each step is guided by a shared product definition.',
+      'Notre plateforme est concue pour sortir la creation logicielle de workflows fragmentes et la transformer en un systeme connecte. Du premier prompt a la structure d application generee, chaque etape est guidee par une definition produit partagee.',
+      'Nossa plataforma foi criada para tirar a criacao de software de fluxos fragmentados e transforma-la em um sistema conectado. Do primeiro prompt ate a estrutura de aplicacao gerada, cada etapa e guiada por uma definicao compartilhada do produto.',
+      'La nostra piattaforma e progettata per portare la creazione software fuori da workflow frammentati e trasformarla in un unico sistema connesso. Dal primo prompt alla struttura applicativa generata, ogni passaggio e guidato da una definizione di prodotto condivisa.',
+      'Nuestra plataforma esta disenada para sacar la creacion de software de flujos fragmentados y convertirla en un sistema conectado. Desde el primer prompt hasta la estructura de aplicacion generada, cada paso esta guiado por una definicion compartida del producto.',
+    ),
+  ],
+  sections: [
+    {
+      title: text('Start with a prompt', 'Commencez par un prompt', 'Comece com um prompt', 'Inizia con un prompt', 'Empieza con un prompt'),
+      lead: text('Every software product starts with an idea', 'Chaque produit logiciel commence par une idee', 'Todo produto de software comeca com uma ideia', 'Ogni prodotto software inizia con un idea', 'Todo producto de software comienza con una idea'),
+      body: [
+        text('Every software product starts with an idea, but ideas are rarely written as technical specifications on day one. They begin as goals, pain points, workflows, and opportunities.', 'Chaque produit logiciel commence par une idee, mais les idees sont rarement ecrites comme des specifications techniques des le premier jour. Elles commencent comme des objectifs, des points de friction, des workflows et des opportunites.', 'Todo produto de software comeca com uma ideia, mas as ideias raramente sao escritas como especificacoes tecnicas no primeiro dia. Elas comecam como objetivos, dores, fluxos e oportunidades.', 'Ogni prodotto software inizia con un idea, ma raramente le idee vengono scritte come specifiche tecniche fin dal primo giorno. Nascono come obiettivi, punti di attrito, workflow e opportunita.', 'Todo producto de software comienza con una idea, pero las ideas rara vez se escriben como especificaciones tecnicas desde el primer dia. Nacen como objetivos, puntos de dolor, flujos y oportunidades.'),
+        text('That is why the platform starts with a prompt.', 'C est pourquoi la plateforme commence par un prompt.', 'E por isso que a plataforma comeca com um prompt.', 'Per questo la piattaforma inizia con un prompt.', 'Por eso la plataforma empieza con un prompt.'),
+        text('You describe the product you want in plain language: what it should do, who it is for, how it should work, and what surfaces it should support. The platform interprets that request and begins identifying the structure underneath it.', 'Vous decrivez le produit que vous voulez en langage simple : ce qu il doit faire, pour qui il est concu, comment il doit fonctionner et quelles surfaces il doit prendre en charge. La plateforme interprete cette demande et commence a identifier la structure qui la sous-tend.', 'Voce descreve o produto que quer em linguagem simples: o que ele deve fazer, para quem e, como deve funcionar e quais superficies deve suportar. A plataforma interpreta esse pedido e comeca a identificar a estrutura por tras dele.', 'Descrivi il prodotto che vuoi in linguaggio semplice: cosa deve fare, per chi e, come deve funzionare e quali superfici deve supportare. La piattaforma interpreta questa richiesta e inizia a identificare la struttura sottostante.', 'Describes el producto que quieres en lenguaje simple: que debe hacer, para quien es, como debe funcionar y que superficies debe soportar. La plataforma interpreta esa solicitud y empieza a identificar la estructura que hay debajo.'),
+        text('This includes things such as product purpose, user roles, workflows, actions, data entities, required interfaces, operational needs, and target surfaces such as web, admin, mobile, and optional watch experiences.', 'Cela inclut des elements comme l objectif produit, les roles utilisateurs, les workflows, les actions, les entites de donnees, les interfaces requises, les besoins operationnels et les surfaces cibles comme le web, l admin, le mobile et les experiences montre en option.', 'Isso inclui itens como objetivo do produto, papeis de usuario, fluxos, acoes, entidades de dados, interfaces necessarias, necessidades operacionais e superficies de destino como web, admin, mobile e experiencias opcionais para watch.', 'Questo include elementi come lo scopo del prodotto, i ruoli utente, i workflow, le azioni, le entita dati, le interfacce richieste, le esigenze operative e le superfici di destinazione come web, admin, mobile ed esperienze watch opzionali.', 'Esto incluye elementos como el proposito del producto, roles de usuario, flujos, acciones, entidades de datos, interfaces necesarias, necesidades operativas y superficies objetivo como web, admin, mobile y experiencias de reloj opcionales.'),
+      ],
+    },
+    {
+      title: text('Convert the idea into a blueprint', 'Convertissez l idee en blueprint', 'Converta a ideia em um blueprint', 'Converti l idea in un blueprint', 'Convierte la idea en un blueprint'),
+      lead: text('Turn the prompt into a structured system definition', 'Transformez le prompt en definition systeme structuree', 'Transforme o prompt em uma definicao estruturada do sistema', 'Trasforma il prompt in una definizione di sistema strutturata', 'Convierte el prompt en una definicion estructurada del sistema'),
+      body: [
+        text('Once the prompt is understood, the platform converts it into a structured product blueprint.', 'Une fois le prompt compris, la plateforme le convertit en blueprint produit structure.', 'Quando o prompt e compreendido, a plataforma o converte em um blueprint de produto estruturado.', 'Una volta compreso il prompt, la piattaforma lo converte in un blueprint di prodotto strutturato.', 'Una vez que se entiende el prompt, la plataforma lo convierte en un blueprint estructurado del producto.'),
+        text('This blueprint becomes the system definition for the product. It is the foundation used to determine how the application should be organized, what components it needs, how the data layer should be shaped, what routes and actions exist, and how the product should behave across its different surfaces.', 'Ce blueprint devient la definition systeme du produit. C est la base utilisee pour determiner comment l application doit etre organisee, quels composants elle doit avoir, comment la couche de donnees doit etre structuree, quelles routes et actions existent et comment le produit doit se comporter sur ses differentes surfaces.', 'Esse blueprint se torna a definicao do sistema para o produto. Ele e a base usada para determinar como a aplicacao deve ser organizada, quais componentes precisa, como a camada de dados deve ser modelada, quais rotas e acoes existem e como o produto deve se comportar em suas diferentes superficies.', 'Questo blueprint diventa la definizione di sistema del prodotto. E la base usata per determinare come deve essere organizzata l applicazione, di quali componenti ha bisogno, come deve essere modellato il livello dati, quali route e azioni esistono e come il prodotto deve comportarsi sulle sue diverse superfici.', 'Ese blueprint se convierte en la definicion del sistema para el producto. Es la base usada para determinar como debe organizarse la aplicacion, que componentes necesita, como debe estructurarse la capa de datos, que rutas y acciones existen y como debe comportarse el producto en sus diferentes superficies.'),
+        text('This is what makes the platform much more than a prompt tool. It does not stop at interpretation. It transforms the concept into a machine-readable structure that can guide generation across the stack.', 'C est ce qui fait de la plateforme bien plus qu un simple outil de prompt. Elle ne s arrete pas a l interpretation. Elle transforme le concept en structure lisible par machine capable de guider la generation sur tout le stack.', 'E isso que torna a plataforma muito mais do que uma ferramenta de prompt. Ela nao para na interpretacao. Ela transforma o conceito em uma estrutura legivel por maquina que pode orientar a geracao em todo o stack.', 'Questo e cio che rende la piattaforma molto piu di uno strumento di prompt. Non si ferma all interpretazione. Trasforma il concetto in una struttura leggibile dalla macchina che puo guidare la generazione lungo tutto lo stack.', 'Eso es lo que hace que la plataforma sea mucho mas que una herramienta de prompt. No se queda en la interpretacion. Transforma el concepto en una estructura legible por maquina que puede guiar la generacion en todo el stack.'),
+      ],
+    },
+    {
+      title: text('Generate the full application stack', 'Generez tout le stack applicatif', 'Gere todo o stack da aplicacao', 'Genera l intero stack applicativo', 'Genera todo el stack de la aplicacion'),
+      lead: text('Build the layers the application needs', 'Construisez les couches dont l application a besoin', 'Construa as camadas que a aplicacao precisa', 'Costruisci i livelli di cui l applicazione ha bisogno', 'Construye las capas que la aplicacion necesita'),
+      body: [
+        text('With the blueprint in place, the platform begins building the product layers required by the application.', 'Avec le blueprint en place, la plateforme commence a construire les couches produit necessaires a l application.', 'Com o blueprint definido, a plataforma comeca a construir as camadas do produto exigidas pela aplicacao.', 'Con il blueprint pronto, la piattaforma inizia a costruire i livelli di prodotto richiesti dall applicazione.', 'Con el blueprint listo, la plataforma empieza a construir las capas del producto que requiere la aplicacion.'),
+        text('This can include web application structures, backend services, database-backed logic, admin interfaces, mobile outputs, optional watch outputs, and deployment-oriented system assets.', 'Cela peut inclure des structures d application web, des services backend, une logique reliee a la base de donnees, des interfaces admin, des sorties mobile, des sorties watch optionnelles et des assets systeme orientes deploiement.', 'Isso pode incluir estruturas de aplicacao web, servicos backend, logica apoiada por banco de dados, interfaces admin, saidas mobile, saidas watch opcionais e ativos de sistema orientados a deploy.', 'Questo puo includere strutture di applicazioni web, servizi backend, logica supportata da database, interfacce admin, output mobile, output watch opzionali e asset di sistema orientati al deploy.', 'Esto puede incluir estructuras de aplicaciones web, servicios backend, logica respaldada por base de datos, interfaces admin, salidas mobile, salidas watch opcionales y activos del sistema orientados al despliegue.'),
+        text('The key difference is that these are not treated as unrelated outputs. They are generated as parts of one coordinated system, based on the same product definition.', 'La difference cle est qu ils ne sont pas traites comme des sorties sans lien. Ils sont generes comme des parties d un systeme coordonne, base sur la meme definition produit.', 'A diferenca principal e que eles nao sao tratados como entregas desconectadas. Sao gerados como partes de um sistema coordenado, com base na mesma definicao de produto.', 'La differenza chiave e che non vengono trattati come output scollegati. Vengono generati come parti di un unico sistema coordinato, basato sulla stessa definizione di prodotto.', 'La diferencia clave es que no se tratan como salidas sin relacion. Se generan como partes de un sistema coordinado, basado en la misma definicion del producto.'),
+      ],
+    },
+    {
+      title: text('Keep everything aligned', 'Gardez tout aligne', 'Mantenha tudo alinhado', 'Mantieni tutto allineato', 'Mantiene todo alineado'),
+      lead: text('Reduce fragmentation across the stack', 'Reduisez la fragmentation sur tout le stack', 'Reduza a fragmentacao em todo o stack', 'Riduci la frammentazione lungo tutto lo stack', 'Reduce la fragmentacion en todo el stack'),
+      body: [
+        text('Traditional development often becomes fragmented. Frontend teams move in one direction, backend systems evolve another way, the database layer drifts again, and deployment becomes a separate concern altogether.', 'Le developpement traditionnel devient souvent fragmente. Les equipes frontend avancent dans une direction, les systemes backend evoluent autrement, la couche de base de donnees derive encore, et le deploiement devient un sujet completement distinct.', 'O desenvolvimento tradicional costuma se fragmentar. Times de frontend seguem uma direcao, sistemas backend evoluem de outra forma, a camada de banco de dados se distancia novamente e o deploy se torna uma preocupacao separada.', 'Lo sviluppo tradizionale spesso si frammenta. I team frontend vanno in una direzione, i sistemi backend evolvono in un altra, il livello database deriva ancora e il deploy diventa una preoccupazione separata.', 'El desarrollo tradicional a menudo se fragmenta. Los equipos frontend avanzan en una direccion, los sistemas backend evolucionan de otra, la capa de base de datos vuelve a desviarse y el despliegue se convierte en una preocupacion separada.'),
+        text('Our platform is built to reduce that fragmentation.', 'Notre plateforme est construite pour reduire cette fragmentation.', 'Nossa plataforma foi criada para reduzir essa fragmentacao.', 'La nostra piattaforma e costruita per ridurre questa frammentazione.', 'Nuestra plataforma esta construida para reducir esa fragmentacion.'),
+        text('Because generation is driven by the same structured blueprint, the web experience, backend logic, admin system, data layer, and optional mobile surfaces remain more aligned from the beginning. This supports clearer architecture, better maintainability, and fewer interpretation errors across the system.', 'Comme la generation est pilotee par le meme blueprint structure, l experience web, la logique backend, le systeme admin, la couche de donnees et les surfaces mobiles optionnelles restent plus alignees des le depart. Cela favorise une architecture plus claire, une meilleure maintenabilite et moins d erreurs d interpretation dans le systeme.', 'Como a geracao e guiada pelo mesmo blueprint estruturado, a experiencia web, a logica backend, o sistema admin, a camada de dados e as superficies mobile opcionais permanecem mais alinhados desde o inicio. Isso favorece uma arquitetura mais clara, melhor manutencao e menos erros de interpretacao em todo o sistema.', 'Poiche la generazione e guidata dallo stesso blueprint strutturato, l esperienza web, la logica backend, il sistema admin, il livello dati e le superfici mobile opzionali restano piu allineati fin dall inizio. Questo supporta un architettura piu chiara, una manutenzione migliore e meno errori di interpretazione in tutto il sistema.', 'Como la generacion esta guiada por el mismo blueprint estructurado, la experiencia web, la logica backend, el sistema admin, la capa de datos y las superficies mobile opcionales permanecen mas alineadas desde el inicio. Esto favorece una arquitectura mas clara, mejor mantenibilidad y menos errores de interpretacion en todo el sistema.'),
+      ],
+    },
+    {
+      title: text('Support the product beyond generation', 'Soutenez le produit au-dela de la generation', 'D suporte ao produto alem da geracao', 'Supporta il prodotto oltre la generazione', 'Da soporte al producto mas alla de la generacion'),
+      lead: text('Generation is only one stage in the software lifecycle', 'La generation n est qu une etape du cycle de vie logiciel', 'A geracao e apenas uma etapa do ciclo de vida do software', 'La generazione e solo una fase del ciclo di vita del software', 'La generacion es solo una etapa del ciclo de vida del software'),
+      body: [
+        text('Generation is only one stage in the software lifecycle.', 'La generation n est qu une etape du cycle de vie logiciel.', 'A geracao e apenas uma etapa do ciclo de vida do software.', 'La generazione e solo una fase del ciclo di vita del software.', 'La generacion es solo una etapa del ciclo de vida del software.'),
+        text('Real products also need structural and operational support as they evolve. That is why the platform is designed to support more than just code output. It can support broader system layers such as collaboration workflows, background jobs, queue-driven processes, diagnostics, plugin structures, experimentation modules, operational tooling, and deployment planning.', 'Les vrais produits ont aussi besoin de support structurel et operationnel a mesure qu ils evoluent. C est pourquoi la plateforme est concue pour prendre en charge bien plus qu une simple sortie de code. Elle peut couvrir des couches systeme plus larges comme les workflows de collaboration, les jobs en arriere-plan, les processus pilotes par file, les diagnostics, les structures de plugins, les modules d experimentation, l outillage operationnel et la planification du deploiement.', 'Produtos reais tambem precisam de suporte estrutural e operacional a medida que evoluem. Por isso a plataforma foi criada para oferecer mais do que simples saida de codigo. Ela pode suportar camadas mais amplas do sistema, como fluxos de colaboracao, jobs em segundo plano, processos guiados por filas, diagnosticos, estruturas de plugins, modulos de experimentacao, ferramentas operacionais e planejamento de deploy.', 'I prodotti reali hanno anche bisogno di supporto strutturale e operativo mentre evolvono. Per questo la piattaforma e progettata per supportare molto piu del solo output di codice. Puo supportare livelli di sistema piu ampi come workflow di collaborazione, job in background, processi guidati da code, diagnostica, strutture plugin, moduli di sperimentazione, tooling operativo e pianificazione del deploy.', 'Los productos reales tambien necesitan soporte estructural y operativo a medida que evolucionan. Por eso la plataforma esta disenada para soportar mucho mas que la salida de codigo. Puede soportar capas mas amplias del sistema como flujos de colaboracion, trabajos en segundo plano, procesos guiados por colas, diagnosticos, estructuras de plugins, modulos de experimentacion, herramientas operativas y planificacion del despliegue.'),
+        text('This creates a stronger base for iteration after the first version is generated.', 'Cela cree une base plus solide pour l iteration apres la generation de la premiere version.', 'Isso cria uma base mais forte para iteracao depois que a primeira versao e gerada.', 'Questo crea una base piu solida per iterare dopo che la prima versione e stata generata.', 'Esto crea una base mas fuerte para iterar despues de que se genera la primera version.'),
+      ],
+    },
+  ],
+  closing: {
+    eyebrow: text('Closing', 'Conclusion', 'Fechamento', 'Chiusura', 'Cierre'),
+    title: text('A complete workflow for building software', 'Un workflow complet pour creer du logiciel', 'Um fluxo completo para construir software', 'Un workflow completo per creare software', 'Un flujo completo para construir software'),
+    body: [
+      text('The result is a more complete workflow for building software: one that starts with an idea, turns it into structure, generates the coordinated product stack, and supports the path toward deployment and growth.', 'Le resultat est un workflow plus complet pour creer du logiciel : un flux qui commence par une idee, la transforme en structure, genere un stack produit coordonne et soutient le chemin vers le deploiement et la croissance.', 'O resultado e um fluxo mais completo para construir software: um fluxo que comeca com uma ideia, a transforma em estrutura, gera o stack coordenado do produto e sustenta o caminho rumo ao deploy e ao crescimento.', 'Il risultato e un workflow piu completo per creare software: un percorso che parte da un idea, la trasforma in struttura, genera lo stack prodotto coordinato e supporta il cammino verso deploy e crescita.', 'El resultado es un flujo mas completo para construir software: uno que empieza con una idea, la convierte en estructura, genera el stack coordinado del producto y apoya el camino hacia el despliegue y el crecimiento.'),
+    ],
+    callout: text('One connected system from idea to working software.', 'Un systeme connecte de l idee au logiciel fonctionnel.', 'Um sistema conectado da ideia ao software funcional.', 'Un sistema connesso dall idea al software funzionante.', 'Un sistema conectado de la idea al software funcional.'),
   },
 };
 
@@ -321,8 +462,8 @@ export function getHeaderCopy(language: Language) {
       about: pick(language, text('About Us', 'A propos', 'Sobre nos', 'Chi siamo', 'Sobre nosotros')),
     },
     productLinks: [
-      { href: '/product/backend-platform', label: pick(language, productPages['backend-platform'].title), desc: pick(language, productPages['backend-platform'].description) },
-      { href: '/product/templates-marketplace', label: pick(language, productPages['templates-marketplace'].title), desc: pick(language, productPages['templates-marketplace'].description) },
+      { href: '/product/prompt-deployment', label: pick(language, productPages['prompt-deployment'].title), desc: pick(language, productPages['prompt-deployment'].description) },
+      { href: '/product/how-it-works', label: pick(language, productPages['how-it-works'].title), desc: pick(language, productPages['how-it-works'].description) },
       { href: '/product/integrations', label: pick(language, productPages.integrations.title), desc: pick(language, productPages.integrations.description) },
       { href: '/product/roadmap', label: pick(language, productPages.roadmap.title), desc: pick(language, productPages.roadmap.description) },
       { href: '/product/features', label: pick(language, productPages.features.title), desc: pick(language, productPages.features.description) },
@@ -648,7 +789,6 @@ export function getPricingCopy(language: Language) {
           pick(language, text('Backend functions', 'Fonctions backend', 'Funcoes backend', 'Funzioni backend', 'Funciones backend')),
           pick(language, text('AI model selection', 'Choix du modele IA', 'Selecao de modelo de IA', 'Selezione del modello AI', 'Seleccion de modelo de IA')),
           pick(language, text('Connect a custom domain', 'Connecter un domaine personnalise', 'Conectar dominio proprio', 'Collega un dominio personalizzato', 'Conectar un dominio personalizado')),
-          pick(language, text('Free domain for 1 year', 'Domaine offert pendant 1 an', 'Dominio gratis por 1 ano', 'Dominio gratis per 1 anno', 'Dominio gratis por 1 ano')),
           pick(language, text('GitHub integration', 'Integration GitHub', 'Integracao GitHub', 'Integrazione GitHub', 'Integracion GitHub')),
           pick(language, text('Early beta access', 'Acces beta anticipe', 'Acesso antecipado a beta', 'Accesso anticipato alla beta', 'Acceso anticipado a beta')),
           pick(language, text('Priority support', 'Support prioritaire', 'Suporte prioritario', 'Supporto prioritario', 'Soporte prioritario')),
@@ -664,7 +804,6 @@ export function getPricingCopy(language: Language) {
           pick(language, text('Backend functions', 'Fonctions backend', 'Funcoes backend', 'Funzioni backend', 'Funciones backend')),
           pick(language, text('AI model selection', 'Choix du modele IA', 'Selecao de modelo de IA', 'Selezione del modello AI', 'Seleccion de modelo de IA')),
           pick(language, text('Connect a custom domain', 'Connecter un domaine personnalise', 'Conectar dominio proprio', 'Collega un dominio personalizzato', 'Conectar un dominio personalizado')),
-          pick(language, text('Free domain for 1 year', 'Domaine offert pendant 1 an', 'Dominio gratis por 1 ano', 'Dominio gratis per 1 anno', 'Dominio gratis por 1 ano')),
           pick(language, text('GitHub integration', 'Integration GitHub', 'Integracao GitHub', 'Integrazione GitHub', 'Integracion GitHub')),
           pick(language, text('Early beta access', 'Acces beta anticipe', 'Acesso antecipado a beta', 'Accesso anticipato alla beta', 'Acceso anticipado a beta')),
         ],
@@ -679,7 +818,6 @@ export function getPricingCopy(language: Language) {
           pick(language, text('Backend functions', 'Fonctions backend', 'Funcoes backend', 'Funzioni backend', 'Funciones backend')),
           pick(language, text('AI model selection', 'Choix du modele IA', 'Selecao de modelo de IA', 'Selezione del modello AI', 'Seleccion de modelo de IA')),
           pick(language, text('Connect a custom domain', 'Connecter un domaine personnalise', 'Conectar dominio proprio', 'Collega un dominio personalizzato', 'Conectar un dominio personalizado')),
-          pick(language, text('Free domain for 1 year', 'Domaine offert pendant 1 an', 'Dominio gratis por 1 ano', 'Dominio gratis per 1 anno', 'Dominio gratis por 1 ano')),
           pick(language, text('GitHub integration', 'Integration GitHub', 'Integracao GitHub', 'Integrazione GitHub', 'Integracion GitHub')),
         ],
       },
@@ -760,6 +898,42 @@ export function getProductTemplateCopy(language: Language) {
     nextCardTitle: pick(language, text('Connect this page to demos, forms, or your backend later.', 'Reliez cette page a des demos, formulaires ou votre backend plus tard.', 'Conecte esta pagina a demos, formularios ou ao seu backend depois.', 'Collega questa pagina a demo, moduli o al tuo backend in seguito.', 'Conecta esta pagina con demos, formularios o tu backend mas adelante.')),
     nextCardDescription: pick(language, text('The structure is already in place, so you can keep adding richer content without relying on one long scrolling homepage.', 'La structure est deja en place, vous pouvez donc ajouter du contenu plus riche sans dependre d une longue homepage.', 'A estrutura ja esta pronta, entao voce pode adicionar conteudo mais rico sem depender de uma homepage longa.', 'La struttura e gia pronta, quindi puoi aggiungere contenuti piu ricchi senza dipendere da una lunga homepage.', 'La estructura ya esta lista, asi que puedes agregar contenido mas rico sin depender de una homepage larga.')),
     viewProductFeatures: pick(language, text('View product features', 'Voir les fonctionnalites produit', 'Ver recursos do produto', 'Vedi funzionalita prodotto', 'Ver funcionalidades del producto')),
+  };
+}
+
+export function getBackendPlatformFlowCopy(language: Language) {
+  return {
+    introLabel: pick(language, backendPlatformFlow.introLabel),
+    introParagraphs: backendPlatformFlow.introParagraphs.map((paragraph) => pick(language, paragraph)),
+    sections: backendPlatformFlow.sections.map((section) => ({
+      title: pick(language, section.title),
+      lead: pick(language, section.lead),
+      body: section.body.map((paragraph) => pick(language, paragraph)),
+    })),
+    closing: {
+      eyebrow: pick(language, backendPlatformFlow.closing.eyebrow),
+      title: pick(language, backendPlatformFlow.closing.title),
+      body: backendPlatformFlow.closing.body.map((paragraph) => pick(language, paragraph)),
+      callout: pick(language, backendPlatformFlow.closing.callout),
+    },
+  };
+}
+
+export function getTemplatesMarketplaceFlowCopy(language: Language) {
+  return {
+    introLabel: pick(language, templatesMarketplaceFlow.introLabel),
+    introParagraphs: templatesMarketplaceFlow.introParagraphs.map((paragraph) => pick(language, paragraph)),
+    sections: templatesMarketplaceFlow.sections.map((section) => ({
+      title: pick(language, section.title),
+      lead: pick(language, section.lead),
+      body: section.body.map((paragraph) => pick(language, paragraph)),
+    })),
+    closing: {
+      eyebrow: pick(language, templatesMarketplaceFlow.closing.eyebrow),
+      title: pick(language, templatesMarketplaceFlow.closing.title),
+      body: templatesMarketplaceFlow.closing.body.map((paragraph) => pick(language, paragraph)),
+      callout: pick(language, templatesMarketplaceFlow.closing.callout),
+    },
   };
 }
 

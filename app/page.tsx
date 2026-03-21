@@ -45,7 +45,7 @@ export default function HomePage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
-                href="/product/backend-platform"
+                href="/product/prompt-deployment"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-base font-semibold text-slate-950 transition hover:scale-[1.02]"
               >
                 {copy.ctas.startBuilding} <ArrowRight className="h-4 w-4" />

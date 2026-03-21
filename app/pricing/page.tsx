@@ -8,26 +8,6 @@ import { getPricingCopy } from '@/lib/i18n';
 
 type BillingPeriod = 'yearly' | 'monthly';
 
-const MONTHLY_HIDDEN_DOMAIN_HIGHLIGHTS = new Set([
-  'Free domain for 1 year',
-  'Domaine offert pendant 1 an',
-  'Dominio gratis por 1 ano',
-  'Dominio gratis per 1 anno',
-]);
-
-const MONTHLY_HIDDEN_DOMAIN_PLANS = new Set(['Elite', 'Pro', 'Builder']);
-
-function getVisibleHighlights(
-  plan: ReturnType<typeof getPricingCopy>['plans'][number],
-  billingPeriod: BillingPeriod
-) {
-  if (billingPeriod !== 'monthly' || !MONTHLY_HIDDEN_DOMAIN_PLANS.has(plan.name)) {
-    return plan.highlights;
-  }
-
-  return plan.highlights.filter((item) => !MONTHLY_HIDDEN_DOMAIN_HIGHLIGHTS.has(item));
-}
-
 function PricingCard({
   plan,
   billingPeriod,
@@ -53,7 +33,6 @@ function PricingCard({
 }) {
   const displayPrice =
     typeof plan.price === 'number' ? plan.price : plan.price[billingPeriod];
-  const visibleHighlights = getVisibleHighlights(plan, billingPeriod);
   const emphasized = hasUserSelection ? selected : false;
 
   return (
@@ -111,7 +90,7 @@ function PricingCard({
         <div className="text-base font-semibold text-white">{planHighlightsLabel}</div>
 
         <ul className="mt-5 space-y-3.5 text-[1rem] text-slate-300">
-          {visibleHighlights.map((item) => (
+          {plan.highlights.map((item) => (
             <li key={item} className="flex items-start gap-3 leading-6">
               <Check className="mt-0.5 h-5 w-5 flex-none text-cyan-300" strokeWidth={2.2} />
               <span>{item}</span>
