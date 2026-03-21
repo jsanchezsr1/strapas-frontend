@@ -18,6 +18,7 @@ export function ProductTemplate({ pageKey }: { pageKey: ProductPageKey }) {
   const { language } = useLanguage();
   const page = getProductPageCopy(language, pageKey);
   const copy = getProductTemplateCopy(language);
+  const blueprintPage = pageKey === 'blueprint' ? page.blueprint : null;
   const structuredFlow =
     pageKey === 'prompt-deployment'
       ? getBackendPlatformFlowCopy(language)
@@ -94,7 +95,76 @@ export function ProductTemplate({ pageKey }: { pageKey: ProductPageKey }) {
         </>
       ) : null}
 
-      {!structuredFlow ? (
+      {blueprintPage ? (
+        <>
+          <SectionShell
+            eyebrow={blueprintPage.whatIs.eyebrow}
+            title={blueprintPage.whatIs.title}
+            description={blueprintPage.whatIs.paragraphs[0]}
+          >
+            <div className="glass rounded-[2rem] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                {blueprintPage.whatIs.paragraphs.slice(1).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={blueprintPage.whyItMatters.eyebrow}
+            title={blueprintPage.whyItMatters.title}
+          >
+            <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="glass rounded-[2rem] p-8 md:p-10">
+                <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                  {blueprintPage.whyItMatters.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur md:p-8">
+                <div className="text-xs uppercase tracking-[0.24em] text-cyan-300">{blueprintPage.coordinates.panelEyebrow}</div>
+                <h3 className="mt-4 text-2xl font-semibold text-white">{blueprintPage.coordinates.panelTitle}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base md:leading-8">
+                  {blueprintPage.coordinates.description}
+                </p>
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={blueprintPage.coordinates.eyebrow}
+            title={blueprintPage.coordinates.title}
+            description={blueprintPage.coordinates.description}
+          >
+            <InfoGrid items={blueprintPage.coordinates.items} />
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={blueprintPage.benefits.eyebrow}
+            title={blueprintPage.benefits.title}
+            description={blueprintPage.benefits.intro}
+          >
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="rounded-[2rem] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(32,93,148,0.32),rgba(5,10,21,0.98))] p-8 md:p-10">
+                <div className="space-y-5 text-base leading-8 text-slate-200 md:text-lg">
+                  {blueprintPage.benefits.benefits.map((benefit) => (
+                    <div key={benefit} className="flex gap-4">
+                      <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-cyan-200" />
+                      <p>{benefit}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="glass rounded-[2rem] p-8 md:p-10">
+                <div className="text-xs uppercase tracking-[0.24em] text-cyan-300">{copy.whyPages}</div>
+                <p className="mt-5 text-lg leading-8 text-slate-300">{blueprintPage.benefits.closing}</p>
+              </div>
+            </div>
+          </SectionShell>
+        </>
+      ) : !structuredFlow ? (
         <>
           <SectionShell
             eyebrow={copy.coreValue}

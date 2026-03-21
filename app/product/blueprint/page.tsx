@@ -1,5 +1,5 @@
 import { ProductTemplate } from '@/components/product-template';
 
 export default function Page() {
-  return <ProductTemplate pageKey="integrations" />;
+  return <ProductTemplate pageKey="blueprint" />;
 }

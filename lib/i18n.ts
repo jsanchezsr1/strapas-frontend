@@ -7,10 +7,38 @@ type LocalizedInfoItem = {
   text: LocalizedText;
 };
 
+type LocalizedSection = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  paragraphs: LocalizedText[];
+};
+
+type LocalizedEditorialSection = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  intro: LocalizedText;
+  benefits: LocalizedText[];
+  closing: LocalizedText;
+};
+
+type LocalizedBlueprintPage = {
+  whatIs: LocalizedSection;
+  whyItMatters: LocalizedSection;
+  coordinates: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    description: LocalizedText;
+    panelEyebrow: LocalizedText;
+    panelTitle: LocalizedText;
+    items: LocalizedInfoItem[];
+  };
+  benefits: LocalizedEditorialSection;
+};
+
 type ProductPageKey =
   | 'prompt-deployment'
   | 'how-it-works'
-  | 'integrations'
+  | 'blueprint'
   | 'roadmap'
   | 'features'
   | 'changelog';
@@ -67,6 +95,7 @@ const productPages: Record<
     title: LocalizedText;
     description: LocalizedText;
     pillars: LocalizedInfoItem[];
+    blueprint?: LocalizedBlueprintPage;
   }
 > = {
   'prompt-deployment': {
@@ -134,15 +163,67 @@ const productPages: Record<
       { title: text('Aligned system generation', 'Generation systeme alignee', 'Geracao de sistema alinhado', 'Generazione di sistema allineata', 'Generacion de sistema alineado'), text: text('Position generation as one coordinated system that keeps product layers aligned from the beginning.', 'Positionnez la generation comme un systeme coordonne qui garde les couches produit alignees des le debut.', 'Posicione a geracao como um sistema coordenado que mantem as camadas do produto alinhadas desde o inicio.', 'Posiziona la generazione come un sistema coordinato che mantiene allineati i livelli del prodotto fin dall inizio.', 'Posiciona la generacion como un sistema coordinado que mantiene alineadas las capas del producto desde el principio.') },
     ],
   },
-  integrations: {
-    eyebrow: text('Product / Integrations', 'Produit / Integrations', 'Produto / Integracoes', 'Prodotto / Integrazioni', 'Producto / Integraciones'),
-    title: text('Discover integrations that plug right into your app', 'Decouvrez des integrations qui se branchent directement a votre app', 'Descubra integracoes que entram direto na sua app', 'Scopri integrazioni che si collegano subito alla tua app', 'Descubre integraciones que se conectan directo a tu app'),
-    description: text('This page gives integrations enough room to matter. Instead of a small homepage block, it becomes a dedicated destination that explains how your apps connect to payments, communication, data, and operations tools.', 'Cette page donne assez d espace aux integrations pour compter. Au lieu d un petit bloc sur la homepage, elle devient une vraie destination.', 'Esta pagina da espaco suficiente para que integracoes importem. Em vez de um pequeno bloco na homepage, vira um destino dedicado.', 'Questa pagina da alle integrazioni lo spazio necessario. Invece di un piccolo blocco in homepage, diventa una destinazione dedicata.', 'Esta pagina da a las integraciones el espacio suficiente para importar. En lugar de un pequeno bloque en la homepage, se convierte en un destino dedicado.'),
+  blueprint: {
+    eyebrow: text('Product / Blueprint', 'Produit / Blueprint', 'Produto / Blueprint', 'Prodotto / Blueprint', 'Producto / Blueprint'),
+    title: text('Blueprint intelligence for the full product system', 'Intelligence blueprint pour tout le systeme produit', 'Inteligencia de blueprint para todo o sistema do produto', 'Intelligenza blueprint per l intero sistema prodotto', 'Inteligencia blueprint para todo el sistema del producto'),
+    description: text('Once the prompt is understood, the platform converts it into a structured application blueprint that becomes the single source of truth for how the product should be organized.', 'Une fois le prompt compris, la plateforme le convertit en blueprint applicatif structure qui devient la source unique de verite pour organiser le produit.', 'Quando o prompt e compreendido, a plataforma o converte em um blueprint estruturado da aplicacao que vira a fonte unica de verdade para organizar o produto.', 'Una volta compreso il prompt, la piattaforma lo converte in un blueprint applicativo strutturato che diventa la fonte unica di verita per organizzare il prodotto.', 'Una vez entendido el prompt, la plataforma lo convierte en un blueprint estructurado de la aplicacion que se vuelve la fuente unica de verdad para organizar el producto.'),
     pillars: [
-      { title: text('Connected workflows', 'Workflows connectes', 'Flux conectados', 'Workflow connessi', 'Flujos conectados'), text: text('Demonstrate how apps fit into the rest of a company s stack instead of operating as isolated prototypes.', 'Montrez comment les apps s integrent au stack de l entreprise au lieu de rester des prototypes isoles.', 'Mostre como apps se encaixam no stack da empresa em vez de funcionar como prototipos isolados.', 'Mostra come le app si inseriscono nello stack aziendale invece di restare prototipi isolati.', 'Demuestra como las apps encajan en el stack de la empresa en lugar de operar como prototipos aislados.') },
-      { title: text('Automation handoffs', 'Relais d automatisation', 'Passagens de automacao', 'Passaggi di automazione', 'Puentes de automatizacion'), text: text('Position integrations as a bridge between prompts, triggers, external services, and real business outcomes.', 'Positionnez les integrations comme un pont entre prompts, triggers, services externes et vrais resultats business.', 'Posicione integracoes como uma ponte entre prompts, gatilhos, servicos externos e resultados reais.', 'Posiziona le integrazioni come un ponte tra prompt, trigger, servizi esterni e risultati reali.', 'Posiciona las integraciones como un puente entre prompts, disparadores, servicios externos y resultados reales.') },
-      { title: text('Trust-building proof', 'Preuves de confiance', 'Prova de confianca', 'Prova di fiducia', 'Pruebas de confianza'), text: text('A fuller page gives you space for logos, setup examples, and workflow scenarios later.', 'Une page plus complete vous laisse de la place pour des logos, exemples de setup et scenarios.', 'Uma pagina mais completa abre espaco para logos, exemplos de setup e cenarios de fluxo.', 'Una pagina piu completa ti lascia spazio per loghi, esempi di setup e scenari di workflow.', 'Una pagina mas completa te da espacio para logos, ejemplos de configuracion y escenarios de flujo.') },
+      { title: text('Single source of truth', 'Source unique de verite', 'Fonte unica de verdade', 'Fonte unica di verita', 'Fuente unica de verdad'), text: text('Frame the blueprint as the system definition that keeps every product layer coordinated from one source.', 'Presentez le blueprint comme la definition systeme qui garde chaque couche produit coordonnee depuis une seule source.', 'Apresente o blueprint como a definicao do sistema que mantem cada camada do produto coordenada a partir de uma unica fonte.', 'Presenta il blueprint come la definizione di sistema che mantiene coordinato ogni livello del prodotto da un unica fonte.', 'Presenta el blueprint como la definicion del sistema que mantiene coordinada cada capa del producto desde una sola fuente.') },
+      { title: text('Machine-readable foundation', 'Fondation lisible par machine', 'Fundacao legivel por maquina', 'Fondazione leggibile dalla macchina', 'Fundacion legible por maquina'), text: text('Explain that the platform turns intent into a machine-readable foundation that drives generation consistently across the stack.', 'Expliquez que la plateforme transforme l intention en fondation lisible par machine qui pilote la generation sur tout le stack.', 'Explique que a plataforma transforma a intencao em uma fundacao legivel por maquina que conduz a geracao em todo o stack.', 'Spiega che la piattaforma trasforma l intento in una fondazione leggibile dalla macchina che guida la generazione lungo tutto lo stack.', 'Explica que la plataforma transforma la intencion en una fundacion legible por maquina que impulsa la generacion en todo el stack.') },
+      { title: text('Aligned product iteration', 'Iteration produit alignee', 'Iteracao de produto alinhada', 'Iterazione prodotto allineata', 'Iteracion de producto alineada'), text: text('Show how building from one coordinated blueprint reduces drift, makes iteration easier, and improves architectural consistency.', 'Montrez comment construire depuis un blueprint coordonne reduit la derive, facilite l iteration et ameliore la coherence architecturale.', 'Mostre como construir a partir de um blueprint coordenado reduz desvios, facilita a iteracao e melhora a consistencia arquitetural.', 'Mostra come costruire da un blueprint coordinato riduce la deriva, facilita l iterazione e migliora la coerenza architetturale.', 'Muestra como construir desde un blueprint coordinado reduce desviaciones, facilita la iteracion y mejora la consistencia arquitectonica.') },
     ],
+    blueprint: {
+      whatIs: {
+        eyebrow: text('Section 1', 'Section 1', 'Secao 1', 'Sezione 1', 'Seccion 1'),
+        title: text('What the blueprint is', 'Ce qu est le blueprint', 'O que e o blueprint', 'Che cos e il blueprint', 'Que es el blueprint'),
+        paragraphs: [
+          text('Once the prompt is understood, the platform converts it into a structured application blueprint.', 'Une fois le prompt compris, la plateforme le convertit en blueprint applicatif structure.', 'Quando o prompt e compreendido, a plataforma o converte em um blueprint estruturado da aplicacao.', 'Una volta compreso il prompt, la piattaforma lo converte in un blueprint applicativo strutturato.', 'Una vez entendido el prompt, la plataforma lo convierte en un blueprint estructurado de la aplicacion.'),
+          text('This blueprint becomes the system definition for the product.', 'Ce blueprint devient la definition systeme du produit.', 'Esse blueprint se torna a definicao do sistema para o produto.', 'Questo blueprint diventa la definizione di sistema del prodotto.', 'Este blueprint se convierte en la definicion del sistema para el producto.'),
+          text('It serves as the single source of truth for how the application should be organized across every major layer.', 'Il sert de source unique de verite pour organiser l application a travers chaque couche majeure.', 'Ele serve como a fonte unica de verdade para como a aplicacao deve ser organizada em cada camada principal.', 'Serve come fonte unica di verita per come l applicazione deve essere organizzata in ogni livello principale.', 'Sirve como la fuente unica de verdad para como debe organizarse la aplicacion en cada capa principal.'),
+        ],
+      },
+      whyItMatters: {
+        eyebrow: text('Section 2', 'Section 2', 'Secao 2', 'Sezione 2', 'Seccion 2'),
+        title: text('Why the blueprint matters', 'Pourquoi le blueprint compte', 'Por que o blueprint importa', 'Perche il blueprint conta', 'Por que importa el blueprint'),
+        paragraphs: [
+          text('This is where the platform becomes much more than a prompt tool.', 'C est ici que la plateforme devient bien plus qu un simple outil de prompt.', 'E aqui que a plataforma se torna muito mais do que uma ferramenta de prompt.', 'E qui che la piattaforma diventa molto piu di uno strumento di prompt.', 'Aqui es donde la plataforma se convierte en mucho mas que una herramienta de prompts.'),
+          text('It transforms the concept into a machine-readable foundation that can drive generation consistently across the entire stack.', 'Elle transforme le concept en fondation lisible par machine capable de guider la generation de facon coherente sur tout le stack.', 'Ela transforma o conceito em uma fundacao legivel por maquina capaz de conduzir a geracao de forma consistente em todo o stack.', 'Trasforma il concetto in una fondazione leggibile dalla macchina che puo guidare la generazione in modo coerente lungo tutto lo stack.', 'Transforma el concepto en una fundacion legible por maquina que puede impulsar la generacion de forma consistente en todo el stack.'),
+          text('Instead of rebuilding the same intent multiple times in different layers, the product is built from one coordinated source.', 'Au lieu de reconstruire la meme intention plusieurs fois dans des couches differentes, le produit est construit depuis une source coordonnee.', 'Em vez de reconstruir a mesma intencao varias vezes em camadas diferentes, o produto e construido a partir de uma fonte coordenada.', 'Invece di ricostruire lo stesso intento piu volte in livelli diversi, il prodotto viene costruito da una fonte coordinata.', 'En lugar de reconstruir la misma intencion varias veces en capas distintas, el producto se construye desde una fuente coordinada.'),
+        ],
+      },
+      coordinates: {
+        eyebrow: text('Section 3', 'Section 3', 'Secao 3', 'Sezione 3', 'Seccion 3'),
+        title: text('What the blueprint coordinates', 'Ce que le blueprint coordonne', 'O que o blueprint coordena', 'Cio che il blueprint coordina', 'Lo que coordina el blueprint'),
+        description: text('The blueprint coordinates the product structure across every output that matters to launch and iteration.', 'Le blueprint coordonne la structure produit a travers chaque sortie qui compte pour le lancement et l iteration.', 'O blueprint coordena a estrutura do produto em cada saida que importa para lancamento e iteracao.', 'Il blueprint coordina la struttura del prodotto in ogni output che conta per il lancio e l iterazione.', 'El blueprint coordina la estructura del producto en cada salida que importa para lanzamiento e iteracion.'),
+        panelEyebrow: text('Blueprint effect', 'Effet blueprint', 'Efeito do blueprint', 'Effetto blueprint', 'Efecto del blueprint'),
+        panelTitle: text('One coordinated source across the stack', 'Une source coordonnee sur tout le stack', 'Uma fonte coordenada em todo o stack', 'Un unica fonte coordinata lungo tutto lo stack', 'Una fuente coordinada en todo el stack'),
+        items: [
+          { title: text('Application models', 'Modeles applicatifs', 'Modelos da aplicacao', 'Modelli applicativi', 'Modelos de aplicacion'), text: text('Define the entities, relationships, and product structures that shape the app.', 'Definissent les entites, relations et structures produit qui faconnent l app.', 'Definem as entidades, relacoes e estruturas do produto que moldam a app.', 'Definiscono entita, relazioni e strutture prodotto che modellano l app.', 'Definen las entidades, relaciones y estructuras del producto que dan forma a la app.') },
+          { title: text('Business logic', 'Logique metier', 'Logica de negocio', 'Logica di business', 'Logica de negocio'), text: text('Coordinate the rules, automations, and behaviors that make the product work.', 'Coordonnent les regles, automatisations et comportements qui font fonctionner le produit.', 'Coordenam as regras, automacoes e comportamentos que fazem o produto funcionar.', 'Coordinano le regole, le automazioni e i comportamenti che fanno funzionare il prodotto.', 'Coordinan las reglas, automatizaciones y comportamientos que hacen funcionar el producto.') },
+          { title: text('Views and routes', 'Vues et routes', 'Views e rotas', 'Viste e route', 'Vistas y rutas'), text: text('Map the interface flow so screens and navigation stay aligned with product intent.', 'Cartographient le flux d interface pour que les ecrans et la navigation restent alignes avec l intention produit.', 'Mapeiam o fluxo da interface para que telas e navegacao fiquem alinhadas com a intencao do produto.', 'Mappano il flusso dell interfaccia cosi schermate e navigazione restano allineate all intento di prodotto.', 'Mapean el flujo de interfaz para que pantallas y navegacion sigan alineadas con la intencion del producto.') },
+          { title: text('Backend structures', 'Structures backend', 'Estruturas de backend', 'Strutture backend', 'Estructuras de backend'), text: text('Carry the same product definition into services, endpoints, and internal orchestration.', 'Portent la meme definition produit dans les services, endpoints et l orchestration interne.', 'Levam a mesma definicao do produto para servicos, endpoints e orquestracao interna.', 'Portano la stessa definizione di prodotto in servizi, endpoint e orchestrazione interna.', 'Llevan la misma definicion del producto a servicios, endpoints y orquestacion interna.') },
+          { title: text('Database shape', 'Structure de base de donnees', 'Estrutura do banco de dados', 'Struttura del database', 'Estructura de base de datos'), text: text('Guide schemas and persistence so data shape matches the product model from the start.', 'Guident les schemas et la persistance pour que la structure de donnees corresponde au modele produit des le depart.', 'Guiam schemas e persistencia para que a estrutura de dados corresponda ao modelo do produto desde o inicio.', 'Guidano schemi e persistenza affinche la struttura dei dati corrisponda al modello di prodotto fin dall inizio.', 'Guian esquemas y persistencia para que la forma de los datos coincida con el modelo del producto desde el inicio.') },
+          { title: text('Admin surfaces', 'Surfaces admin', 'Superficies administrativas', 'Superfici admin', 'Superficies administrativas'), text: text('Keep management tools connected to the same operational logic as the customer experience.', 'Gardent les outils de gestion relies a la meme logique operationnelle que l experience client.', 'Mantem as ferramentas de gestao conectadas a mesma logica operacional da experiencia do cliente.', 'Mantengono gli strumenti di gestione collegati alla stessa logica operativa dell esperienza cliente.', 'Mantienen las herramientas de gestion conectadas con la misma logica operativa de la experiencia del cliente.') },
+          { title: text('Mobile experiences', 'Experiences mobiles', 'Experiencias mobile', 'Esperienze mobile', 'Experiencias mobile'), text: text('Extend the same blueprint into mobile product flows without redefining intent.', 'Etendent le meme blueprint aux flux produit mobiles sans redefinir l intention.', 'Estendem o mesmo blueprint aos fluxos mobile do produto sem redefinir a intencao.', 'Estendono lo stesso blueprint ai flussi mobile del prodotto senza ridefinire l intento.', 'Extienden el mismo blueprint a los flujos mobile del producto sin redefinir la intencion.') },
+          { title: text('Watch outputs', 'Sorties watch', 'Saidas para watch', 'Output watch', 'Salidas para watch'), text: text('Support companion device outputs as part of the same coordinated system definition.', 'Prennent en charge les sorties pour appareils compagnons comme partie de la meme definition systeme coordonnee.', 'Suportam saidas para dispositivos complementares como parte da mesma definicao coordenada do sistema.', 'Supportano output per dispositivi companion come parte della stessa definizione di sistema coordinata.', 'Soportan salidas para dispositivos complementarios como parte de la misma definicion coordinada del sistema.') },
+          { title: text('Runtime behavior', 'Comportement runtime', 'Comportamento em runtime', 'Comportamento runtime', 'Comportamiento en runtime'), text: text('Coordinate how the product behaves in operation, not only how it looks at design time.', 'Coordonnent la facon dont le produit se comporte en fonctionnement, pas seulement son apparence au moment de la conception.', 'Coordenam como o produto se comporta em operacao, nao apenas como ele parece em tempo de design.', 'Coordinano il modo in cui il prodotto si comporta in esecuzione, non solo come appare in fase di design.', 'Coordinan como se comporta el producto en ejecucion, no solo como luce en el momento de diseno.') },
+          { title: text('Deployment-oriented preparation', 'Preparation orientee deploiement', 'Preparacao orientada para deploy', 'Preparazione orientata al deploy', 'Preparacion orientada al despliegue'), text: text('Prepare the system for handoff and launch with architecture that stays coherent into deployment.', 'Preparent le systeme au handoff et au lancement avec une architecture qui reste coherente jusqu au deploiement.', 'Preparam o sistema para handoff e lancamento com uma arquitetura que permanece coerente ate o deploy.', 'Preparano il sistema per handoff e lancio con un architettura che resta coerente fino al deploy.', 'Preparan el sistema para handoff y lanzamiento con una arquitectura que se mantiene coherente hasta el despliegue.') },
+        ],
+      },
+      benefits: {
+        eyebrow: text('Section 4', 'Section 4', 'Secao 4', 'Sezione 4', 'Seccion 4'),
+        title: text('Benefits of blueprint-driven generation', 'Benefices d une generation guidee par blueprint', 'Beneficios da geracao guiada por blueprint', 'Benefici della generazione guidata dal blueprint', 'Beneficios de la generacion guiada por blueprint'),
+        intro: text('Blueprint-driven generation gives the product a stronger editorial and technical center of gravity from the beginning.', 'La generation guidee par blueprint donne au produit un centre de gravite editorial et technique plus fort des le debut.', 'A geracao guiada por blueprint da ao produto um centro de gravidade editorial e tecnico mais forte desde o inicio.', 'La generazione guidata dal blueprint offre al prodotto un centro di gravita editoriale e tecnico piu forte fin dall inizio.', 'La generacion guiada por blueprint le da al producto un centro de gravedad editorial y tecnico mas fuerte desde el principio.'),
+        benefits: [
+          text('Reduces interpretation errors by carrying the same intent from prompt understanding into implementation.', 'Reduit les erreurs d interpretation en faisant circuler la meme intention de la comprehension du prompt jusqu a l implementation.', 'Reduz erros de interpretacao ao levar a mesma intencao da compreensao do prompt ate a implementacao.', 'Riduce gli errori di interpretazione portando lo stesso intento dalla comprensione del prompt fino all implementazione.', 'Reduce errores de interpretacion al llevar la misma intencion desde la comprension del prompt hasta la implementacion.'),
+          text('Improves maintainability because the product system is organized from a shared blueprint instead of fragmented decisions.', 'Ameliore la maintenabilite parce que le systeme produit est organise depuis un blueprint partage plutot que par decisions fragmentees.', 'Melhora a manutenibilidade porque o sistema do produto e organizado a partir de um blueprint compartilhado em vez de decisoes fragmentadas.', 'Migliora la manutenibilita perche il sistema prodotto e organizzato da un blueprint condiviso invece che da decisioni frammentate.', 'Mejora la mantenibilidad porque el sistema del producto se organiza desde un blueprint compartido en lugar de decisiones fragmentadas.'),
+          text('Keeps product layers aligned so interface, backend, data, and operations move in the same direction.', 'Garde les couches produit alignees pour que interface, backend, donnees et operations avancent dans la meme direction.', 'Mantem as camadas do produto alinhadas para que interface, backend, dados e operacoes avancem na mesma direcao.', 'Mantiene allineati i livelli del prodotto cosi interfaccia, backend, dati e operazioni si muovono nella stessa direzione.', 'Mantiene alineadas las capas del producto para que interfaz, backend, datos y operaciones avancen en la misma direccion.'),
+          text('Makes iteration easier because updates can be coordinated from one system definition instead of rewritten across multiple layers.', 'Facilite l iteration car les mises a jour peuvent etre coordonnees depuis une seule definition systeme au lieu d etre reecrites sur plusieurs couches.', 'Facilita a iteracao porque as atualizacoes podem ser coordenadas a partir de uma unica definicao do sistema em vez de reescritas em varias camadas.', 'Rende piu semplice l iterazione perche gli aggiornamenti possono essere coordinati da un unica definizione di sistema invece di essere riscritti su piu livelli.', 'Facilita la iteracion porque las actualizaciones pueden coordinarse desde una sola definicion del sistema en lugar de reescribirse en varias capas.'),
+          text('Creates better architectural consistency by turning generation into one coordinated product system.', 'Cree une meilleure coherence architecturale en faisant de la generation un seul systeme produit coordonne.', 'Cria melhor consistencia arquitetural ao transformar a geracao em um unico sistema coordenado de produto.', 'Crea una migliore coerenza architetturale trasformando la generazione in un unico sistema prodotto coordinato.', 'Crea una mejor consistencia arquitectonica al convertir la generacion en un unico sistema coordinado de producto.'),
+        ],
+        closing: text('That is why the blueprint deserves its own dedicated page: it is not a side detail in the workflow, but the foundation that keeps the entire product system coherent.', 'C est pourquoi le blueprint merite sa propre page dediee : ce n est pas un detail secondaire du workflow, mais la fondation qui garde tout le systeme produit coherent.', 'E por isso que o blueprint merece sua propria pagina dedicada: ele nao e um detalhe lateral do fluxo, mas a base que mantem todo o sistema do produto coerente.', 'Per questo il blueprint merita una pagina dedicata: non e un dettaglio laterale del workflow, ma la base che mantiene coerente l intero sistema prodotto.', 'Por eso el blueprint merece su propia pagina dedicada: no es un detalle secundario del flujo, sino la base que mantiene coherente todo el sistema del producto.'),
+      },
+    },
   },
   roadmap: {
     eyebrow: text('Product / Roadmap', 'Produit / Roadmap', 'Produto / Roadmap', 'Prodotto / Roadmap', 'Producto / Roadmap'),
@@ -157,7 +238,7 @@ const productPages: Record<
   features: {
     eyebrow: text('Product / Features', 'Produit / Fonctionnalites', 'Produto / Recursos', 'Prodotto / Funzionalita', 'Producto / Funcionalidades'),
     title: text('Explore everything our platform has to offer', 'Explorez tout ce que notre plateforme propose', 'Explore tudo o que a plataforma oferece', 'Esplora tutto cio che la piattaforma offre', 'Explora todo lo que ofrece nuestra plataforma'),
-    description: text('This is your core product explainer page. It works as a richer destination for capabilities like generation, editing, publishing, permissions, collaboration, integrations, and AI-guided workflows.', 'Voici la page principale d explication produit. Elle donne plus d espace pour parler generation, edition, publication, permissions, collaboration et integrations.', 'Esta e a pagina principal para explicar o produto. Ela da mais espaco para geracao, edicao, publicacao, permissoes, colaboracao e integracoes.', 'Questa e la pagina principale di spiegazione del prodotto. Offre piu spazio per generazione, editing, pubblicazione, permessi, collaborazione e integrazioni.', 'Esta es la pagina principal para explicar el producto. Da mas espacio para generacion, edicion, publicacion, permisos, colaboracion e integraciones.'),
+    description: text('This is your core product explainer page. It works as a richer destination for capabilities like generation, editing, publishing, permissions, collaboration, blueprint, and AI-guided workflows.', 'Voici la page principale d explication produit. Elle donne plus d espace pour parler generation, edition, publication, permissions, collaboration et blueprint.', 'Esta e a pagina principal para explicar o produto. Ela da mais espaco para geracao, edicao, publicacao, permissoes, colaboracao e integracoes.', 'Questa e la pagina principale di spiegazione del prodotto. Offre piu spazio per generazione, editing, pubblicazione, permessi, collaborazione e integrazioni.', 'Esta es la pagina principal para explicar el producto. Da mas espacio para generacion, edicion, publicacion, permisos, colaboracion e integraciones.'),
     pillars: [
       { title: text('Clear capability map', 'Carte claire des capacites', 'Mapa claro de capacidades', 'Mappa chiara delle capacita', 'Mapa claro de capacidades'), text: text('Turn feature clusters into a story: ideation, build, refine, publish, and scale.', 'Transformez les groupes de fonctionnalites en histoire : ideation, creation, optimisation, publication et echelle.', 'Transforme grupos de recursos em uma historia: ideacao, construcao, refinamento, publicacao e escala.', 'Trasforma i gruppi di funzionalita in una storia: ideazione, build, rifinitura, pubblicazione e scala.', 'Convierte grupos de funcionalidades en una historia: ideacion, construccion, refinamiento, publicacion y escala.') },
       { title: text('Richer visual hierarchy', 'Hierarchie visuelle plus riche', 'Hierarquia visual mais rica', 'Gerarchia visiva piu ricca', 'Jerarquia visual mas rica'), text: text('This page gives you enough room for product cards, diagrams, metrics, and screenshots later.', 'Cette page vous donne assez d espace pour des cartes produit, schemas, metriques et captures plus tard.', 'Esta pagina da espaco suficiente para cards de produto, diagramas, metricas e capturas depois.', 'Questa pagina ti lascia spazio per card prodotto, diagrammi, metriche e screenshot in futuro.', 'Esta pagina te da suficiente espacio para cards de producto, diagramas, metricas y capturas mas adelante.') },
@@ -413,7 +494,7 @@ const useCasePages: Record<
     scenarios: [
       { title: text('Lead management', 'Gestion des leads', 'Gestao de leads', 'Gestione lead', 'Gestion de leads'), text: text('Create intake funnels, qualification views, assignment logic, and follow-up workflows.', 'Creez des funnels d entree, vues de qualification, logiques d attribution et workflows de suivi.', 'Crie funis de entrada, visoes de qualificacao, logica de atribuicao e fluxos de follow-up.', 'Crea funnel di intake, viste di qualificazione, logiche di assegnazione e workflow di follow-up.', 'Crea embudos de entrada, vistas de calificacion, logica de asignacion y flujos de seguimiento.') },
       { title: text('Campaign operations', 'Operations campagne', 'Operacoes de campanha', 'Operazioni di campagna', 'Operaciones de campana'), text: text('Build hubs for launch calendars, assets, requests, and performance snapshots.', 'Construisez des hubs pour calendriers de lancement, assets, demandes et apercus de performance.', 'Construa hubs para calendarios de lancamento, ativos, pedidos e visoes de desempenho.', 'Costruisci hub per calendari di lancio, asset, richieste e snapshot di performance.', 'Construye hubs para calendarios de lanzamiento, assets, solicitudes y vistas de rendimiento.') },
-      { title: text('Automation layers', 'Couches d automatisation', 'Camadas de automacao', 'Livelli di automazione', 'Capas de automatizacion'), text: text('Show how AI agents and integrations reduce repetitive work across growth teams.', 'Montrez comment les agents IA et integrations reduisent le travail repetitif des equipes growth.', 'Mostre como agentes de IA e integracoes reduzem trabalho repetitivo nas equipes de crescimento.', 'Mostra come agenti AI e integrazioni riducono il lavoro ripetitivo nei team growth.', 'Muestra como los agentes de IA y las integraciones reducen el trabajo repetitivo en los equipos de crecimiento.') },
+      { title: text('Automation layers', 'Couches d automatisation', 'Camadas de automacao', 'Livelli di automazione', 'Capas de automatizacion'), text: text('Show how AI agents and blueprint reduce repetitive work across growth teams.', 'Montrez comment les agents IA et blueprint reduisent le travail repetitif des equipes growth.', 'Mostre como agentes de IA e integracoes reduzem trabalho repetitivo nas equipes de crescimento.', 'Mostra come agenti AI e integrazioni riducono il lavoro ripetitivo nei team growth.', 'Muestra como los agentes de IA y las integraciones reducen el trabajo repetitivo en los equipos de crecimiento.') },
     ],
   },
   'role-hr-recruitment': {
@@ -464,7 +545,7 @@ export function getHeaderCopy(language: Language) {
     productLinks: [
       { href: '/product/prompt-deployment', label: pick(language, productPages['prompt-deployment'].title), desc: pick(language, productPages['prompt-deployment'].description) },
       { href: '/product/how-it-works', label: pick(language, productPages['how-it-works'].title), desc: pick(language, productPages['how-it-works'].description) },
-      { href: '/product/integrations', label: pick(language, productPages.integrations.title), desc: pick(language, productPages.integrations.description) },
+      { href: '/product/blueprint', label: pick(language, productPages.blueprint.title), desc: pick(language, productPages.blueprint.description) },
       { href: '/product/roadmap', label: pick(language, productPages.roadmap.title), desc: pick(language, productPages.roadmap.description) },
       { href: '/product/features', label: pick(language, productPages.features.title), desc: pick(language, productPages.features.description) },
       { href: '/product/changelog', label: pick(language, productPages.changelog.title), desc: pick(language, productPages.changelog.description) },
@@ -952,7 +1033,7 @@ export function getUseCaseTemplateCopy(language: Language) {
     continueExploring: pick(language, text('Continue exploring', 'Continuer a explorer', 'Continuar explorando', 'Continua a esplorare', 'Seguir explorando')),
     continueTitle: pick(language, text('Use cross-links to keep visitors moving', 'Utilisez des liens croises pour faire avancer les visiteurs', 'Use links cruzados para manter visitantes em movimento', 'Usa collegamenti incrociati per far avanzare i visitatori', 'Usa enlaces cruzados para mantener a los visitantes en movimiento')),
     continueCardTitle: pick(language, text('Turn use-case traffic into product discovery.', 'Transformez le trafic use case en decouverte produit.', 'Transforme trafego de casos de uso em descoberta de produto.', 'Trasforma il traffico use case in scoperta prodotto.', 'Convierte el trafico de casos de uso en descubrimiento de producto.')),
-    continueCardDescription: pick(language, text('From here, you can link into templates, integrations, feature pages, or customer stories.', 'Depuis ici, vous pouvez lier vers templates, integrations, pages fonctionnalites ou histoires clients.', 'Daqui, voce pode ligar para templates, integracoes, paginas de recursos ou historias de clientes.', 'Da qui puoi collegare template, integrazioni, pagine funzionalita o storie cliente.', 'Desde aqui puedes enlazar a templates, integraciones, paginas de funcionalidades o historias de clientes.')),
+    continueCardDescription: pick(language, text('From here, you can link into templates, blueprint, feature pages, or customer stories.', 'Depuis ici, vous pouvez lier vers templates, blueprint, pages fonctionnalites ou histoires clients.', 'Daqui, voce pode ligar para templates, integracoes, paginas de recursos ou historias de clientes.', 'Da qui puoi collegare template, integrazioni, pagine funzionalita o storie cliente.', 'Desde aqui puedes enlazar a templates, integraciones, paginas de funcionalidades o historias de clientes.')),
     browseTemplates: pick(language, text('Browse templates', 'Parcourir les templates', 'Explorar templates', 'Sfoglia template', 'Explorar templates')),
   };
 }
@@ -964,6 +1045,35 @@ export function getProductPageCopy(language: Language, key: ProductPageKey) {
     title: pick(language, page.title),
     description: pick(language, page.description),
     pillars: pickItems(language, page.pillars),
+    blueprint: page.blueprint
+      ? {
+          whatIs: {
+            eyebrow: pick(language, page.blueprint.whatIs.eyebrow),
+            title: pick(language, page.blueprint.whatIs.title),
+            paragraphs: page.blueprint.whatIs.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          whyItMatters: {
+            eyebrow: pick(language, page.blueprint.whyItMatters.eyebrow),
+            title: pick(language, page.blueprint.whyItMatters.title),
+            paragraphs: page.blueprint.whyItMatters.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          coordinates: {
+            eyebrow: pick(language, page.blueprint.coordinates.eyebrow),
+            title: pick(language, page.blueprint.coordinates.title),
+            description: pick(language, page.blueprint.coordinates.description),
+            panelEyebrow: pick(language, page.blueprint.coordinates.panelEyebrow),
+            panelTitle: pick(language, page.blueprint.coordinates.panelTitle),
+            items: pickItems(language, page.blueprint.coordinates.items),
+          },
+          benefits: {
+            eyebrow: pick(language, page.blueprint.benefits.eyebrow),
+            title: pick(language, page.blueprint.benefits.title),
+            intro: pick(language, page.blueprint.benefits.intro),
+            benefits: page.blueprint.benefits.benefits.map((benefit) => pick(language, benefit)),
+            closing: pick(language, page.blueprint.benefits.closing),
+          },
+        }
+      : undefined,
   };
 }
 

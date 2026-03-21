@@ -10,7 +10,7 @@ The pricing page already has a yearly/monthly toggle and uses local client state
 - Keep the implementation scoped to the pricing page data and rendering logic.
 
 **Non-Goals:**
-- Change credits, integrations, highlights, or other plan copy.
+- Change credits, blueprint, highlights, or other plan copy.
 - Introduce backend billing logic or payment calculations.
 - Alter the free plan pricing presentation.
 
