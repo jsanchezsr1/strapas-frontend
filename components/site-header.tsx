@@ -126,7 +126,7 @@ function LanguageSelector({
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileLanguageOpen, setMobileLanguageOpen] = useState(false);
-  const [openMenu, setOpenMenu] = useState<'product' | 'use-cases' | null>(null);
+  const [openMenu, setOpenMenu] = useState<'product' | 'use-cases' | 'resources' | null>(null);
   const [languageOpen, setLanguageOpen] = useState(false);
   const pathname = usePathname();
   const isPricingPage = pathname === '/pricing';
@@ -233,7 +233,27 @@ export function SiteHeader() {
               </div>
             </DesktopDropdown>
 
-            <NavLink href="/product/features">{copy.nav.examples}</NavLink>
+            <DesktopDropdown
+              label={copy.resourcesLabel}
+              open={openMenu === 'resources'}
+              setOpen={(value) => setOpenMenu(value ? 'resources' : null)}
+            >
+              <div className="w-[24rem] rounded-[1.5rem] border border-white/10 bg-[#081327] p-4 shadow-2xl shadow-black/40">
+                <div className="space-y-3">
+                  {copy.resourcesLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block rounded-2xl border border-white/8 bg-white/[0.03] p-4 transition hover:border-cyan-300/30 hover:bg-white/[0.06]"
+                    >
+                      <div className="text-sm font-semibold text-white">{item.label}</div>
+                      <div className="mt-1 text-sm leading-6 text-slate-400">{item.desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </DesktopDropdown>
+
             <NavLink href="/examples">{copy.nav.examples}</NavLink>
             <NavLink href="/about">{copy.nav.about}</NavLink>
           </nav>
@@ -345,6 +365,24 @@ export function SiteHeader() {
                     className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3 text-sm text-slate-300"
                   >
                     {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-2 text-xs uppercase tracking-[0.24em] text-slate-500">
+                {copy.resourcesLabel}
+              </div>
+              <div className="space-y-2">
+                {copy.resourcesLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3"
+                  >
+                    <div className="text-sm font-medium text-white">{item.label}</div>
+                    <div className="mt-1 text-sm text-slate-400">{item.desc}</div>
                   </Link>
                 ))}
               </div>
