@@ -35,12 +35,73 @@ type LocalizedBlueprintPage = {
   benefits: LocalizedEditorialSection;
 };
 
+type LocalizedOutputsPage = {
+  moreThanSingleOutput: LocalizedSection;
+  supportedOutputs: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    paragraphs: LocalizedText[];
+    items: LocalizedInfoItem[];
+  };
+  multipleSurfaces: LocalizedSection;
+  beyondCode: LocalizedSection;
+  closing: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    body: LocalizedText[];
+  };
+};
+
+type LocalizedWorkflowStep = {
+  step: LocalizedText;
+  title: LocalizedText;
+  paragraphs: LocalizedText[];
+};
+
+type LocalizedFaqItem = {
+  question: LocalizedText;
+  answer: LocalizedText;
+};
+
+type LocalizedDeploymentPage = {
+  preparation: LocalizedSection;
+  workflow: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    intro: LocalizedText;
+    steps: LocalizedWorkflowStep[];
+  };
+  closing: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    body: LocalizedText[];
+  };
+};
+
+type LocalizedDocsFaqsPage = {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  description: LocalizedText;
+  docs: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    description: LocalizedText;
+    cards: LocalizedInfoItem[];
+  };
+  faqs: {
+    eyebrow: LocalizedText;
+    title: LocalizedText;
+    description: LocalizedText;
+    items: LocalizedFaqItem[];
+  };
+};
+
 type ProductPageKey =
   | 'prompt-deployment'
   | 'how-it-works'
   | 'blueprint'
-  | 'roadmap'
-  | 'features'
+  | 'outputs'
+  | 'deployment'
   | 'changelog';
 
 type UseCasePageKey =
@@ -96,6 +157,8 @@ const productPages: Record<
     description: LocalizedText;
     pillars: LocalizedInfoItem[];
     blueprint?: LocalizedBlueprintPage;
+    outputs?: LocalizedOutputsPage;
+    deployment?: LocalizedDeploymentPage;
   }
 > = {
   'prompt-deployment': {
@@ -225,25 +288,153 @@ const productPages: Record<
       },
     },
   },
-  roadmap: {
-    eyebrow: text('Product / Roadmap', 'Produit / Roadmap', 'Produto / Roadmap', 'Prodotto / Roadmap', 'Producto / Roadmap'),
-    title: text('Get a preview of what is coming next', 'Obtenez un apercu de ce qui arrive ensuite', 'Veja o que vem a seguir', 'Scopri cosa arriva dopo', 'Obtén una vista previa de lo que viene despues'),
-    description: text('A roadmap page helps your site feel alive. It gives prospects a reason to revisit, lets you signal momentum, and helps enterprise buyers understand where the platform is heading.', 'Une page roadmap rend le site plus vivant. Elle donne une raison de revenir et aide a montrer la dynamique du produit.', 'Uma pagina de roadmap deixa o site mais vivo. Ela da motivo para voltar e mostra o ritmo do produto.', 'Una pagina roadmap rende il sito piu vivo. Da un motivo per tornare e mostra il ritmo del prodotto.', 'Una pagina de roadmap hace que el sitio se sienta vivo. Da una razon para volver y muestra el impulso del producto.'),
+  outputs: {
+    eyebrow: text('Product / Outputs', 'Produit / Sorties', 'Produto / Outputs', 'Prodotto / Outputs', 'Producto / Outputs'),
+    title: text('Generate coordinated software across the product stack', 'Generez un logiciel coordonne sur tout le stack produit', 'Gere software coordenado em todo o stack do produto', 'Genera software coordinato lungo tutto lo stack di prodotto', 'Genera software coordinado en todo el stack del producto'),
+    description: text('The platform does not generate isolated pieces of software in isolation. It generates coordinated outputs that work as parts of one connected product system.', 'La plateforme ne genere pas des morceaux de logiciel isoles. Elle genere des sorties coordonnees qui fonctionnent comme les parties d un systeme produit connecte.', 'A plataforma nao gera partes de software de forma isolada. Ela gera outputs coordenados que funcionam como partes de um sistema de produto conectado.', 'La piattaforma non genera parti di software in isolamento. Genera output coordinati che funzionano come parti di un sistema prodotto connesso.', 'La plataforma no genera piezas de software de forma aislada. Genera salidas coordinadas que funcionan como partes de un sistema de producto conectado.'),
     pillars: [
-      { title: text('Forward visibility', 'Visibilite a venir', 'Visibilidade futura', 'Visibilita futura', 'Visibilidad futura'), text: text('Show upcoming releases clearly, so visitors understand what is shipping soon and why it matters.', 'Montrez clairement les prochaines sorties pour que les visiteurs comprennent ce qui arrive et pourquoi c est important.', 'Mostre claramente os proximos lancamentos para que visitantes entendam o que chega e por que importa.', 'Mostra chiaramente i prossimi rilasci cosi i visitatori capiscono cosa arriva e perche conta.', 'Muestra claramente los proximos lanzamientos para que los visitantes entiendan que llega y por que importa.') },
-      { title: text('Strategic themes', 'Themes strategiques', 'Temas estrategicos', 'Temi strategici', 'Temas estrategicos'), text: text('Group roadmap items by AI workflows, publishing, governance, or developer tooling to make priorities easier to understand.', 'Regroupez les elements par workflows IA, publication, gouvernance ou outils dev pour clarifier les priorites.', 'Agrupe itens por fluxos de IA, publicacao, governanca ou ferramentas dev para deixar prioridades mais claras.', 'Raggruppa gli elementi per workflow AI, publishing, governance o tooling dev per chiarire le priorita.', 'Agrupa los elementos por flujos de IA, publicacion, gobernanza o herramientas dev para aclarar las prioridades.') },
-      { title: text('Product momentum', 'Dynamique produit', 'Ritmo do produto', 'Momentum del prodotto', 'Impulso del producto'), text: text('A dedicated roadmap page makes the platform feel more active and more serious than a static brochure site.', 'Une page roadmap dediee rend la plateforme plus active et plus serieuse qu un site vitrine statique.', 'Uma pagina dedicada de roadmap faz a plataforma parecer mais ativa e mais seria que um site estatico.', 'Una pagina roadmap dedicata fa sembrare la piattaforma piu attiva e piu seria di un sito statico.', 'Una pagina dedicada de roadmap hace que la plataforma se sienta mas activa y mas seria que un sitio estatico.') },
+      { title: text('Connected outputs', 'Sorties connectees', 'Outputs conectados', 'Output connessi', 'Salidas conectadas'), text: text('Explain that the platform generates product layers as connected parts of one application system, not isolated fragments.', 'Expliquez que la plateforme genere les couches produit comme des parties connectees d un seul systeme applicatif, pas comme des fragments isoles.', 'Explique que a plataforma gera camadas do produto como partes conectadas de um unico sistema de aplicacao, nao como fragmentos isolados.', 'Spiega che la piattaforma genera i livelli di prodotto come parti connesse di un unico sistema applicativo, non come frammenti isolati.', 'Explica que la plataforma genera capas del producto como partes conectadas de un solo sistema de aplicacion, no como fragmentos aislados.') },
+      { title: text('Multi-surface generation', 'Generation multi-surface', 'Geracao multi-superficie', 'Generazione multi-superficie', 'Generacion multisuperficie'), text: text('Show that web, backend, admin, database, mobile, operational, and deployment layers can be generated in coordination.', 'Montrez que les couches web, backend, admin, base de donnees, mobile, operationnelles et deploiement peuvent etre generees en coordination.', 'Mostre que as camadas web, backend, admin, banco de dados, mobile, operacionais e de deploy podem ser geradas de forma coordenada.', 'Mostra che i livelli web, backend, admin, database, mobile, operativi e di deploy possono essere generati in coordinamento.', 'Muestra que las capas web, backend, admin, base de datos, mobile, operativas y de despliegue pueden generarse de forma coordinada.') },
+      { title: text('Real product structure', 'Structure produit reelle', 'Estrutura real de produto', 'Struttura reale di prodotto', 'Estructura real de producto'), text: text('Position the output as something closer to a real product system than a partial prototype.', 'Positionnez la sortie comme quelque chose de plus proche d un vrai systeme produit que d un prototype partiel.', 'Posicione o output como algo mais proximo de um sistema real de produto do que de um prototipo parcial.', 'Posiziona l output come qualcosa di piu vicino a un vero sistema di prodotto che a un prototipo parziale.', 'Posiciona la salida como algo mas cercano a un sistema real de producto que a un prototipo parcial.') },
     ],
+    outputs: {
+      moreThanSingleOutput: {
+        eyebrow: text('Section 1', 'Section 1', 'Secao 1', 'Sezione 1', 'Seccion 1'),
+        title: text('More than a single output', 'Plus qu une seule sortie', 'Mais do que um unico output', 'Piu di un singolo output', 'Mas que una sola salida'),
+        paragraphs: [
+          text('Once the blueprint is in place, the platform begins generating the product layers required by the application.', 'Une fois le blueprint en place, la plateforme commence a generer les couches produit requises par l application.', 'Quando o blueprint esta definido, a plataforma comeca a gerar as camadas do produto exigidas pela aplicacao.', 'Una volta definito il blueprint, la piattaforma inizia a generare i livelli di prodotto richiesti dall applicazione.', 'Una vez que el blueprint esta listo, la plataforma empieza a generar las capas del producto requeridas por la aplicacion.'),
+          text('This can include web structures, backend service layers, database-backed logic, admin interfaces, mobile outputs, operational layers, and deployment-oriented assets.', 'Cela peut inclure des structures web, des couches de service backend, une logique reliee a la base de donnees, des interfaces admin, des sorties mobiles, des couches operationnelles et des assets orientes deploiement.', 'Isso pode incluir estruturas web, camadas de servico backend, logica apoiada por banco de dados, interfaces administrativas, outputs mobile, camadas operacionais e ativos orientados a deploy.', 'Questo puo includere strutture web, livelli di servizio backend, logica supportata da database, interfacce admin, output mobile, livelli operativi e asset orientati al deploy.', 'Esto puede incluir estructuras web, capas de servicio backend, logica respaldada por base de datos, interfaces admin, salidas mobile, capas operativas y activos orientados al despliegue.'),
+          text('Each part is generated in relation to the others, so the system stays aligned rather than becoming a collection of disconnected pieces.', 'Chaque partie est generee en relation avec les autres pour que le systeme reste aligne au lieu de devenir une collection de pieces deconnectees.', 'Cada parte e gerada em relacao com as outras, para que o sistema permanezca alinhado em vez de se tornar uma colecao de pecas desconectadas.', 'Ogni parte viene generata in relazione alle altre, cosi il sistema resta allineato invece di diventare una raccolta di pezzi scollegati.', 'Cada parte se genera en relacion con las demas, para que el sistema se mantenga alineado en lugar de convertirse en una coleccion de piezas desconectadas.'),
+        ],
+      },
+      supportedOutputs: {
+        eyebrow: text('Section 2', 'Section 2', 'Secao 2', 'Sezione 2', 'Seccion 2'),
+        title: text('What the platform can support', 'Ce que la plateforme peut prendre en charge', 'O que a plataforma pode suportar', 'Cio che la piattaforma puo supportare', 'Lo que la plataforma puede soportar'),
+        paragraphs: [
+          text('The platform is designed to support a wide range of software outputs, including:', 'La plateforme est concue pour prendre en charge un large eventail de sorties logicielles, notamment :', 'A plataforma foi criada para suportar uma ampla variedade de outputs de software, incluindo:', 'La piattaforma e progettata per supportare un ampia gamma di output software, tra cui:', 'La plataforma esta disenada para soportar una amplia variedad de salidas de software, incluyendo:'),
+          text('This makes it possible to move from a single product idea to a broader, multi-surface system.', 'Cela permet de passer d une seule idee produit a un systeme plus large et multi-surface.', 'Isso torna possivel sair de uma unica ideia de produto para um sistema mais amplo e multi-superficie.', 'Questo rende possibile passare da una singola idea di prodotto a un sistema piu ampio e multi-superficie.', 'Esto hace posible pasar de una sola idea de producto a un sistema mas amplio y multisuperficie.'),
+        ],
+        items: [
+          { title: text('Web applications', 'Applications web', 'Aplicacoes web', 'Applicazioni web', 'Aplicaciones web'), text: text('Support customer-facing web products, portals, and application shells generated from the same blueprint.', 'Prenez en charge des produits web, portails et structures applicatives orientes client generes depuis le meme blueprint.', 'Suporte produtos web voltados ao cliente, portais e shells de aplicacao gerados a partir do mesmo blueprint.', 'Supporta prodotti web lato cliente, portali e strutture applicative generate dallo stesso blueprint.', 'Soporta productos web orientados al cliente, portales y estructuras de aplicacion generadas desde el mismo blueprint.') },
+          { title: text('Backend services', 'Services backend', 'Servicos backend', 'Servizi backend', 'Servicios backend'), text: text('Generate service-layer logic that stays connected to the product model and workflows.', 'Generez une logique de couche service qui reste reliee au modele produit et aux workflows.', 'Gere logica de camada de servico que permanece conectada ao modelo e aos fluxos do produto.', 'Genera logica di livello servizio che resta collegata al modello di prodotto e ai workflow.', 'Genera logica de capa de servicio que se mantiene conectada al modelo y a los flujos del producto.') },
+          { title: text('Admin interfaces', 'Interfaces admin', 'Interfaces administrativas', 'Interfacce admin', 'Interfaces admin'), text: text('Build internal management surfaces that align with the same product structures and permissions.', 'Construisez des surfaces de gestion internes alignees sur les memes structures produit et permissions.', 'Crie superficies internas de gestao alinhadas com as mesmas estruturas e permissoes do produto.', 'Crea superfici di gestione interne allineate alle stesse strutture di prodotto e autorizzazioni.', 'Construye superficies internas de gestion alineadas con las mismas estructuras y permisos del producto.') },
+          { title: text('Mobile application structures', 'Structures d application mobile', 'Estruturas de aplicacao mobile', 'Strutture di applicazione mobile', 'Estructuras de aplicacion mobile'), text: text('Extend the coordinated product system into mobile-specific interfaces and flows.', 'Etendez le systeme produit coordonne vers des interfaces et flux specifiques au mobile.', 'Estenda o sistema coordenado do produto para interfaces e fluxos especificos de mobile.', 'Estendi il sistema prodotto coordinato a interfacce e flussi specifici per il mobile.', 'Extiende el sistema coordinado del producto a interfaces y flujos especificos de mobile.') },
+          { title: text('Database-backed product layers', 'Couches produit reliees a la base de donnees', 'Camadas de produto apoiadas por banco de dados', 'Livelli di prodotto supportati da database', 'Capas de producto respaldadas por base de datos'), text: text('Shape persistence and product logic together so the system remains structurally consistent.', 'Structurez la persistance et la logique produit ensemble pour que le systeme reste coherent.', 'Modele persistencia e logica do produto juntas para que o sistema permanezca estruturalmente consistente.', 'Modella persistenza e logica di prodotto insieme cosi il sistema resta strutturalmente coerente.', 'Da forma a la persistencia y a la logica del producto juntas para que el sistema se mantenga estructuralmente consistente.') },
+          { title: text('Operational and workflow systems', 'Systemes operationnels et de workflow', 'Sistemas operacionais e de workflow', 'Sistemi operativi e di workflow', 'Sistemas operativos y de flujo de trabajo'), text: text('Support workflow tooling, process layers, and operational structures around the application.', 'Prenez en charge des outils de workflow, des couches de processus et des structures operationnelles autour de l application.', 'Suporte ferramentas de workflow, camadas de processo e estruturas operacionais ao redor da aplicacao.', 'Supporta strumenti di workflow, livelli di processo e strutture operative intorno all applicazione.', 'Soporta herramientas de flujo de trabajo, capas de proceso y estructuras operativas alrededor de la aplicacion.') },
+          { title: text('Deployment-oriented packaging and runtime preparation', 'Packaging oriente deploiement et preparation runtime', 'Empacotamento orientado a deploy e preparacao de runtime', 'Packaging orientato al deploy e preparazione runtime', 'Empaquetado orientado al despliegue y preparacion de runtime'), text: text('Prepare the generated system for packaging, runtime behavior, and environment-aware delivery.', 'Preparez le systeme genere pour le packaging, le comportement runtime et une livraison adaptee a l environnement.', 'Prepare o sistema gerado para empacotamento, comportamento em runtime e entrega orientada ao ambiente.', 'Prepara il sistema generato per packaging, comportamento in runtime e consegna consapevole dell ambiente.', 'Prepara el sistema generado para empaquetado, comportamiento en runtime y entrega consciente del entorno.') },
+          { title: text('Smartwatch outputs when selected', 'Sorties smartwatch lorsqu elles sont selectionnees', 'Outputs para smartwatch quando selecionados', 'Output smartwatch quando selezionati', 'Salidas para smartwatch cuando se seleccionan'), text: text('Generate watch-oriented outputs as part of the same coordinated system when the product requires them.', 'Generez des sorties orientees montre comme partie du meme systeme coordonne lorsque le produit en a besoin.', 'Gere outputs voltados para smartwatch como parte do mesmo sistema coordenado quando o produto exigir.', 'Genera output orientati allo smartwatch come parte dello stesso sistema coordinato quando il prodotto lo richiede.', 'Genera salidas orientadas a smartwatch como parte del mismo sistema coordinado cuando el producto las requiera.') },
+        ],
+      },
+      multipleSurfaces: {
+        eyebrow: text('Section 3', 'Section 3', 'Secao 3', 'Sezione 3', 'Seccion 3'),
+        title: text('One product, multiple surfaces', 'Un produit, plusieurs surfaces', 'Um produto, multiplas superficies', 'Un prodotto, piu superfici', 'Un producto, multiples superficies'),
+        paragraphs: [
+          text('A single product often needs more than one interface. It may require a customer-facing web app, an internal admin system, service-layer backend logic, operational workflows, and mobile access for specific user roles.', 'Un seul produit a souvent besoin de plus d une interface. Il peut necessiter une app web orientee client, un systeme admin interne, une logique backend de couche service, des workflows operationnels et un acces mobile pour certains roles.', 'Um unico produto geralmente precisa de mais de uma interface. Ele pode exigir um app web voltado ao cliente, um sistema admin interno, logica backend em camada de servico, fluxos operacionais e acesso mobile para funcoes especificas.', 'Un singolo prodotto spesso richiede piu di un interfaccia. Puo richiedere una web app lato cliente, un sistema admin interno, logica backend di livello servizio, workflow operativi e accesso mobile per ruoli specifici.', 'Un solo producto a menudo necesita mas de una interfaz. Puede requerir una app web orientada al cliente, un sistema admin interno, logica backend de capa de servicio, flujos operativos y acceso mobile para roles especificos.'),
+          text('The platform is built with that reality in mind.', 'La plateforme est construite avec cette realite en tete.', 'A plataforma foi criada com essa realidade em mente.', 'La piattaforma e costruita tenendo conto di questa realta.', 'La plataforma esta construida con esa realidad en mente.'),
+          text('Because the outputs are coordinated from one blueprint, product logic, workflows, and data structures stay more consistent across those surfaces. This helps reduce drift and creates a more unified product architecture.', 'Parce que les sorties sont coordonnees depuis un seul blueprint, la logique produit, les workflows et les structures de donnees restent plus coherents sur ces surfaces. Cela aide a reduire la derive et cree une architecture produit plus unifiee.', 'Como os outputs sao coordenados a partir de um unico blueprint, a logica do produto, os fluxos e as estruturas de dados permanecem mais consistentes entre essas superficies. Isso ajuda a reduzir desvios e cria uma arquitetura de produto mais unificada.', 'Poiche gli output sono coordinati da un unico blueprint, logica di prodotto, workflow e strutture dati restano piu coerenti tra queste superfici. Questo aiuta a ridurre la deriva e crea un architettura di prodotto piu unificata.', 'Como las salidas se coordinan desde un solo blueprint, la logica del producto, los flujos de trabajo y las estructuras de datos se mantienen mas consistentes entre esas superficies. Esto ayuda a reducir desviaciones y crea una arquitectura de producto mas unificada.'),
+        ],
+      },
+      beyondCode: {
+        eyebrow: text('Section 4', 'Section 4', 'Secao 4', 'Sezione 4', 'Seccion 4'),
+        title: text('Beyond code generation', 'Au-dela de la generation de code', 'Alem da geracao de codigo', 'Oltre la generazione di codice', 'Mas alla de la generacion de codigo'),
+        paragraphs: [
+          text('The value of the output is not only in the files produced. It is also in the way those files are connected.', 'La valeur de la sortie ne reside pas seulement dans les fichiers produits. Elle reside aussi dans la facon dont ces fichiers sont relies.', 'O valor do output nao esta apenas nos arquivos produzidos. Ele tambem esta na forma como esses arquivos estao conectados.', 'Il valore dell output non sta solo nei file prodotti. Sta anche nel modo in cui quei file sono collegati.', 'El valor de la salida no esta solo en los archivos producidos. Tambien esta en la forma en que esos archivos estan conectados.'),
+          text('The platform can support broader structural layers such as background jobs, queue-driven processes, diagnostics, extension structures, workflow tooling, and operational planning.', 'La plateforme peut prendre en charge des couches structurelles plus larges telles que des jobs en arriere-plan, des processus pilotes par file, des diagnostics, des structures d extension, des outils de workflow et une planification operationnelle.', 'A plataforma pode suportar camadas estruturais mais amplas, como jobs em segundo plano, processos orientados por filas, diagnosticos, estruturas de extensao, ferramentas de workflow e planejamento operacional.', 'La piattaforma puo supportare livelli strutturali piu ampi come job in background, processi guidati da code, diagnostica, strutture di estensione, strumenti di workflow e pianificazione operativa.', 'La plataforma puede soportar capas estructurales mas amplias como trabajos en segundo plano, procesos dirigidos por colas, diagnosticos, estructuras de extension, herramientas de flujo de trabajo y planificacion operativa.'),
+          text('This allows the output to feel closer to a real product system rather than a partial prototype.', 'Cela permet a la sortie de se rapprocher davantage d un vrai systeme produit que d un prototype partiel.', 'Isso permite que o output se aproxime mais de um sistema real de produto do que de um prototipo parcial.', 'Questo permette all output di avvicinarsi di piu a un vero sistema di prodotto che a un prototipo parziale.', 'Esto permite que la salida se sienta mas cercana a un sistema real de producto que a un prototipo parcial.'),
+        ],
+      },
+      closing: {
+        eyebrow: text('Closing', 'Conclusion', 'Fechamento', 'Chiusura', 'Cierre'),
+        title: text('One connected application ecosystem', 'Un ecosysteme applicatif connecte', 'Um ecossistema de aplicacao conectado', 'Un ecosistema applicativo connesso', 'Un ecosistema de aplicacion conectado'),
+        body: [
+          text('Instead of generating fragments that need to be manually stitched together later, the platform produces coordinated software outputs that are designed to function as parts of one connected application ecosystem.', 'Au lieu de generer des fragments qui devront ensuite etre assembles manuellement, la plateforme produit des sorties logicielles coordonnees concues pour fonctionner comme les parties d un ecosysteme applicatif connecte.', 'Em vez de gerar fragmentos que precisam ser costurados manualmente depois, a plataforma produz outputs de software coordenados pensados para funcionar como partes de um ecossistema de aplicacao conectado.', 'Invece di generare frammenti che devono essere uniti manualmente in seguito, la piattaforma produce output software coordinati progettati per funzionare come parti di un ecosistema applicativo connesso.', 'En lugar de generar fragmentos que luego deban unirse manualmente, la plataforma produce salidas de software coordinadas disenadas para funcionar como partes de un ecosistema de aplicacion conectado.'),
+        ],
+      },
+    },
   },
-  features: {
-    eyebrow: text('Product / Features', 'Produit / Fonctionnalites', 'Produto / Recursos', 'Prodotto / Funzionalita', 'Producto / Funcionalidades'),
-    title: text('Explore everything our platform has to offer', 'Explorez tout ce que notre plateforme propose', 'Explore tudo o que a plataforma oferece', 'Esplora tutto cio che la piattaforma offre', 'Explora todo lo que ofrece nuestra plataforma'),
-    description: text('This is your core product explainer page. It works as a richer destination for capabilities like generation, editing, publishing, permissions, collaboration, blueprint, and AI-guided workflows.', 'Voici la page principale d explication produit. Elle donne plus d espace pour parler generation, edition, publication, permissions, collaboration et blueprint.', 'Esta e a pagina principal para explicar o produto. Ela da mais espaco para geracao, edicao, publicacao, permissoes, colaboracao e integracoes.', 'Questa e la pagina principale di spiegazione del prodotto. Offre piu spazio per generazione, editing, pubblicazione, permessi, collaborazione e integrazioni.', 'Esta es la pagina principal para explicar el producto. Da mas espacio para generacion, edicion, publicacion, permisos, colaboracion e integraciones.'),
+  deployment: {
+    eyebrow: text('Product / Deployment', 'Produit / Deploiement', 'Produto / Deploy', 'Prodotto / Deploy', 'Producto / Despliegue'),
+    title: text('Prepare generated software for real environments', 'Preparez le logiciel genere pour de vrais environnements', 'Prepare software gerado para ambientes reais', 'Prepara il software generato per ambienti reali', 'Prepara el software generado para entornos reales'),
+    description: text('A generated product only becomes useful when it can move toward a real environment. That is why deployment is treated as part of the platform architecture, not as a separate final step.', 'Un produit genere ne devient utile que lorsqu il peut avancer vers un vrai environnement. C est pourquoi le deploiement est traite comme une partie de l architecture de la plateforme, et non comme une etape finale separee.', 'Um produto gerado so se torna util quando pode avancar para um ambiente real. Por isso o deploy e tratado como parte da arquitetura da plataforma, e nao como uma etapa final separada.', 'Un prodotto generato diventa utile solo quando puo avanzare verso un ambiente reale. Per questo il deploy viene trattato come parte dell architettura della piattaforma, non come un passaggio finale separato.', 'Un producto generado solo se vuelve util cuando puede avanzar hacia un entorno real. Por eso el despliegue se trata como parte de la arquitectura de la plataforma, no como un paso final separado.'),
     pillars: [
-      { title: text('Clear capability map', 'Carte claire des capacites', 'Mapa claro de capacidades', 'Mappa chiara delle capacita', 'Mapa claro de capacidades'), text: text('Turn feature clusters into a story: ideation, build, refine, publish, and scale.', 'Transformez les groupes de fonctionnalites en histoire : ideation, creation, optimisation, publication et echelle.', 'Transforme grupos de recursos em uma historia: ideacao, construcao, refinamento, publicacao e escala.', 'Trasforma i gruppi di funzionalita in una storia: ideazione, build, rifinitura, pubblicazione e scala.', 'Convierte grupos de funcionalidades en una historia: ideacion, construccion, refinamiento, publicacion y escala.') },
-      { title: text('Richer visual hierarchy', 'Hierarchie visuelle plus riche', 'Hierarquia visual mais rica', 'Gerarchia visiva piu ricca', 'Jerarquia visual mas rica'), text: text('This page gives you enough room for product cards, diagrams, metrics, and screenshots later.', 'Cette page vous donne assez d espace pour des cartes produit, schemas, metriques et captures plus tard.', 'Esta pagina da espaco suficiente para cards de produto, diagramas, metricas e capturas depois.', 'Questa pagina ti lascia spazio per card prodotto, diagrammi, metriche e screenshot in futuro.', 'Esta pagina te da suficiente espacio para cards de producto, diagramas, metricas y capturas mas adelante.') },
-      { title: text('Better entry point', 'Meilleur point d entree', 'Melhor ponto de entrada', 'Migliore punto di ingresso', 'Mejor punto de entrada'), text: text('For visitors who want detail first, this route works better than forcing them down a homepage narrative.', 'Pour les visiteurs qui veulent du detail tout de suite, cette page fonctionne mieux qu une simple narration de homepage.', 'Para visitantes que querem detalhes primeiro, esta rota funciona melhor do que uma narrativa longa na homepage.', 'Per chi vuole i dettagli subito, questa pagina funziona meglio di una lunga narrativa in homepage.', 'Para los visitantes que quieren detalles primero, esta ruta funciona mejor que una larga narrativa en la homepage.') },
+      { title: text('Deployment as architecture', 'Deploiement comme architecture', 'Deploy como arquitetura', 'Deploy come architettura', 'Despliegue como arquitectura'), text: text('Frame deployment as part of the product system instead of a last-minute handoff.', 'Presentez le deploiement comme une partie du systeme produit plutot qu un handoff de derniere minute.', 'Apresente o deploy como parte do sistema do produto em vez de um handoff de ultima hora.', 'Presenta il deploy come parte del sistema di prodotto invece che come un handoff dell ultimo minuto.', 'Presenta el despliegue como parte del sistema del producto en lugar de una entrega de ultimo minuto.') },
+      { title: text('Environment-ready structure', 'Structure prete pour les environnements', 'Estrutura pronta para ambientes', 'Struttura pronta per gli ambienti', 'Estructura lista para entornos'), text: text('Show how generated outputs are organized for configuration, runtime behavior, and operational consistency.', 'Montrez comment les sorties generees sont organisees pour la configuration, le comportement runtime et la coherence operationnelle.', 'Mostre como os outputs gerados sao organizados para configuracao, comportamento em runtime e consistencia operacional.', 'Mostra come gli output generati vengono organizzati per configurazione, comportamento runtime e coerenza operativa.', 'Muestra como las salidas generadas se organizan para configuracion, comportamiento en runtime y consistencia operativa.') },
+      { title: text('Release preparation', 'Preparation a la mise en production', 'Preparacao para release', 'Preparazione al rilascio', 'Preparacion para release'), text: text('Position preview validation, runtime services, and production-style rollout as part of the same product flow.', 'Positionnez la validation en preview, les services runtime et le rollout de type production comme partie du meme flux produit.', 'Posicione validacao em preview, servicos de runtime e rollout em estilo de producao como parte do mesmo fluxo do produto.', 'Posiziona validazione in preview, servizi runtime e rollout in stile produzione come parte dello stesso flusso di prodotto.', 'Posiciona validacion en preview, servicios de runtime y rollout de estilo produccion como parte del mismo flujo del producto.') },
     ],
+    deployment: {
+      preparation: {
+        eyebrow: text('Section 1', 'Section 1', 'Secao 1', 'Sezione 1', 'Seccion 1'),
+        title: text('Move from generation to deployment preparation', 'Passez de la generation a la preparation du deploiement', 'Passe da geracao para a preparacao de deploy', 'Passa dalla generazione alla preparazione del deploy', 'Pasa de la generacion a la preparacion del despliegue'),
+        paragraphs: [
+          text('Once the application layers are created, the platform helps organize the outputs needed to move the product toward deployment.', 'Une fois les couches applicatives creees, la plateforme aide a organiser les sorties necessaires pour faire avancer le produit vers le deploiement.', 'Depois que as camadas da aplicacao sao criadas, a plataforma ajuda a organizar os outputs necessarios para levar o produto em direcao ao deploy.', 'Una volta creati i livelli dell applicazione, la piattaforma aiuta a organizzare gli output necessari per portare il prodotto verso il deploy.', 'Una vez creadas las capas de la aplicacion, la plataforma ayuda a organizar las salidas necesarias para llevar el producto hacia el despliegue.'),
+          text('This includes preparing the application for environment-specific configuration, service packaging, runtime execution, background processing, preview environments, build outputs, deployment workflows, and operational consistency across environments.', 'Cela inclut la preparation de l application pour une configuration specifique a l environnement, le packaging des services, l execution runtime, les traitements en arriere-plan, les environnements de preview, les sorties de build, les workflows de deploiement et la coherence operationnelle entre les environnements.', 'Isso inclui preparar a aplicacao para configuracao especifica por ambiente, empacotamento de servicos, execucao em runtime, processamento em segundo plano, ambientes de preview, outputs de build, fluxos de deploy e consistencia operacional entre ambientes.', 'Questo include la preparazione dell applicazione per configurazioni specifiche per ambiente, packaging dei servizi, esecuzione runtime, processi in background, ambienti di preview, output di build, workflow di deploy e coerenza operativa tra ambienti.', 'Esto incluye preparar la aplicacion para configuracion especifica por entorno, empaquetado de servicios, ejecucion en runtime, procesamiento en segundo plano, entornos de vista previa, salidas de build, flujos de despliegue y consistencia operativa entre entornos.'),
+          text('Rather than bolting deployment on at the end, the platform treats it as part of the product structure itself.', 'Au lieu de greffer le deploiement a la fin, la plateforme le traite comme une partie de la structure du produit elle-meme.', 'Em vez de encaixar o deploy no fim, a plataforma o trata como parte da propria estrutura do produto.', 'Invece di aggiungere il deploy alla fine, la piattaforma lo tratta come parte della struttura stessa del prodotto.', 'En lugar de añadir el despliegue al final, la plataforma lo trata como parte de la propia estructura del producto.'),
+        ],
+      },
+      workflow: {
+        eyebrow: text('Section 2', 'Section 2', 'Secao 2', 'Sezione 2', 'Seccion 2'),
+        title: text('How deployment works', 'Comment fonctionne le deploiement', 'Como o deploy funciona', 'Come funziona il deploy', 'Como funciona el despliegue'),
+        intro: text('Deployment begins from the product system map and moves through structure, configuration, validation, runtime support, and release readiness.', 'Le deploiement commence a partir de la carte du systeme produit et passe par la structure, la configuration, la validation, le support runtime et la preparation a la mise en production.', 'O deploy comeca a partir do mapa do sistema do produto e passa por estrutura, configuracao, validacao, suporte de runtime e preparo para release.', 'Il deploy parte dalla mappa del sistema prodotto e attraversa struttura, configurazione, validazione, supporto runtime e preparazione al rilascio.', 'El despliegue comienza desde el mapa del sistema del producto y avanza por estructura, configuracion, validacion, soporte runtime y preparacion para release.'),
+        steps: [
+          {
+            step: text('1', '1', '1', '1', '1'),
+            title: text('Define what must be deployed', 'Definir ce qui doit etre deployee', 'Definir o que precisa ser implantado', 'Definire cosa deve essere distribuito', 'Definir que debe desplegarse'),
+            paragraphs: [
+              text('The product blueprint determines what surfaces and services exist. A product may require a frontend application, backend API, admin system, worker processes, background jobs, storage integration, queue-driven logic, or preview environments.', 'Le blueprint produit determine quelles surfaces et quels services existent. Un produit peut necessiter une application frontend, une API backend, un systeme admin, des workers, des jobs en arriere-plan, une integration stockage, une logique pilotee par file ou des environnements de preview.', 'O blueprint do produto determina quais superficies e servicos existem. Um produto pode exigir aplicacao frontend, API backend, sistema admin, processos workers, jobs em segundo plano, integracao de storage, logica orientada por filas ou ambientes de preview.', 'Il blueprint di prodotto determina quali superfici e servizi esistono. Un prodotto puo richiedere un applicazione frontend, API backend, sistema admin, processi worker, job in background, integrazione storage, logica guidata da code o ambienti di preview.', 'El blueprint del producto determina que superficies y servicios existen. Un producto puede requerir una aplicacion frontend, API backend, sistema admin, procesos worker, trabajos en segundo plano, integracion de almacenamiento, logica dirigida por colas o entornos de vista previa.'),
+              text('Deployment begins with that system map.', 'Le deploiement commence avec cette carte du systeme.', 'O deploy comeca com esse mapa do sistema.', 'Il deploy inizia da quella mappa del sistema.', 'El despliegue comienza con ese mapa del sistema.'),
+            ],
+          },
+          {
+            step: text('2', '2', '2', '2', '2'),
+            title: text('Organize the application into deployable outputs', 'Organiser l application en sorties deployables', 'Organizar a aplicacao em outputs implantaveis', 'Organizzare l applicazione in output distribuibili', 'Organizar la aplicacion en salidas desplegables'),
+            paragraphs: [
+              text('After generation, the system organizes the product into a structure that reflects how it needs to run. That includes code organization, service boundaries, generated assets, configuration needs, and runtime expectations.', 'Apres la generation, le systeme organise le produit dans une structure qui reflete la facon dont il doit fonctionner. Cela inclut l organisation du code, les frontieres de services, les assets generes, les besoins de configuration et les attentes runtime.', 'Depois da geracao, o sistema organiza o produto em uma estrutura que reflete como ele precisa executar. Isso inclui organizacao de codigo, fronteiras de servicos, ativos gerados, necessidades de configuracao e expectativas de runtime.', 'Dopo la generazione, il sistema organizza il prodotto in una struttura che riflette come deve funzionare. Questo include organizzazione del codice, confini dei servizi, asset generati, esigenze di configurazione e aspettative runtime.', 'Despues de la generacion, el sistema organiza el producto en una estructura que refleja como necesita funcionar. Eso incluye organizacion del codigo, limites de servicios, activos generados, necesidades de configuracion y expectativas de runtime.'),
+              text('This is where the generated application begins to take the shape of a real operational system.', 'C est la que l application generee commence a prendre la forme d un vrai systeme operationnel.', 'E aqui que a aplicacao gerada comeca a ganhar a forma de um sistema operacional real.', 'E qui che l applicazione generata inizia a prendere la forma di un vero sistema operativo reale.', 'Aqui es donde la aplicacion generada empieza a tomar la forma de un sistema operativo real.'),
+            ],
+          },
+          {
+            step: text('3', '3', '3', '3', '3'),
+            title: text('Apply environment configuration', 'Appliquer la configuration d environnement', 'Aplicar configuracao de ambiente', 'Applicare la configurazione dell ambiente', 'Aplicar configuracion de entorno'),
+            paragraphs: [
+              text('Real deployment requires real configuration.', 'Un vrai deploiement demande une vraie configuration.', 'Deploy real exige configuracao real.', 'Un deploy reale richiede una configurazione reale.', 'Un despliegue real requiere configuracion real.'),
+              text('The platform supports environment handling for database connections, runtime secrets, storage settings, queue configuration, environment-specific variables, and operational modes for development, preview, staging, testing, and production.', 'La plateforme prend en charge la gestion d environnement pour les connexions base de donnees, les secrets runtime, les reglages stockage, la configuration des files, les variables specifiques a l environnement et les modes operationnels pour le developpement, la preview, la preproduction, les tests et la production.', 'A plataforma suporta tratamento de ambiente para conexoes de banco de dados, segredos de runtime, configuracoes de storage, configuracao de filas, variaveis especificas por ambiente e modos operacionais para desenvolvimento, preview, staging, testes e producao.', 'La piattaforma supporta la gestione degli ambienti per connessioni al database, segreti runtime, impostazioni storage, configurazione delle code, variabili specifiche per ambiente e modalita operative per sviluppo, preview, staging, test e produzione.', 'La plataforma soporta manejo de entorno para conexiones de base de datos, secretos de runtime, ajustes de almacenamiento, configuracion de colas, variables especificas por entorno y modos operativos para desarrollo, vista previa, staging, pruebas y produccion.'),
+              text('This allows the same product structure to move across delivery stages without being manually reworked each time.', 'Cela permet a la meme structure produit de passer entre les etapes de livraison sans etre retravaillee manuellement a chaque fois.', 'Isso permite que a mesma estrutura de produto avance entre estagios de entrega sem ser refeita manualmente a cada vez.', 'Questo consente alla stessa struttura di prodotto di avanzare tra le fasi di consegna senza essere rielaborata manualmente ogni volta.', 'Esto permite que la misma estructura del producto avance entre etapas de entrega sin rehacerse manualmente cada vez.'),
+            ],
+          },
+          {
+            step: text('4', '4', '4', '4', '4'),
+            title: text('Support preview and validation', 'Prendre en charge la preview et la validation', 'Dar suporte a preview e validacao', 'Supportare preview e validazione', 'Dar soporte a vista previa y validacion'),
+            paragraphs: [
+              text('Before software reaches production, teams often need preview or validation environments.', 'Avant qu un logiciel atteigne la production, les equipes ont souvent besoin d environnements de preview ou de validation.', 'Antes de o software chegar a producao, as equipes costumam precisar de ambientes de preview ou validacao.', 'Prima che il software arrivi in produzione, i team hanno spesso bisogno di ambienti di preview o validazione.', 'Antes de que el software llegue a produccion, los equipos suelen necesitar entornos de vista previa o validacion.'),
+              text('The platform supports deployment-oriented preparation that makes it easier to validate the application safely before broader release. Successful deployment is not just about shipping code. It is about confirming that the software behaves correctly in controlled environments first.', 'La plateforme prend en charge une preparation orientee deploiement qui facilite la validation sure de l application avant une diffusion plus large. Un deploiement reussi ne consiste pas seulement a livrer du code. Il s agit d abord de confirmer que le logiciel se comporte correctement dans des environnements controles.', 'A plataforma suporta preparacao orientada a deploy que facilita validar a aplicacao com seguranca antes de um lancamento mais amplo. Um deploy bem-sucedido nao e apenas enviar codigo. E confirmar primeiro que o software se comporta corretamente em ambientes controlados.', 'La piattaforma supporta una preparazione orientata al deploy che rende piu semplice validare l applicazione in sicurezza prima di un rilascio piu ampio. Un deploy riuscito non significa solo pubblicare codice. Significa prima confermare che il software si comporti correttamente in ambienti controllati.', 'La plataforma soporta preparacion orientada al despliegue que facilita validar la aplicacion de forma segura antes de una liberacion mas amplia. Un despliegue exitoso no consiste solo en publicar codigo. Consiste primero en confirmar que el software se comporta correctamente en entornos controlados.'),
+            ],
+          },
+          {
+            step: text('5', '5', '5', '5', '5'),
+            title: text('Connect runtime services and background jobs', 'Connecter les services runtime et les jobs en arriere-plan', 'Conectar servicos de runtime e jobs em segundo plano', 'Collegare servizi runtime e job in background', 'Conectar servicios de runtime y trabajos en segundo plano'),
+            paragraphs: [
+              text('Modern applications often depend on more than one running process.', 'Les applications modernes dependent souvent de plus d un processus en execution.', 'Aplicacoes modernas geralmente dependem de mais de um processo em execucao.', 'Le applicazioni moderne dipendono spesso da piu di un processo in esecuzione.', 'Las aplicaciones modernas suelen depender de mas de un proceso en ejecucion.'),
+              text('In addition to the main application, there may be workers, queues, generation jobs, deployment tasks, preview refresh systems, and other background services. The platform is built with this kind of multi-process architecture in mind so deployment can reflect the actual shape of the product.', 'En plus de l application principale, il peut y avoir des workers, des files, des jobs de generation, des taches de deploiement, des systemes de rafraichissement preview et d autres services en arriere-plan. La plateforme est concue pour ce type d architecture multi-processus afin que le deploiement reflete la vraie forme du produit.', 'Além da aplicacao principal, pode haver workers, filas, jobs de geracao, tarefas de deploy, sistemas de refresh de preview e outros servicos em segundo plano. A plataforma foi pensada para esse tipo de arquitetura multiprocesso para que o deploy reflita a forma real do produto.', 'Oltre all applicazione principale, possono esserci worker, code, job di generazione, task di deploy, sistemi di refresh della preview e altri servizi in background. La piattaforma e progettata tenendo presente questo tipo di architettura multi-processo in modo che il deploy rifletta la forma reale del prodotto.', 'Ademas de la aplicacion principal, puede haber workers, colas, trabajos de generacion, tareas de despliegue, sistemas de refresco de vista previa y otros servicios en segundo plano. La plataforma esta construida pensando en este tipo de arquitectura multiproceso para que el despliegue refleje la forma real del producto.'),
+            ],
+          },
+          {
+            step: text('6', '6', '6', '6', '6'),
+            title: text('Promote the product into a real environment', 'Promouvoir le produit vers un vrai environnement', 'Promover o produto para um ambiente real', 'Promuovere il prodotto in un ambiente reale', 'Promover el producto hacia un entorno real'),
+            paragraphs: [
+              text('Once validated, the product can move toward a production-style environment. Depending on the architecture, this may involve managed hosting, containers, environment-aware release processes, runtime provisioning, or staged rollout flows.', 'Une fois valide, le produit peut avancer vers un environnement de type production. Selon l architecture, cela peut impliquer un hebergement gere, des conteneurs, des processus de release adaptes a l environnement, du provisionnement runtime ou des deploiements progressifs.', 'Uma vez validado, o produto pode avancar para um ambiente em estilo de producao. Dependendo da arquitetura, isso pode envolver hospedagem gerenciada, containers, processos de release orientados por ambiente, provisionamento de runtime ou fluxos de rollout gradual.', 'Una volta validato, il prodotto puo avanzare verso un ambiente in stile produzione. A seconda dell architettura, questo puo coinvolgere hosting gestito, container, processi di rilascio consapevoli dell ambiente, provisioning runtime o rollout graduali.', 'Una vez validado, el producto puede avanzar hacia un entorno de estilo produccion. Segun la arquitectura, esto puede implicar hosting gestionado, contenedores, procesos de liberacion conscientes del entorno, aprovisionamiento de runtime o flujos de despliegue gradual.'),
+              text('The key idea is that deployment is built into the product flow from the start.', 'L idee cle est que le deploiement est integre au flux produit des le depart.', 'A ideia central e que o deploy ja esta incorporado ao fluxo do produto desde o inicio.', 'L idea chiave e che il deploy e integrato nel flusso di prodotto fin dall inizio.', 'La idea clave es que el despliegue esta integrado en el flujo del producto desde el principio.'),
+            ],
+          },
+        ],
+      },
+      closing: {
+        eyebrow: text('Closing', 'Conclusion', 'Fechamento', 'Chiusura', 'Cierre'),
+        title: text('Deployment is part of the product flow', 'Le deploiement fait partie du flux produit', 'Deploy faz parte do fluxo do produto', 'Il deploy fa parte del flusso di prodotto', 'El despliegue es parte del flujo del producto'),
+        body: [
+          text('Deployment should not be a last-minute scramble. It should be an expected part of how the product is designed, organized, and prepared for release. Our platform is built around that belief.', 'Le deploiement ne devrait pas etre une course de derniere minute. Il devrait etre une partie attendue de la facon dont le produit est concu, organise et prepare pour sa mise en production. Notre plateforme est construite autour de cette conviction.', 'Deploy nao deve ser uma corrida de ultima hora. Ele deve ser uma parte esperada de como o produto e desenhado, organizado e preparado para release. Nossa plataforma foi construida em torno dessa ideia.', 'Il deploy non dovrebbe essere una corsa dell ultimo minuto. Dovrebbe essere una parte prevista di come il prodotto viene progettato, organizzato e preparato per il rilascio. La nostra piattaforma e costruita attorno a questa convinzione.', 'El despliegue no deberia ser una carrera de ultimo minuto. Deberia ser una parte esperada de como el producto se disena, organiza y prepara para release. Nuestra plataforma esta construida alrededor de esa idea.'),
+        ],
+      },
+    },
   },
   changelog: {
     eyebrow: text('Product / Changelog', 'Produit / Changelog', 'Produto / Changelog', 'Prodotto / Changelog', 'Producto / Changelog'),
@@ -251,7 +442,7 @@ const productPages: Record<
     description: text('A changelog page gives your product credibility by showing a visible history of improvements. It signals speed, consistency, and attention to iteration.', 'Une page changelog donne de la credibilite au produit en montrant un historique visible des ameliorations.', 'Uma pagina de changelog da credibilidade ao produto ao mostrar um historico visivel de melhorias.', 'Una pagina changelog da credibilita al prodotto mostrando uno storico visibile dei miglioramenti.', 'Una pagina de changelog da credibilidad al producto al mostrar un historial visible de mejoras.'),
     pillars: [
       { title: text('Visible progress', 'Progres visible', 'Progresso visivel', 'Progresso visibile', 'Progreso visible'), text: text('Use dated release notes, grouped by month or quarter, to make the platform feel active and improving.', 'Utilisez des notes de version datees, groupees par mois ou trimestre, pour montrer une plateforme active.', 'Use notas de versao datadas, agrupadas por mes ou trimestre, para mostrar uma plataforma ativa.', 'Usa note di rilascio datate, raggruppate per mese o trimestre, per mostrare una piattaforma attiva.', 'Usa notas de lanzamiento fechadas, agrupadas por mes o trimestre, para mostrar una plataforma activa.') },
-      { title: text('Customer reassurance', 'Reassurance client', 'Confianca do cliente', 'Fiducia del cliente', 'Confianza del cliente'), text: text('Prospects and users can see that issues are fixed, features are added, and the platform is evolving.', 'Prospects et utilisateurs voient que les problemes sont corriges, que les fonctionnalites arrivent et que la plateforme evolue.', 'Prospects e usuarios veem que problemas sao corrigidos, recursos sao adicionados e a plataforma evolui.', 'Prospect e utenti vedono che i problemi vengono risolti, le funzionalita aggiunte e la piattaforma evolve.', 'Prospects y usuarios ven que los problemas se corrigen, se agregan funciones y la plataforma evoluciona.') },
+      { title: text('Customer reassurance', 'Reassurance client', 'Confianca do cliente', 'Fiducia del cliente', 'Confianza del cliente'), text: text('Prospects and users can see that issues are fixed, deployment are added, and the platform is evolving.', 'Prospects et utilisateurs voient que les problemes sont corriges, que les fonctionnalites arrivent et que la plateforme evolue.', 'Prospects e usuarios veem que problemas sao corrigidos, recursos sao adicionados e a plataforma evolui.', 'Prospect e utenti vedono che i problemi vengono risolti, le funzionalita aggiunte e la piattaforma evolve.', 'Prospects y usuarios ven que los problemas se corrigen, se agregan funciones y la plataforma evoluciona.') },
       { title: text('Content engine', 'Moteur de contenu', 'Motor de conteudo', 'Motore di contenuto', 'Motor de contenido'), text: text('Changelogs also create reusable content you can link from emails, social posts, and account updates.', 'Les changelogs creent aussi du contenu reutilisable a relier depuis emails, posts sociaux et mises a jour compte.', 'Changelogs tambem criam conteudo reutilizavel para emails, posts sociais e atualizacoes de conta.', 'I changelog creano anche contenuti riutilizzabili da collegare da email, post social e aggiornamenti account.', 'Los changelogs tambien crean contenido reutilizable para emails, posts sociales y actualizaciones de cuenta.') },
     ],
   },
@@ -470,9 +661,9 @@ const useCasePages: Record<
   'role-product-management': {
     eyebrow: text('Use Cases / Roles', 'Cas d usage / Roles', 'Casos de uso / Funcoes', 'Casi d uso / Ruoli', 'Casos de uso / Roles'),
     title: text('Product Management', 'Gestion produit', 'Gestao de produto', 'Product Management', 'Gestion de producto'),
-    description: text('Give PMs a page that speaks directly to roadmaps, feedback systems, prioritization, launch workflows, and internal product operations.', 'Donnez aux PM une page qui parle directement roadmaps, feedback, priorisation, lancements et operations produit.', 'Destaque para PMs uma pagina sobre roadmaps, feedback, priorizacao, lancamentos e operacoes de produto.', 'Dai ai PM una pagina dedicata a roadmap, feedback, prioritizzazione, lanci e operazioni di prodotto.', 'Da a los PM una pagina que hable directamente de roadmaps, feedback, priorizacion, lanzamientos y operaciones de producto.'),
+    description: text('Give PMs a page that speaks directly to outputss, feedback systems, prioritization, launch workflows, and internal product operations.', 'Donnez aux PM une page qui parle directement outputss, feedback, priorisation, lancements et operations produit.', 'Destaque para PMs uma pagina sobre outputss, feedback, priorizacao, lancamentos e operacoes de produto.', 'Dai ai PM una pagina dedicata a outputs, feedback, prioritizzazione, lanci e operazioni di prodotto.', 'Da a los PM una pagina que hable directamente de outputss, feedback, priorizacion, lanzamientos y operaciones de producto.'),
     scenarios: [
-      { title: text('Roadmap tools', 'Outils roadmap', 'Ferramentas de roadmap', 'Strumenti roadmap', 'Herramientas de roadmap'), text: text('Build internal planning apps, feature trackers, and prioritization systems around your team workflow.', 'Creez des apps de planification, suivis de features et systemes de priorisation adaptes a votre workflow.', 'Crie apps internas de planejamento, trackers de features e sistemas de priorizacao para o fluxo da equipe.', 'Crea app interne di pianificazione, tracker funzionalita e sistemi di prioritizzazione per il workflow del team.', 'Crea apps internas de planificacion, rastreadores de funcionalidades y sistemas de priorizacion para el flujo del equipo.') },
+      { title: text('outputs tools', 'Outils outputs', 'Ferramentas de outputs', 'Strumenti outputs', 'Herramientas de outputs'), text: text('Build internal planning apps, feature trackers, and prioritization systems around your team workflow.', 'Creez des apps de planification, suivis de deployment et systemes de priorisation adaptes a votre workflow.', 'Crie apps internas de planejamento, trackers de deployment e sistemas de priorizacao para o fluxo da equipe.', 'Crea app interne di pianificazione, tracker funzionalita e sistemi di prioritizzazione per il workflow del team.', 'Crea apps internas de planificacion, rastreadores de funcionalidades y sistemas de priorizacion para el flujo del equipo.') },
       { title: text('Feedback hubs', 'Hubs de feedback', 'Hubs de feedback', 'Hub di feedback', 'Hubs de feedback'), text: text('Organize intake, triage, themes, and release communication in a single place.', 'Organisez la collecte, le tri, les themes et la communication release en un seul endroit.', 'Organize entrada, triagem, temas e comunicacao de releases em um unico lugar.', 'Organizza intake, triage, temi e comunicazione delle release in un solo luogo.', 'Organiza la entrada, triage, temas y comunicacion de releases en un solo lugar.') },
       { title: text('Launch coordination', 'Coordination des lancements', 'Coordenacao de lancamento', 'Coordinamento dei lanci', 'Coordinacion de lanzamientos'), text: text('Connect cross-functional planning, approvals, and execution with stronger visibility.', 'Reliez planification transverse, validations et execution avec une meilleure visibilite.', 'Conecte planejamento multifuncional, aprovacoes e execucao com mais visibilidade.', 'Collega pianificazione cross-funzionale, approvazioni ed esecuzione con maggiore visibilita.', 'Conecta la planificacion multifuncional, aprobaciones y ejecucion con mayor visibilidad.') },
     ],
@@ -531,13 +722,132 @@ const useCasePages: Record<
 
 const pricingPlanNames = ['Elite', 'Pro', 'Builder', 'Starter', 'Free'] as const;
 
+const docsFaqsPage: LocalizedDocsFaqsPage = {
+  eyebrow: text('Resources / Docs & FAQs', 'Ressources / Docs et FAQ', 'Recursos / Docs e FAQs', 'Risorse / Docs e FAQ', 'Recursos / Docs y FAQs'),
+  title: text(
+    'Docs, guidance, and answers for every stage of your build.',
+    'Docs, conseils et reponses pour chaque etape de votre build.',
+    'Docs, orientacao e respostas para cada etapa do seu build.',
+    'Docs, guida e risposte per ogni fase del tuo build.',
+    'Docs, orientacion y respuestas para cada etapa de tu build.',
+  ),
+  description: text(
+    'Explore the questions builders ask most often, plus the guidance that helps you move from idea to launch with more clarity.',
+    'Explorez les questions que les builders posent le plus souvent, ainsi que les conseils qui vous aident a passer de l idee au lancement avec plus de clarte.',
+    'Explore as perguntas que builders fazem com mais frequencia, junto com a orientacao que ajuda voce a sair da ideia para o lancamento com mais clareza.',
+    'Esplora le domande che i builder fanno piu spesso, insieme alla guida che ti aiuta a passare dall idea al lancio con maggiore chiarezza.',
+    'Explora las preguntas que los builders hacen con mas frecuencia, junto con la orientacion que te ayuda a pasar de la idea al lanzamiento con mas claridad.',
+  ),
+  docs: {
+    eyebrow: text('Documentation', 'Documentation', 'Documentacao', 'Documentazione', 'Documentacion'),
+    title: text('Start with the essentials', 'Commencez par l essentiel', 'Comece pelo essencial', 'Inizia dall essenziale', 'Empieza por lo esencial'),
+    description: text(
+      'This page adapts the Strapas docs and FAQ content into a format that fits the current site and its product narrative.',
+      'Cette page adapte le contenu docs et FAQ de Strapas dans un format qui correspond au site actuel et a son discours produit.',
+      'Esta pagina adapta o conteudo de docs e FAQs da Strapas para um formato que combina com o site atual e sua narrativa de produto.',
+      'Questa pagina adatta il contenuto docs e FAQ di Strapas a un formato che si integra con il sito attuale e la sua narrativa di prodotto.',
+      'Esta pagina adapta el contenido de docs y FAQs de Strapas a un formato que encaja con el sitio actual y su narrativa de producto.',
+    ),
+    cards: [
+      {
+        title: text('Docs & FAQs', 'Docs et FAQ', 'Docs e FAQs', 'Docs e FAQ', 'Docs y FAQs'),
+        text: text(
+          'Get step-by-step guidance and quick answers for getting started, building, and going live.',
+          'Obtenez des guides pas a pas et des reponses rapides pour demarrer, construire et mettre en ligne.',
+          'Obtenha orientacao passo a passo e respostas rapidas para comecar, construir e colocar no ar.',
+          'Ottieni guide passo dopo passo e risposte rapide per iniziare, costruire e andare live.',
+          'Obtén guias paso a paso y respuestas rapidas para empezar, construir y lanzar.',
+        ),
+      },
+      {
+        title: text('Platform workflow', 'Flux plateforme', 'Fluxo da plataforma', 'Flusso della piattaforma', 'Flujo de la plataforma'),
+        text: text(
+          'Understand how prompt-based creation, built-in backend logic, and launch-ready output connect inside one workflow.',
+          'Comprenez comment la creation par prompt, la logique backend integree et la sortie prete au lancement se connectent dans un seul workflow.',
+          'Entenda como a criacao por prompt, a logica de backend embutida e o output pronto para lancamento se conectam em um unico fluxo.',
+          'Comprendi come la creazione da prompt, la logica backend integrata e l output pronto al lancio si collegano in un unico flusso.',
+          'Entiende como la creacion por prompt, la logica backend incorporada y la salida lista para lanzamiento se conectan en un solo flujo.',
+        ),
+      },
+      {
+        title: text('Launch confidence', 'Confiance au lancement', 'Confianca no lancamento', 'Fiducia nel lancio', 'Confianza para el lanzamiento'),
+        text: text(
+          'Get clarity on integrations, deployment behavior, data ownership, and security before you ship.',
+          'Obtenez de la clarte sur les integrations, le comportement de deploiement, la propriete des donnees et la securite avant la mise en ligne.',
+          'Ganhe clareza sobre integracoes, comportamento de deploy, propriedade dos dados e seguranca antes de publicar.',
+          'Ottieni chiarezza su integrazioni, comportamento di deploy, proprieta dei dati e sicurezza prima del rilascio.',
+          'Consigue claridad sobre integraciones, comportamiento de despliegue, propiedad de los datos y seguridad antes de publicar.',
+        ),
+      },
+    ],
+  },
+  faqs: {
+    eyebrow: text('FAQs', 'FAQ', 'FAQs', 'FAQ', 'FAQs'),
+    title: text('Frequently asked questions', 'Questions frequentes', 'Perguntas frequentes', 'Domande frequenti', 'Preguntas frecuentes'),
+    description: text(
+      'These answers are adapted from the Strapas FAQ material and presented in the voice and structure of this site.',
+      'Ces reponses sont adaptees du contenu FAQ de Strapas et presentees dans la voix et la structure de ce site.',
+      'Estas respostas sao adaptadas do material de FAQ da Strapas e apresentadas na voz e na estrutura deste site.',
+      'Queste risposte sono adattate dal materiale FAQ di Strapas e presentate con la voce e la struttura di questo sito.',
+      'Estas respuestas estan adaptadas del material de FAQ de Strapas y presentadas con la voz y la estructura de este sitio.',
+    ),
+    items: [
+      {
+        question: text('What is Strapas?', 'Qu est-ce que Strapas ?', 'O que e a Strapas?', 'Che cos e Strapas?', 'Que es Strapas?'),
+        answer: text('Strapas is an AI-powered platform that turns ideas into fully functional custom apps without requiring coding experience.', 'Strapas est une plateforme propulsee par l IA qui transforme des idees en applications personnalisees pleinement fonctionnelles sans exiger d experience en code.', 'A Strapas e uma plataforma com IA que transforma ideias em apps personalizadas totalmente funcionais sem exigir experiencia em codigo.', 'Strapas e una piattaforma basata sull IA che trasforma idee in app personalizzate pienamente funzionanti senza richiedere esperienza di programmazione.', 'Strapas es una plataforma impulsada por IA que convierte ideas en apps personalizadas totalmente funcionales sin requerir experiencia en codigo.'),
+      },
+      {
+        question: text('Do I need coding experience to use Strapas?', 'Ai-je besoin d experience en code pour utiliser Strapas ?', 'Preciso de experiencia em codigo para usar a Strapas?', 'Serve esperienza di programmazione per usare Strapas?', 'Necesito experiencia en codigo para usar Strapas?'),
+        answer: text('No. The platform is designed to be accessible to non-technical users, so you can describe what you need in plain language and let the system handle the technical implementation.', 'Non. La plateforme est concue pour etre accessible aux utilisateurs non techniques, afin que vous puissiez decrire vos besoins en langage simple pendant que le systeme gere l implementation technique.', 'Nao. A plataforma foi criada para ser acessivel a usuarios nao tecnicos, para que voce possa descrever o que precisa em linguagem simples enquanto o sistema cuida da implementacao tecnica.', 'No. La piattaforma e progettata per essere accessibile anche a utenti non tecnici, cosi puoi descrivere cio di cui hai bisogno in linguaggio semplice mentre il sistema gestisce l implementazione tecnica.', 'No. La plataforma esta disenada para ser accesible a usuarios no tecnicos, para que puedas describir lo que necesitas en lenguaje simple mientras el sistema gestiona la implementacion tecnica.'),
+      },
+      {
+        question: text('What types of applications can I build with Strapas?', 'Quels types d applications puis-je creer avec Strapas ?', 'Que tipos de aplicacoes posso criar com a Strapas?', 'Quali tipi di applicazioni posso creare con Strapas?', 'Que tipos de aplicaciones puedo crear con Strapas?'),
+        answer: text('Strapas supports a wide range of products, including productivity apps, back-office tools, customer portals, business process automation systems, MVPs, and rapid prototypes.', 'Strapas prend en charge une large gamme de produits, y compris les apps de productivite, les outils back-office, les portails clients, les systemes d automatisation de processus, les MVP et les prototypes rapides.', 'A Strapas oferece suporte a uma ampla variedade de produtos, incluindo apps de produtividade, ferramentas back-office, portais de clientes, sistemas de automacao de processos, MVPs e prototipos rapidos.', 'Strapas supporta un ampia gamma di prodotti, incluse app di produttivita, strumenti back-office, portali clienti, sistemi di automazione dei processi, MVP e prototipi rapidi.', 'Strapas admite una amplia gama de productos, incluidas apps de productividad, herramientas back-office, portales de clientes, sistemas de automatizacion de procesos, MVPs y prototipos rapidos.'),
+      },
+      {
+        question: text('What kind of integrations does Strapas support?', 'Quel type d integrations Strapas prend-il en charge ?', 'Que tipo de integracoes a Strapas suporta?', 'Che tipo di integrazioni supporta Strapas?', 'Que tipo de integraciones soporta Strapas?'),
+        answer: text('Common integrations are built in, including email, SMS, external APIs, and database access, so teams can connect services without a heavy setup process.', 'Les integrations courantes sont integrees, notamment l email, le SMS, les API externes et l acces aux bases de donnees, afin que les equipes puissent connecter des services sans configuration lourde.', 'As integracoes mais comuns ja vem embutidas, incluindo email, SMS, APIs externas e acesso a banco de dados, para que as equipes conectem servicos sem um processo pesado de configuracao.', 'Le integrazioni piu comuni sono incluse, tra cui email, SMS, API esterne e accesso al database, in modo che i team possano collegare servizi senza una configurazione pesante.', 'Las integraciones mas comunes estan incorporadas, incluidas email, SMS, APIs externas y acceso a bases de datos, para que los equipos conecten servicios sin un proceso pesado de configuracion.'),
+      },
+      {
+        question: text('How are Strapas applications deployed?', 'Comment les applications Strapas sont-elles deployeees ?', 'Como as aplicacoes da Strapas sao implantadas?', 'Come vengono distribuite le applicazioni Strapas?', 'Como se despliegan las aplicaciones de Strapas?'),
+        answer: text('Strapas handles deployment automatically with built-in hosting, so applications can go live and become shareable without a separate deployment workflow.', 'Strapas gere automatiquement le deploiement avec un hebergement integre, de sorte que les applications puissent etre mises en ligne et partagees sans workflow de deploiement separe.', 'A Strapas cuida do deploy automaticamente com hospedagem embutida, para que as aplicacoes possam entrar no ar e ser compartilhadas sem um fluxo separado de implantacao.', 'Strapas gestisce il deploy automaticamente con hosting integrato, cosi le applicazioni possono andare live ed essere condivise senza un flusso di distribuzione separato.', 'Strapas se encarga del despliegue automaticamente con hosting integrado, de modo que las aplicaciones puedan salir en vivo y compartirse sin un flujo de despliegue separado.'),
+      },
+      {
+        question: text('How does the natural language development process work?', 'Comment fonctionne le developpement en langage naturel ?', 'Como funciona o processo de desenvolvimento em linguagem natural?', 'Come funziona il processo di sviluppo in linguaggio naturale?', 'Como funciona el proceso de desarrollo en lenguaje natural?'),
+        answer: text('You describe the idea in conversational language, the AI interprets your instructions, generates the code and structure, and then lets you refine the product through continued iteration.', 'Vous decrivez l idee en langage conversationnel, l IA interprete vos instructions, genere le code et la structure, puis vous permet d affiner le produit par iteration continue.', 'Voce descreve a ideia em linguagem conversacional, a IA interpreta suas instrucoes, gera o codigo e a estrutura e depois permite refinar o produto por meio de iteracao continua.', 'Descrivi l idea in linguaggio conversazionale, l IA interpreta le tue istruzioni, genera codice e struttura e poi ti consente di affinare il prodotto attraverso iterazioni continue.', 'Describes la idea en lenguaje conversacional, la IA interpreta tus instrucciones, genera el codigo y la estructura, y luego te permite refinar el producto mediante iteracion continua.'),
+      },
+      {
+        question: text('Is my data secure with Strapas?', 'Mes donnees sont-elles securisees avec Strapas ?', 'Meus dados estao seguros com a Strapas?', 'I miei dati sono al sicuro con Strapas?', 'Estan seguros mis datos con Strapas?'),
+        answer: text('Yes. Strapas emphasizes built-in user management, authentication, and industry-standard security practices to protect application data and user information.', 'Oui. Strapas met l accent sur une gestion integree des utilisateurs, l authentification et des pratiques de securite conformes aux standards du secteur pour proteger les donnees applicatives et les informations utilisateur.', 'Sim. A Strapas enfatiza gestao de usuarios embutida, autenticacao e praticas de seguranca em nivel de mercado para proteger dados da aplicacao e informacoes dos usuarios.', 'Si. Strapas pone enfasi su gestione utenti integrata, autenticazione e pratiche di sicurezza standard del settore per proteggere i dati dell applicazione e le informazioni degli utenti.', 'Si. Strapas hace enfasis en la gestion de usuarios incorporada, la autenticacion y practicas de seguridad estandar de la industria para proteger los datos de la aplicacion y la informacion de los usuarios.'),
+      },
+      {
+        question: text('Do I own the applications I create with Strapas?', 'Suis-je proprietaire des applications que je cree avec Strapas ?', 'Eu sou dono das aplicacoes que crio com a Strapas?', 'Possiedo le applicazioni che creo con Strapas?', 'Soy dueno de las aplicaciones que creo con Strapas?'),
+        answer: text('Yes. The applications and content created through Strapas belong to the creator, who is free to use, modify, distribute, or sell them.', 'Oui. Les applications et contenus crees via Strapas appartiennent a leur createur, qui est libre de les utiliser, modifier, distribuer ou vendre.', 'Sim. As aplicacoes e o conteudo criados com a Strapas pertencem ao criador, que e livre para usar, modificar, distribuir ou vender.', 'Si. Le applicazioni e i contenuti creati tramite Strapas appartengono al creatore, che e libero di usarli, modificarli, distribuirli o venderli.', 'Si. Las aplicaciones y el contenido creados con Strapas pertenecen a su creador, quien es libre de usarlos, modificarlos, distribuirlos o venderlos.'),
+      },
+      {
+        question: text('Can I connect more than one GitHub account to the same app?', 'Puis-je connecter plus d un compte GitHub a la meme app ?', 'Posso conectar mais de uma conta GitHub ao mesmo app?', 'Posso collegare piu di un account GitHub alla stessa app?', 'Puedo conectar mas de una cuenta de GitHub a la misma app?'),
+        answer: text('No. Each app uses one shared GitHub account. To use multiple GitHub accounts, create separate apps or build a custom OAuth flow with backend functions.', 'Non. Chaque app utilise un seul compte GitHub partage. Pour utiliser plusieurs comptes GitHub, creez des apps separees ou construisez un flux OAuth personnalise avec des fonctions backend.', 'Nao. Cada app usa uma unica conta GitHub compartilhada. Para usar varias contas GitHub, crie apps separadas ou construa um fluxo OAuth personalizado com funcoes de backend.', 'No. Ogni app utilizza un solo account GitHub condiviso. Per usare piu account GitHub, crea app separate oppure costruisci un flusso OAuth personalizzato con funzioni backend.', 'No. Cada app usa una sola cuenta compartida de GitHub. Para usar varias cuentas de GitHub, crea apps separadas o construye un flujo OAuth personalizado con funciones backend.'),
+      },
+      {
+        question: text('Can each person using my app connect their own GitHub account?', 'Chaque personne utilisant mon app peut-elle connecter son propre compte GitHub ?', 'Cada pessoa usando meu app pode conectar sua propria conta GitHub?', 'Ogni persona che usa la mia app puo collegare il proprio account GitHub?', 'Puede cada persona que usa mi app conectar su propia cuenta de GitHub?'),
+        answer: text('No. Connectors are app-level. When you connect GitHub, you connect a single GitHub account that all flows in the app use. To let each person using your app connect their own GitHub account, you need to build a custom OAuth flow with backend functions and the GitHub API, including per-user token storage and refresh.', 'Non. Les connecteurs sont au niveau de l app. Quand vous connectez GitHub, vous connectez un seul compte GitHub utilise par tous les flux de l app. Pour permettre a chaque personne utilisant votre app de connecter son propre compte GitHub, vous devez construire un flux OAuth personnalise avec des fonctions backend et l API GitHub, y compris le stockage et le rafraichissement des tokens par utilisateur.', 'Nao. Os conectores sao de nivel de app. Quando voce conecta o GitHub, conecta uma unica conta GitHub usada por todos os fluxos do app. Para permitir que cada pessoa usando seu app conecte sua propria conta GitHub, voce precisa construir um fluxo OAuth personalizado com funcoes de backend e a API do GitHub, incluindo armazenamento e renovacao de tokens por usuario.', 'No. I connettori sono a livello di app. Quando colleghi GitHub, colleghi un singolo account GitHub usato da tutti i flussi dell app. Per permettere a ogni persona che usa la tua app di collegare il proprio account GitHub, devi costruire un flusso OAuth personalizzato con funzioni backend e l API di GitHub, includendo archiviazione e refresh dei token per utente.', 'No. Los conectores son a nivel de app. Cuando conectas GitHub, conectas una sola cuenta de GitHub que usan todos los flujos de la app. Para permitir que cada persona que usa tu app conecte su propia cuenta de GitHub, necesitas construir un flujo OAuth personalizado con funciones backend y la API de GitHub, incluyendo almacenamiento y renovacion de tokens por usuario.'),
+      },
+      {
+        question: text('Can I create issues or update content in GitHub from my app?', 'Puis-je creer des issues ou mettre a jour du contenu dans GitHub depuis mon app ?', 'Posso criar issues ou atualizar conteudo no GitHub a partir do meu app?', 'Posso creare issue o aggiornare contenuti in GitHub dalla mia app?', 'Puedo crear issues o actualizar contenido en GitHub desde mi app?'),
+        answer: text('Yes, if the flow you build requires write permissions and you approve them during authorization. Always review the permissions shown in the connection flow before approving access.', 'Oui, si le flux que vous construisez requiert des permissions d ecriture et que vous les approuvez pendant l autorisation. Examinez toujours les permissions affichees dans le flux de connexion avant d approuver l acces.', 'Sim, se o fluxo que voce construir exigir permissoes de escrita e voce as aprovar durante a autorizacao. Sempre revise as permissoes mostradas no fluxo de conexao antes de aprovar o acesso.', 'Si, se il flusso che costruisci richiede permessi di scrittura e li approvi durante l autorizzazione. Controlla sempre i permessi mostrati nel flusso di connessione prima di approvare l accesso.', 'Si, si el flujo que construyes requiere permisos de escritura y los apruebas durante la autorizacion. Revisa siempre los permisos mostrados en el flujo de conexion antes de aprobar el acceso.'),
+      },
+    ],
+  },
+};
+
 export function getHeaderCopy(language: Language) {
   return {
     brand: 'Strapas',
     productLabel: pick(language, text('Product', 'Produit', 'Produto', 'Prodotto', 'Producto')),
     useCasesLabel: pick(language, text('Use Cases', 'Cas d usage', 'Casos de uso', 'Casi d uso', 'Casos de uso')),
+    resourcesLabel: pick(language, text('Resources', 'Ressources', 'Recursos', 'Risorse', 'Recursos')),
     nav: {
-      features: pick(language, text('Features', 'Fonctionnalites', 'Recursos', 'Funzionalita', 'Funciones')),
+      deployment: pick(language, text('deployment', 'Fonctionnalites', 'Recursos', 'Funzionalita', 'Funciones')),
       examples: pick(language, text('Examples', 'Exemples', 'Exemplos', 'Esempi', 'Ejemplos')),
       howItWorks: pick(language, text('How it works', 'Comment ca marche', 'Como funciona', 'Come funziona', 'Como funciona')),
       about: pick(language, text('About Us', 'A propos', 'Sobre nos', 'Chi siamo', 'Sobre nosotros')),
@@ -546,8 +856,8 @@ export function getHeaderCopy(language: Language) {
       { href: '/product/prompt-deployment', label: pick(language, productPages['prompt-deployment'].title), desc: pick(language, productPages['prompt-deployment'].description) },
       { href: '/product/how-it-works', label: pick(language, productPages['how-it-works'].title), desc: pick(language, productPages['how-it-works'].description) },
       { href: '/product/blueprint', label: pick(language, productPages.blueprint.title), desc: pick(language, productPages.blueprint.description) },
-      { href: '/product/roadmap', label: pick(language, productPages.roadmap.title), desc: pick(language, productPages.roadmap.description) },
-      { href: '/product/features', label: pick(language, productPages.features.title), desc: pick(language, productPages.features.description) },
+      { href: '/product/outputs', label: pick(language, productPages.outputs.title), desc: pick(language, productPages.outputs.description) },
+      { href: '/product/deployment', label: pick(language, productPages.deployment.title), desc: pick(language, productPages.deployment.description) },
       { href: '/product/changelog', label: pick(language, productPages.changelog.title), desc: pick(language, productPages.changelog.description) },
     ],
     useCaseColumns: [
@@ -574,6 +884,13 @@ export function getHeaderCopy(language: Language) {
         ],
       },
     ],
+    resourcesLinks: [
+      {
+        href: '/docs-faqs',
+        label: pick(language, text('Docs & FAQs', 'Docs et FAQ', 'Docs e FAQs', 'Docs e FAQ', 'Docs y FAQs')),
+        desc: pick(language, text('Get answers and find step-by-step guides.', 'Obtenez des reponses et trouvez des guides pas a pas.', 'Obtenha respostas e encontre guias passo a passo.', 'Ottieni risposte e trova guide passo dopo passo.', 'Obtén respuestas y encuentra guias paso a paso.')),
+      },
+    ],
     ctas: {
       viewPricing: pick(language, text('View pricing', 'Voir les tarifs', 'Ver precos', 'Vedi prezzi', 'Ver precios')),
       startBuilding: pick(language, text('Start building', 'Commencer', 'Comecar', 'Inizia a costruire', 'Empezar a construir')),
@@ -582,6 +899,29 @@ export function getHeaderCopy(language: Language) {
       buttonLabel: pick(language, text('Choose language', 'Choisir la langue', 'Escolher idioma', 'Scegli lingua', 'Elegir idioma')),
       mobileLabel: pick(language, text('Language', 'Langue', 'Idioma', 'Lingua', 'Idioma')),
       openMenu: pick(language, text('Open menu', 'Ouvrir le menu', 'Abrir menu', 'Apri menu', 'Abrir menu')),
+    },
+  };
+}
+
+export function getDocsFaqsPageCopy(language: Language) {
+  return {
+    eyebrow: pick(language, docsFaqsPage.eyebrow),
+    title: pick(language, docsFaqsPage.title),
+    description: pick(language, docsFaqsPage.description),
+    docs: {
+      eyebrow: pick(language, docsFaqsPage.docs.eyebrow),
+      title: pick(language, docsFaqsPage.docs.title),
+      description: pick(language, docsFaqsPage.docs.description),
+      cards: pickItems(language, docsFaqsPage.docs.cards),
+    },
+    faqs: {
+      eyebrow: pick(language, docsFaqsPage.faqs.eyebrow),
+      title: pick(language, docsFaqsPage.faqs.title),
+      description: pick(language, docsFaqsPage.faqs.description),
+      items: docsFaqsPage.faqs.items.map((item) => ({
+        question: pick(language, item.question),
+        answer: pick(language, item.answer),
+      })),
     },
   };
 }
@@ -679,7 +1019,7 @@ export function getAboutCopy(language: Language) {
     ctaTitle: pick(language, text('Ready to turn your product vision into something real?', 'Pret a transformer votre vision produit en quelque chose de reel ?', 'Pronto para transformar sua visao de produto em algo real?', 'Pronto a trasformare la tua visione prodotto in qualcosa di reale?', 'Listo para convertir tu vision de producto en algo real?')),
     ctaDescription: pick(language, text('Explore the platform, browse product pages, and shape a faster path from concept to polished release.', 'Explorez la plateforme, parcourez les pages produit et dessinez un chemin plus rapide du concept au lancement.', 'Explore a plataforma, veja as paginas de produto e construa um caminho mais rapido do conceito ao lancamento.', 'Esplora la piattaforma, visita le pagine prodotto e costruisci un percorso piu rapido dal concept al rilascio.', 'Explora la plataforma, revisa las paginas de producto y crea un camino mas rapido del concepto al lanzamiento.')),
     ctas: {
-      exploreFeatures: pick(language, text('Explore features', 'Explorer les fonctionnalites', 'Explorar recursos', 'Esplora funzionalita', 'Explorar funcionalidades')),
+      exploredeployment: pick(language, text('Explore deployment', 'Explorer les fonctionnalites', 'Explorar recursos', 'Esplora funzionalita', 'Explorar funcionalidades')),
       viewPricing: pick(language, text('View pricing', 'Voir les tarifs', 'Ver precos', 'Vedi prezzi', 'Ver precios')),
     },
   };
@@ -769,7 +1109,7 @@ export function getHowItWorksCopy(language: Language) {
         title: pick(language, text('Extend the platform with plugins and modules', 'Etendez la plateforme avec des plugins et modules', 'Expanda a plataforma com plugins e modulos', 'Estendi la piattaforma con plugin e moduli', 'Extiende la plataforma con plugins y modulos')),
         body: [
           pick(language, text('The system is modular.', 'Le systeme est modulaire.', 'O sistema e modular.', 'Il sistema e modulare.', 'El sistema es modular.')),
-          pick(language, text('It includes support for plugins, registries, optional product modules, and capability extensions. This means the platform can be expanded over time to support additional features, new generation targets, specialized workflows, enterprise functionality, or domain-specific product logic.', 'Il inclut la prise en charge de plugins, registres, modules produit optionnels et extensions de capacite. Cela signifie que la plateforme peut s etendre dans le temps pour prendre en charge de nouvelles fonctionnalites, de nouvelles cibles de generation, des workflows specialises, des fonctions enterprise ou une logique metier specifique a un domaine.', 'Ele inclui suporte para plugins, registros, modulos opcionais de produto e extensoes de capacidade. Isso significa que a plataforma pode ser expandida ao longo do tempo para suportar recursos adicionais, novos destinos de geracao, fluxos especializados, funcionalidades enterprise ou logica de produto especifica de dominio.', 'Include il supporto per plugin, registry, moduli di prodotto opzionali ed estensioni di capacita. Questo significa che la piattaforma puo espandersi nel tempo per supportare funzionalita aggiuntive, nuovi target di generazione, workflow specializzati, funzionalita enterprise o logica di prodotto specifica per dominio.', 'Incluye soporte para plugins, registros, modulos opcionales de producto y extensiones de capacidad. Esto significa que la plataforma puede ampliarse con el tiempo para soportar funciones adicionales, nuevos objetivos de generacion, flujos especializados, funcionalidad enterprise o logica de producto especifica por dominio.')),
+          pick(language, text('It includes support for plugins, registries, optional product modules, and capability extensions. This means the platform can be expanded over time to support additional deployment, new generation targets, specialized workflows, enterprise functionality, or domain-specific product logic.', 'Il inclut la prise en charge de plugins, registres, modules produit optionnels et extensions de capacite. Cela signifie que la plateforme peut s etendre dans le temps pour prendre en charge de nouvelles fonctionnalites, de nouvelles cibles de generation, des workflows specialises, des fonctions enterprise ou une logique metier specifique a un domaine.', 'Ele inclui suporte para plugins, registros, modulos opcionais de produto e extensoes de capacidade. Isso significa que a plataforma pode ser expandida ao longo do tempo para suportar recursos adicionais, novos destinos de geracao, fluxos especializados, funcionalidades enterprise ou logica de produto especifica de dominio.', 'Include il supporto per plugin, registry, moduli di prodotto opzionali ed estensioni di capacita. Questo significa che la piattaforma puo espandersi nel tempo per supportare funzionalita aggiuntive, nuovi target di generazione, workflow specializzati, funzionalita enterprise o logica di prodotto specifica per dominio.', 'Incluye soporte para plugins, registros, modulos opcionales de producto y extensiones de capacidad. Esto significa que la plataforma puede ampliarse con el tiempo para soportar funciones adicionales, nuevos objetivos de generacion, flujos especializados, funcionalidad enterprise o logica de producto especifica por dominio.')),
           pick(language, text('This modular design is what allows the platform to grow beyond a single type of software output.', 'Cette conception modulaire permet a la plateforme de grandir au-dela d un seul type de sortie logicielle.', 'Esse design modular e o que permite que a plataforma cresca para alem de um unico tipo de entrega de software.', 'Questo design modulare e cio che permette alla piattaforma di crescere oltre un solo tipo di output software.', 'Este diseno modular es lo que permite que la plataforma crezca mas alla de un solo tipo de salida de software.')),
         ],
       },
@@ -915,7 +1255,7 @@ export function getPricingCopy(language: Language) {
         name: pricingPlanNames[4],
         description: pick(language, text('Access the core platform for free and explore what it can do.', 'Accedez gratuitement au coeur de la plateforme et decouvrez son potentiel.', 'Acesse o nucleo da plataforma gratuitamente e veja o que ela pode fazer.', 'Accedi gratuitamente al cuore della piattaforma e scopri cosa puo fare.', 'Accede gratis al nucleo de la plataforma y explora lo que puede hacer.')),
         price: 0,
-        highlights: [pick(language, text('Core platform features', 'Fonctionnalites coeur de plateforme', 'Recursos centrais da plataforma', 'Funzionalita core della piattaforma', 'Funciones centrales de la plataforma'))],
+        highlights: [pick(language, text('Core platform deployment', 'Fonctionnalites coeur de plateforme', 'Recursos centrais da plataforma', 'Funzionalita core della piattaforma', 'Funciones centrales de la plataforma'))],
         footnote: pick(language, text('Authentication, database functionality, and analytics.', 'Authentification, base de donnees et analytics.', 'Autenticacao, banco de dados e analytics.', 'Autenticazione, database e analytics.', 'Autenticacion, base de datos y analytics.')),
       },
     ],
@@ -978,7 +1318,7 @@ export function getProductTemplateCopy(language: Language) {
     nextTitle: pick(language, text('Guide visitors deeper into the product', 'Faites avancer les visiteurs plus loin dans le produit', 'Leve visitantes mais fundo no produto', 'Guida i visitatori piu a fondo nel prodotto', 'Lleva a los visitantes mas a fondo en el producto')),
     nextCardTitle: pick(language, text('Connect this page to demos, forms, or your backend later.', 'Reliez cette page a des demos, formulaires ou votre backend plus tard.', 'Conecte esta pagina a demos, formularios ou ao seu backend depois.', 'Collega questa pagina a demo, moduli o al tuo backend in seguito.', 'Conecta esta pagina con demos, formularios o tu backend mas adelante.')),
     nextCardDescription: pick(language, text('The structure is already in place, so you can keep adding richer content without relying on one long scrolling homepage.', 'La structure est deja en place, vous pouvez donc ajouter du contenu plus riche sans dependre d une longue homepage.', 'A estrutura ja esta pronta, entao voce pode adicionar conteudo mais rico sem depender de uma homepage longa.', 'La struttura e gia pronta, quindi puoi aggiungere contenuti piu ricchi senza dipendere da una lunga homepage.', 'La estructura ya esta lista, asi que puedes agregar contenido mas rico sin depender de una homepage larga.')),
-    viewProductFeatures: pick(language, text('View product features', 'Voir les fonctionnalites produit', 'Ver recursos do produto', 'Vedi funzionalita prodotto', 'Ver funcionalidades del producto')),
+    viewProductdeployment: pick(language, text('View product deployment', 'Voir les fonctionnalites produit', 'Ver recursos do produto', 'Vedi funzionalita prodotto', 'Ver funcionalidades del producto')),
   };
 }
 
@@ -1028,7 +1368,7 @@ export function getUseCaseTemplateCopy(language: Language) {
     messagingBullets: [
       pick(language, text('Map your prompt to a realistic workflow instead of generic app copy.', 'Reliez votre prompt a un workflow realiste plutot qu a un texte d app generique.', 'Conecte seu prompt a um fluxo realista em vez de um texto generico.', 'Collega il prompt a un workflow realistico invece di un testo generico.', 'Conecta tu prompt con un flujo realista en lugar de un texto generico.')),
       pick(language, text('Show examples that match how this audience already works.', 'Montrez des exemples qui ressemblent a la facon dont ce public travaille deja.', 'Mostre exemplos que combinam com a forma como este publico ja trabalha.', 'Mostra esempi che rispecchiano il modo in cui questo pubblico lavora gia.', 'Muestra ejemplos que coincidan con la forma en que esta audiencia ya trabaja.')),
-      pick(language, text('Reduce friction by linking directly to relevant templates or features.', 'Reduisez la friction en liant directement vers les templates ou fonctionnalites pertinents.', 'Reduza friccao ligando direto para templates ou recursos relevantes.', 'Riduci l attrito collegando direttamente a template o funzionalita rilevanti.', 'Reduce la friccion enlazando directo a templates o funcionalidades relevantes.')),
+      pick(language, text('Reduce friction by linking directly to relevant templates or deployment.', 'Reduisez la friction en liant directement vers les templates ou fonctionnalites pertinents.', 'Reduza friccao ligando direto para templates ou recursos relevantes.', 'Riduci l attrito collegando direttamente a template o funzionalita rilevanti.', 'Reduce la friccion enlazando directo a templates o funcionalidades relevantes.')),
     ],
     continueExploring: pick(language, text('Continue exploring', 'Continuer a explorer', 'Continuar explorando', 'Continua a esplorare', 'Seguir explorando')),
     continueTitle: pick(language, text('Use cross-links to keep visitors moving', 'Utilisez des liens croises pour faire avancer les visiteurs', 'Use links cruzados para manter visitantes em movimento', 'Usa collegamenti incrociati per far avanzare i visitatori', 'Usa enlaces cruzados para mantener a los visitantes en movimiento')),
@@ -1071,6 +1411,60 @@ export function getProductPageCopy(language: Language, key: ProductPageKey) {
             intro: pick(language, page.blueprint.benefits.intro),
             benefits: page.blueprint.benefits.benefits.map((benefit) => pick(language, benefit)),
             closing: pick(language, page.blueprint.benefits.closing),
+          },
+        }
+      : undefined,
+    outputs: page.outputs
+      ? {
+          moreThanSingleOutput: {
+            eyebrow: pick(language, page.outputs.moreThanSingleOutput.eyebrow),
+            title: pick(language, page.outputs.moreThanSingleOutput.title),
+            paragraphs: page.outputs.moreThanSingleOutput.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          supportedOutputs: {
+            eyebrow: pick(language, page.outputs.supportedOutputs.eyebrow),
+            title: pick(language, page.outputs.supportedOutputs.title),
+            paragraphs: page.outputs.supportedOutputs.paragraphs.map((paragraph) => pick(language, paragraph)),
+            items: pickItems(language, page.outputs.supportedOutputs.items),
+          },
+          multipleSurfaces: {
+            eyebrow: pick(language, page.outputs.multipleSurfaces.eyebrow),
+            title: pick(language, page.outputs.multipleSurfaces.title),
+            paragraphs: page.outputs.multipleSurfaces.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          beyondCode: {
+            eyebrow: pick(language, page.outputs.beyondCode.eyebrow),
+            title: pick(language, page.outputs.beyondCode.title),
+            paragraphs: page.outputs.beyondCode.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          closing: {
+            eyebrow: pick(language, page.outputs.closing.eyebrow),
+            title: pick(language, page.outputs.closing.title),
+            body: page.outputs.closing.body.map((paragraph) => pick(language, paragraph)),
+          },
+        }
+      : undefined,
+    deployment: page.deployment
+      ? {
+          preparation: {
+            eyebrow: pick(language, page.deployment.preparation.eyebrow),
+            title: pick(language, page.deployment.preparation.title),
+            paragraphs: page.deployment.preparation.paragraphs.map((paragraph) => pick(language, paragraph)),
+          },
+          workflow: {
+            eyebrow: pick(language, page.deployment.workflow.eyebrow),
+            title: pick(language, page.deployment.workflow.title),
+            intro: pick(language, page.deployment.workflow.intro),
+            steps: page.deployment.workflow.steps.map((step) => ({
+              step: pick(language, step.step),
+              title: pick(language, step.title),
+              paragraphs: step.paragraphs.map((paragraph) => pick(language, paragraph)),
+            })),
+          },
+          closing: {
+            eyebrow: pick(language, page.deployment.closing.eyebrow),
+            title: pick(language, page.deployment.closing.title),
+            body: page.deployment.closing.body.map((paragraph) => pick(language, paragraph)),
           },
         }
       : undefined,

@@ -233,7 +233,7 @@ export function SiteHeader() {
               </div>
             </DesktopDropdown>
 
-            <NavLink href="/product/features">{copy.nav.features}</NavLink>
+            <NavLink href="/product/features">{copy.nav.examples}</NavLink>
             <NavLink href="/examples">{copy.nav.examples}</NavLink>
             <NavLink href="/about">{copy.nav.about}</NavLink>
           </nav>
@@ -351,7 +351,6 @@ export function SiteHeader() {
             </div>
 
             <div className="grid gap-2 sm:grid-cols-2">
-              <NavLink href="/product/features">{copy.nav.features}</NavLink>
               <NavLink href="/examples">{copy.nav.examples}</NavLink>
               <NavLink href="/about">{copy.nav.about}</NavLink>
             </div>

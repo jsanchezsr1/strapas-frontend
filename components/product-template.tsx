@@ -19,6 +19,8 @@ export function ProductTemplate({ pageKey }: { pageKey: ProductPageKey }) {
   const page = getProductPageCopy(language, pageKey);
   const copy = getProductTemplateCopy(language);
   const blueprintPage = pageKey === 'blueprint' ? page.blueprint : null;
+  const outputsPage = pageKey === 'outputs' ? page.outputs : null;
+  const deploymentPage = pageKey === 'deployment' ? page.deployment : null;
   const structuredFlow =
     pageKey === 'prompt-deployment'
       ? getBackendPlatformFlowCopy(language)
@@ -164,6 +166,135 @@ export function ProductTemplate({ pageKey }: { pageKey: ProductPageKey }) {
             </div>
           </SectionShell>
         </>
+      ) : outputsPage ? (
+        <>
+          <SectionShell
+            eyebrow={outputsPage.moreThanSingleOutput.eyebrow}
+            title={outputsPage.moreThanSingleOutput.title}
+            description={outputsPage.moreThanSingleOutput.paragraphs[0]}
+          >
+            <div className="glass rounded-[2rem] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                {outputsPage.moreThanSingleOutput.paragraphs.slice(1).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={outputsPage.supportedOutputs.eyebrow}
+            title={outputsPage.supportedOutputs.title}
+            description={outputsPage.supportedOutputs.paragraphs[0]}
+          >
+            <div className="space-y-8">
+              <InfoGrid items={outputsPage.supportedOutputs.items} />
+              <div className="glass rounded-[2rem] p-8 md:p-10">
+                <p className="text-base leading-8 text-slate-300 md:text-lg">
+                  {outputsPage.supportedOutputs.paragraphs[1]}
+                </p>
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={outputsPage.multipleSurfaces.eyebrow}
+            title={outputsPage.multipleSurfaces.title}
+          >
+            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="glass rounded-[2rem] p-8 md:p-10">
+                <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                  {outputsPage.multipleSurfaces.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur md:p-8">
+                <div className="text-xs uppercase tracking-[0.24em] text-cyan-300">{copy.coreValue}</div>
+                <h3 className="mt-4 text-2xl font-semibold text-white">{page.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base md:leading-8">
+                  {page.description}
+                </p>
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={outputsPage.beyondCode.eyebrow}
+            title={outputsPage.beyondCode.title}
+          >
+            <div className="rounded-[2rem] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(32,93,148,0.32),rgba(5,10,21,0.98))] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-200 md:text-lg">
+                {outputsPage.beyondCode.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell eyebrow={outputsPage.closing.eyebrow} title={outputsPage.closing.title}>
+            <div className="glass rounded-[2rem] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                {outputsPage.closing.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+        </>
+      ) : deploymentPage ? (
+        <>
+          <SectionShell
+            eyebrow={deploymentPage.preparation.eyebrow}
+            title={deploymentPage.preparation.title}
+            description={deploymentPage.preparation.paragraphs[0]}
+          >
+            <div className="glass rounded-[2rem] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-300 md:text-lg">
+                {deploymentPage.preparation.paragraphs.slice(1).map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+
+          <SectionShell
+            eyebrow={deploymentPage.workflow.eyebrow}
+            title={deploymentPage.workflow.title}
+            description={deploymentPage.workflow.intro}
+          >
+            <div className="grid gap-6 lg:grid-cols-2">
+              {deploymentPage.workflow.steps.map((step) => (
+                <article
+                  key={`${step.step}-${step.title}`}
+                  className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-7 backdrop-blur md:p-8"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-lg font-semibold text-cyan-200">
+                      {step.step}
+                    </div>
+                    <h3 className="text-2xl font-semibold text-white">{step.title}</h3>
+                  </div>
+                  <div className="mt-6 space-y-4 text-sm leading-7 text-slate-300 md:text-base md:leading-8">
+                    {step.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </SectionShell>
+
+          <SectionShell eyebrow={deploymentPage.closing.eyebrow} title={deploymentPage.closing.title}>
+            <div className="rounded-[2rem] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(32,93,148,0.32),rgba(5,10,21,0.98))] p-8 md:p-10">
+              <div className="space-y-5 text-base leading-8 text-slate-200 md:text-lg">
+                {deploymentPage.closing.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </SectionShell>
+        </>
       ) : !structuredFlow ? (
         <>
           <SectionShell
@@ -197,10 +328,10 @@ export function ProductTemplate({ pageKey }: { pageKey: ProductPageKey }) {
                 </p>
               </div>
               <Link
-                href="/product/features"
+                href="/product/deployment"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950"
               >
-                {copy.viewProductFeatures} <ArrowRight className="h-4 w-4" />
+                {copy.viewProductdeployment} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </SectionShell>

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   ArrowRight,
   CheckCircle2,
@@ -11,6 +12,7 @@ import { useLanguage } from '@/components/language-provider';
 import { getHomeCopy } from '@/lib/i18n';
 
 export default function HomePage() {
+  const router = useRouter();
   const { language } = useLanguage();
   const copy = getHomeCopy(language);
 
@@ -44,12 +46,6 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/product/prompt-deployment"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-base font-semibold text-slate-950 transition hover:scale-[1.02]"
-              >
-                {copy.ctas.startBuilding} <ArrowRight className="h-4 w-4" />
-              </Link>
               <Link
                 href="/examples"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-4 text-base font-semibold text-white transition hover:bg-white/5"

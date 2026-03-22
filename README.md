@@ -17,7 +17,7 @@ pnpm run dev
 - Tailwind CSS
 - Framer Motion
 - Premium landing page sections
-- Hero mockup, features, showcase, pricing, FAQ, CTA
+- Hero mockup, deployment, showcase, pricing, FAQ, CTA
 
 ## Notes
 

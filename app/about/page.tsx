@@ -104,10 +104,10 @@ export default function AboutPage() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/product/features"
+              href="/product/deployment"
               className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
             >
-              {copy.ctas.exploreFeatures}
+              {copy.ctas.exploredeployment}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
