@@ -1,10 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { ChevronDown, Globe, Menu, Sparkles, X } from 'lucide-react';
+import { ChevronDown, Globe, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/components/language-provider';
+import strapasLogo from '@/image/strapas-logo.png';
 import { getHeaderCopy } from '@/lib/i18n';
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
@@ -177,10 +179,15 @@ export function SiteHeader() {
       >
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex items-center gap-3 text-white">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/20 bg-[radial-gradient(circle_at_top,rgba(88,220,255,0.22),rgba(10,26,60,0.9))] shadow-glow">
-              <Sparkles className="h-5 w-5 text-cyan-200" />
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-cyan-300/20 bg-[#0a1734] shadow-glow">
+              <Image
+                src={strapasLogo}
+                alt={`${copy.brand} logo`}
+                className="h-full w-full object-contain"
+                priority
+              />
             </div>
-            <span className="text-lg font-semibold tracking-wide">{copy.brand}</span>
+            <span className="text-lg font-semibold leading-none tracking-wide">{copy.brand}</span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
