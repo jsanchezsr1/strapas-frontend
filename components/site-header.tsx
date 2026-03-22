@@ -272,7 +272,11 @@ export function SiteHeader() {
             <LanguageSelector open={languageOpen} setOpen={setLanguageOpen} />
             <Link
               href="/product/prompt-deployment"
-              className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
+              className={`inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
+                  isPricingPage
+                      ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
+                      : 'border-cyan-300/18 text-slate-100 hover:border-cyan-300/40 hover:bg-white/5 hover:shadow-[0_16px_34px_rgba(34,211,238,0.08)]'
+              }`}
             >
               {copy.ctas.startBuilding}
             </Link>
@@ -406,8 +410,11 @@ export function SiteHeader() {
               </Link>
               <Link
                 href="/product/prompt-deployment"
-                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
-              >
+                className={`inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
+                    isPricingPage
+                        ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
+                        : 'border-cyan-300/18 text-slate-100 hover:border-cyan-300/40 hover:bg-white/5 hover:shadow-[0_16px_34px_rgba(34,211,238,0.08)]'
+                }`}              >
                 {copy.ctas.startBuilding}
               </Link>
             </div>
