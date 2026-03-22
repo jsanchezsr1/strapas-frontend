@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, Globe, Menu, Sparkles, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '@/components/language-provider';
@@ -129,6 +129,7 @@ export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState<'product' | 'use-cases' | 'resources' | null>(null);
   const [languageOpen, setLanguageOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isPricingPage = pathname === '/pricing';
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const { language, setLanguage, languages } = useLanguage();
@@ -270,8 +271,9 @@ export function SiteHeader() {
               {copy.ctas.viewPricing}
             </Link>
             <LanguageSelector open={languageOpen} setOpen={setLanguageOpen} />
-            <Link
-              href="/product/prompt-deployment"
+            <button
+              type="button"
+              onClick={() => router.push('/login')}
               className={`inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
                   isPricingPage
                       ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
@@ -279,7 +281,7 @@ export function SiteHeader() {
               }`}
             >
               {copy.ctas.startBuilding}
-            </Link>
+            </button>
           </div>
 
           <button
@@ -408,15 +410,17 @@ export function SiteHeader() {
               >
                 {copy.ctas.viewPricing}
               </Link>
-              <Link
-                href="/product/prompt-deployment"
+              <button
+                type="button"
+                onClick={() => router.push('/login')}
                 className={`inline-flex items-center justify-center rounded-full border px-5 py-3 text-sm font-medium transition duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] ${
                     isPricingPage
                         ? 'border-cyan-300/40 bg-cyan-400/12 text-cyan-100 shadow-[0_0_0_1px_rgba(34,211,238,0.08),0_14px_34px_rgba(34,211,238,0.12)] hover:border-cyan-300/60 hover:bg-cyan-400/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_18px_42px_rgba(34,211,238,0.18)]'
                         : 'border-cyan-300/18 text-slate-100 hover:border-cyan-300/40 hover:bg-white/5 hover:shadow-[0_16px_34px_rgba(34,211,238,0.08)]'
-                }`}              >
+                }`}
+              >
                 {copy.ctas.startBuilding}
-              </Link>
+              </button>
             </div>
           </div>
         ) : null}
